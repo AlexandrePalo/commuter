@@ -10,7 +10,11 @@
   },
   "dependencies": {
     "gatsby": "^2.0.33",
+    "gatsby-cli": "^2.4.8",
+    "leaflet": "^1.4.0",
+    "mongoose": "^5.4.0",
     "react": "^16.5.1",
-    "react-dom": "^16.5.1"
+    "react-dom": "^16.5.1",
+    "react-map-gl": "^4.0.6"
   }
 }
