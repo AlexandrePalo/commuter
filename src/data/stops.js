@@ -1,6 +1,6 @@
 // ID, NAME, LAT, LON
 
-const stops = [
+const stopsData = [
   [0, 'La Défense Grande Arche', 48.89194444, 2.237777778],
   [1, 'Esplanade de La Défense', 48.88777778, 2.250555556],
   [2, 'Pont de Neuilly', 48.88444444, 2.26],
@@ -1194,4 +1194,4 @@ const stops = [
   [1110, 'La Défense Grande Arche', 48.89218708, 2.237018056]
 ]
 
-export default stops
+export default stopsData
