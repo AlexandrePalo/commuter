@@ -10,6 +10,7 @@
   },
   "dependencies": {
     "d3": "^5.7.0",
+    "d3-selection-multi": "^1.0.1",
     "gatsby": "^2.0.33",
     "gatsby-cli": "^2.4.8",
     "leaflet": "^1.4.0",
