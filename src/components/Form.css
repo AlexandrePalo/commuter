@@ -1,0 +1,24 @@
+.form-container {
+  max-width: 400px;
+  background-color: hsl(214, 33%, 97%);
+  border-radius: 5px;
+  box-shadow: 0 4px 6px hsla(0, 0%, 0%, 0.1);
+  padding: 20px 40px;
+
+  display: flex;
+  flex-direction: column;
+}
+
+.form-container > label {
+  font-weight: bold;
+  margin-bottom: 10px;
+  font-size: 16px;
+}
+
+input {
+  padding: 10px;
+  border-radius: 5px;
+  border: none;
+  background-color: hsl(216, 15%, 91%);
+  font-size: 16px;
+}
