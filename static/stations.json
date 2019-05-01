@@ -1,0 +1,2806 @@
+{
+    "data": {
+      "stations": [
+        {
+          "latitude": 48.89218708,
+          "lines": [
+            "M1"
+          ],
+          "longitude": 2.237018056,
+          "name": "La Défense Grande Arche",
+          "uuid": "1bf24499-4ef5-4e08-8f5c-f0a04421d44e"
+        },
+        {
+          "latitude": 48.88863122,
+          "lines": [
+            "M1"
+          ],
+          "longitude": 2.247932435,
+          "name": "Esplanade de La Défense",
+          "uuid": "3d5a8e99-e88b-4f3a-b0e7-ed0031bccd6b"
+        },
+        {
+          "latitude": 48.8847082,
+          "lines": [
+            "M1"
+          ],
+          "longitude": 2.260515078,
+          "name": "Pont de Neuilly",
+          "uuid": "30293c67-6e54-4220-89dd-e3462536e656"
+        },
+        {
+          "latitude": 48.88119152,
+          "lines": [
+            "M1"
+          ],
+          "longitude": 2.271686721,
+          "name": "Les Sablons",
+          "uuid": "e0033ac7-54c0-4181-85a1-5920a6e8489e"
+        },
+        {
+          "latitude": 48.87755125,
+          "lines": [
+            "M1"
+          ],
+          "longitude": 2.283162242,
+          "name": "Porte Maillot",
+          "uuid": "72dc60ae-a5cf-4def-b937-7a09cb351e8a"
+        },
+        {
+          "latitude": 48.87559405,
+          "lines": [
+            "M1"
+          ],
+          "longitude": 2.28932259,
+          "name": "Argentine",
+          "uuid": "517ea309-27f9-4c84-be7b-8f79c3f998e9"
+        },
+        {
+          "latitude": 48.8748152625,
+          "lines": [
+            "M1",
+            "M2",
+            "M6"
+          ],
+          "longitude": 2.2956481970000002,
+          "name": "Charles de Gaulle - Etoile",
+          "uuid": "8a51ce81-f3bd-41ee-a6fd-3911d00eec19"
+        },
+        {
+          "latitude": 48.87202381,
+          "lines": [
+            "M1"
+          ],
+          "longitude": 2.300560451,
+          "name": "Georges V",
+          "uuid": "bae01629-a6f8-4294-bbaf-85ccde81ee84"
+        },
+        {
+          "latitude": 48.869254035,
+          "lines": [
+            "M1",
+            "M9"
+          ],
+          "longitude": 2.308487975,
+          "name": "Franklin D. Roosevelt",
+          "uuid": "5f6a4a7b-09e9-421b-a9f2-2a4d533298ef"
+        },
+        {
+          "latitude": 48.867753745,
+          "lines": [
+            "M1",
+            "M13"
+          ],
+          "longitude": 2.3137198395,
+          "name": "Champs-Elysées - Clémenceau",
+          "uuid": "fed8eabb-da75-43bd-8d4a-16728c9c1128"
+        },
+        {
+          "latitude": 48.866359597499994,
+          "lines": [
+            "M1",
+            "M8",
+            "M12"
+          ],
+          "longitude": 2.3228444057499997,
+          "name": "Concorde",
+          "uuid": "d8ab1e1d-daa3-453b-a05c-4c733c403678"
+        },
+        {
+          "latitude": 48.86434378,
+          "lines": [
+            "M1"
+          ],
+          "longitude": 2.330129877,
+          "name": "Tuileries",
+          "uuid": "c7d1a124-6ce7-47ee-aea0-f13d250a5deb"
+        },
+        {
+          "latitude": 48.86258885,
+          "lines": [
+            "M1",
+            "M7"
+          ],
+          "longitude": 2.33668743,
+          "name": "Palais Royal - Musée du Louvre",
+          "uuid": "42ffc378-082b-4afd-a243-d9b9acb511fa"
+        },
+        {
+          "latitude": 48.86080629,
+          "lines": [
+            "M1"
+          ],
+          "longitude": 2.341108592,
+          "name": "Louvre - Rivoli",
+          "uuid": "5b3ebec3-478c-482c-8dfb-1a1fcb72d6cf"
+        },
+        {
+          "latitude": 48.857699844375,
+          "lines": [
+            "M1",
+            "M4",
+            "M7",
+            "M11",
+            "M14"
+          ],
+          "longitude": 2.3479427819375,
+          "name": "Châtelet",
+          "uuid": "dd0d7a96-b6d1-48d8-8ef7-1130cc8004ac"
+        },
+        {
+          "latitude": 48.857464905,
+          "lines": [
+            "M1",
+            "M11"
+          ],
+          "longitude": 2.351293012,
+          "name": "Hôtel de Ville",
+          "uuid": "151928ac-1eaf-4df1-a7d7-2d51db2d52d3"
+        },
+        {
+          "latitude": 48.85523625,
+          "lines": [
+            "M1"
+          ],
+          "longitude": 2.360956489,
+          "name": "Saint-Paul",
+          "uuid": "69ccaaa9-a769-49b0-8d94-2deb2c428225"
+        },
+        {
+          "latitude": 48.85319881,
+          "lines": [
+            "M1",
+            "M5",
+            "M8"
+          ],
+          "longitude": 2.3692710745000003,
+          "name": "Bastille",
+          "uuid": "81c478ad-c332-4b4a-b1a6-11fc7c4c5c7f"
+        },
+        {
+          "latitude": 48.845006615,
+          "lines": [
+            "M1",
+            "M14"
+          ],
+          "longitude": 2.3739885695,
+          "name": "Gare de Lyon",
+          "uuid": "692e5314-ab68-4108-9900-07b429239506"
+        },
+        {
+          "latitude": 48.847216255,
+          "lines": [
+            "M1",
+            "M8"
+          ],
+          "longitude": 2.386683474,
+          "name": "Reuilly - Diderot",
+          "uuid": "6a2550e7-f200-4ad3-a0ff-b53966c8cfaa"
+        },
+        {
+          "latitude": 48.848322752499996,
+          "lines": [
+            "M1",
+            "M2",
+            "M6",
+            "M9"
+          ],
+          "longitude": 2.395632318375,
+          "name": "Nation",
+          "uuid": "a55f8a4c-be4d-4e2d-9df2-45dcd97bee1c"
+        },
+        {
+          "latitude": 48.84715848,
+          "lines": [
+            "M1"
+          ],
+          "longitude": 2.410140368,
+          "name": "Porte de Vincennes",
+          "uuid": "f4a82b27-4474-49cc-bc3d-250ef4177efe"
+        },
+        {
+          "latitude": 48.84635699,
+          "lines": [
+            "M1"
+          ],
+          "longitude": 2.4194799,
+          "name": "Saint-Mandé",
+          "uuid": "4e358e90-60c8-4819-80d6-054525d753af"
+        },
+        {
+          "latitude": 48.84547071,
+          "lines": [
+            "M1"
+          ],
+          "longitude": 2.429205166,
+          "name": "Bérault",
+          "uuid": "c3560d83-a983-492d-b29b-a1dc5c91b244"
+        },
+        {
+          "latitude": 48.84445639,
+          "lines": [
+            "M1"
+          ],
+          "longitude": 2.440439978,
+          "name": "Château de Vincennes",
+          "uuid": "8f78df34-5c7a-41b7-9360-a77a807b73d3"
+        },
+        {
+          "latitude": 48.87146658,
+          "lines": [
+            "M2"
+          ],
+          "longitude": 2.277083017,
+          "name": "Porte Dauphine",
+          "uuid": "4c3ec564-a4b9-4235-aaeb-b8ee9c2f3677"
+        },
+        {
+          "latitude": 48.86979856,
+          "lines": [
+            "M2"
+          ],
+          "longitude": 2.285335095,
+          "name": "Victor Hugo",
+          "uuid": "ac8f29e0-7011-4d33-a57e-8852dd82a152"
+        },
+        {
+          "latitude": 48.8779727,
+          "lines": [
+            "M2"
+          ],
+          "longitude": 2.298310375,
+          "name": "Ternes",
+          "uuid": "c38b9aaa-5255-4628-bf69-88b132e09003"
+        },
+        {
+          "latitude": 48.87921413,
+          "lines": [
+            "M2"
+          ],
+          "longitude": 2.303528725,
+          "name": "Courcelles",
+          "uuid": "e3e88a41-0535-4ade-8f53-53c9a4ed0b8b"
+        },
+        {
+          "latitude": 48.88044946,
+          "lines": [
+            "M2"
+          ],
+          "longitude": 2.309451168,
+          "name": "Monceau",
+          "uuid": "7de59bc7-618a-45f6-8337-a924f56b5c68"
+        },
+        {
+          "latitude": 48.88115003,
+          "lines": [
+            "M2",
+            "M3"
+          ],
+          "longitude": 2.315176626,
+          "name": "Villiers",
+          "uuid": "b228a94a-ef5a-46b7-8f14-54e1629f30bc"
+        },
+        {
+          "latitude": 48.8822269,
+          "lines": [
+            "M2"
+          ],
+          "longitude": 2.321274927,
+          "name": "Rome",
+          "uuid": "e6c84f48-3936-4089-bbbc-ebe9f941a385"
+        },
+        {
+          "latitude": 48.88370976,
+          "lines": [
+            "M2",
+            "M13"
+          ],
+          "longitude": 2.327541484,
+          "name": "Place de Clichy",
+          "uuid": "e49ffd46-998f-4111-8512-e85a0ba98f11"
+        },
+        {
+          "latitude": 48.88395857,
+          "lines": [
+            "M2"
+          ],
+          "longitude": 2.331926591,
+          "name": "Blanche",
+          "uuid": "bd015557-7ed8-49fd-9ea2-ce11912a21f3"
+        },
+        {
+          "latitude": 48.882454769999995,
+          "lines": [
+            "M2",
+            "M12"
+          ],
+          "longitude": 2.3371882370000003,
+          "name": "Pigalle",
+          "uuid": "0dd99be2-21d0-4197-afba-b5435292e894"
+        },
+        {
+          "latitude": 48.88286865,
+          "lines": [
+            "M2"
+          ],
+          "longitude": 2.344130634,
+          "name": "Anvers",
+          "uuid": "7a13ae6a-9304-4a6b-af8f-2f05265173cc"
+        },
+        {
+          "latitude": 48.883620065,
+          "lines": [
+            "M2",
+            "M4"
+          ],
+          "longitude": 2.3501937225000002,
+          "name": "Barbès - Rechechouart",
+          "uuid": "1955b623-fb02-40b1-a95b-8c10f4f6e354"
+        },
+        {
+          "latitude": 48.8843988,
+          "lines": [
+            "M2"
+          ],
+          "longitude": 2.360491319,
+          "name": "La Chapelle",
+          "uuid": "40c4f8ae-0cd8-4f95-8351-4d9bfb57211b"
+        },
+        {
+          "latitude": 48.8843675325,
+          "lines": [
+            "M2",
+            "M5",
+            "M7"
+          ],
+          "longitude": 2.3676397865,
+          "name": "Stalingrad",
+          "uuid": "55bc4ee3-d7ff-4e63-b1d5-8a096a6c62f1"
+        },
+        {
+          "latitude": 48.8823941375,
+          "lines": [
+            "M2",
+            "M5",
+            "M7BIS"
+          ],
+          "longitude": 2.3703948730000004,
+          "name": "Jaurès",
+          "uuid": "f4e0c9ed-7be8-4f8e-a63c-6408f58d7c9c"
+        },
+        {
+          "latitude": 48.87761019,
+          "lines": [
+            "M2"
+          ],
+          "longitude": 2.370811395,
+          "name": "Colonel Fabien",
+          "uuid": "9734b159-3bfe-4b0d-baca-4c5671e23c33"
+        },
+        {
+          "latitude": 48.87207945,
+          "lines": [
+            "M2",
+            "M11"
+          ],
+          "longitude": 2.376647914,
+          "name": "Belleville",
+          "uuid": "274264b6-484f-43a8-96a4-53a62053be5c"
+        },
+        {
+          "latitude": 48.86909116,
+          "lines": [
+            "M2"
+          ],
+          "longitude": 2.380542586,
+          "name": "Couronnes",
+          "uuid": "13a19dab-281b-4c92-af3d-8f24f3db68d0"
+        },
+        {
+          "latitude": 48.86680004,
+          "lines": [
+            "M2"
+          ],
+          "longitude": 2.38338325,
+          "name": "Ménilmontant",
+          "uuid": "0bafbb82-3b50-4cb8-a321-d15fc116f234"
+        },
+        {
+          "latitude": 48.862888615,
+          "lines": [
+            "M2",
+            "M3"
+          ],
+          "longitude": 2.3867448685,
+          "name": "Père Lachaise",
+          "uuid": "257d38f4-424d-4fe9-90eb-ee8ba6e44a18"
+        },
+        {
+          "latitude": 48.85846655,
+          "lines": [
+            "M2"
+          ],
+          "longitude": 2.389729852,
+          "name": "Philippe Auguste",
+          "uuid": "48e6541a-bb53-4aa2-8d47-08130f241739"
+        },
+        {
+          "latitude": 48.85637736,
+          "lines": [
+            "M2"
+          ],
+          "longitude": 2.394561945,
+          "name": "Alexandre Dumas",
+          "uuid": "26b5e6c3-4ca9-4447-9e95-25b1e5657b56"
+        },
+        {
+          "latitude": 48.85151028,
+          "lines": [
+            "M2"
+          ],
+          "longitude": 2.398302344,
+          "name": "Avron",
+          "uuid": "5a2baccc-a909-479c-af43-0f426ee67697"
+        },
+        {
+          "latitude": 48.89782107,
+          "lines": [
+            "M3"
+          ],
+          "longitude": 2.279809587,
+          "name": "Pont de Levallois Bécon",
+          "uuid": "e39ba938-ec0f-47b8-b8ef-f1f7b679aba7"
+        },
+        {
+          "latitude": 48.89208279,
+          "lines": [
+            "M3"
+          ],
+          "longitude": 2.285009503,
+          "name": "Anatole France",
+          "uuid": "1eebec8a-a21b-4908-b83a-3a736cff6382"
+        },
+        {
+          "latitude": 48.88870602,
+          "lines": [
+            "M3"
+          ],
+          "longitude": 2.288083633,
+          "name": "Louise Michel",
+          "uuid": "45d00f7e-852e-4e81-9200-a0138b6cab90"
+        },
+        {
+          "latitude": 48.88579311,
+          "lines": [
+            "M3"
+          ],
+          "longitude": 2.292582314,
+          "name": "Porte de Champerret",
+          "uuid": "c49be6c9-5970-48e3-896e-d12d5ff61471"
+        },
+        {
+          "latitude": 48.88489626,
+          "lines": [
+            "M3"
+          ],
+          "longitude": 2.297724346,
+          "name": "Pereire",
+          "uuid": "5f33773c-52c3-4923-9137-f99369c1758e"
+        },
+        {
+          "latitude": 48.8838092,
+          "lines": [
+            "M3"
+          ],
+          "longitude": 2.304674441,
+          "name": "Wagram",
+          "uuid": "a7e18597-75e2-4d9a-af06-88204107e207"
+        },
+        {
+          "latitude": 48.88289192,
+          "lines": [
+            "M3"
+          ],
+          "longitude": 2.309052265,
+          "name": "Malesherbes",
+          "uuid": "6573d04e-4a09-4b26-9908-683c8ee4e729"
+        },
+        {
+          "latitude": 48.87877037,
+          "lines": [
+            "M3"
+          ],
+          "longitude": 2.322265213,
+          "name": "Europe",
+          "uuid": "ac82da5f-3cd2-4de1-82c4-db3110b3e4d5"
+        },
+        {
+          "latitude": 48.87552855625,
+          "lines": [
+            "M3",
+            "M12",
+            "M13",
+            "M14"
+          ],
+          "longitude": 2.324752589,
+          "name": "Saint-Lazare",
+          "uuid": "789fda31-3484-49ef-b05d-36ba7f9ed1ce"
+        },
+        {
+          "latitude": 48.873613399999996,
+          "lines": [
+            "M3",
+            "M9"
+          ],
+          "longitude": 2.327619245,
+          "name": "Havre - Caumartin",
+          "uuid": "c44f00b0-9da4-4ff9-9faf-f3cf4617a0e4"
+        },
+        {
+          "latitude": 48.870690485,
+          "lines": [
+            "M3",
+            "M7",
+            "M8"
+          ],
+          "longitude": 2.33216853225,
+          "name": "Opéra",
+          "uuid": "8882ebb5-cd45-4230-90a5-9a1a13bc6d6c"
+        },
+        {
+          "latitude": 48.86958524,
+          "lines": [
+            "M3"
+          ],
+          "longitude": 2.336218848,
+          "name": "Quatre-Septembre",
+          "uuid": "36d841c5-b70b-446a-b60b-e9ca7781478b"
+        },
+        {
+          "latitude": 48.86869598,
+          "lines": [
+            "M3"
+          ],
+          "longitude": 2.340720724,
+          "name": "Bourse",
+          "uuid": "ee936cda-4448-4822-a0b3-f1f0cf87b10b"
+        },
+        {
+          "latitude": 48.86730948,
+          "lines": [
+            "M3"
+          ],
+          "longitude": 2.347516213,
+          "name": "Sentier",
+          "uuid": "685c002a-ef3d-4a04-a361-73f0fedf8847"
+        },
+        {
+          "latitude": 48.866204995000004,
+          "lines": [
+            "M3",
+            "M4"
+          ],
+          "longitude": 2.352264031,
+          "name": "Réaumur - Sébastopol",
+          "uuid": "9e0516f5-0ca5-440a-9a1f-8da7a5b103b4"
+        },
+        {
+          "latitude": 48.865454595,
+          "lines": [
+            "M3",
+            "M11"
+          ],
+          "longitude": 2.3567333130000003,
+          "name": "Arts et Métiers",
+          "uuid": "966d9651-e9bf-4592-9cc5-2397c284cbf5"
+        },
+        {
+          "latitude": 48.86668268,
+          "lines": [
+            "M3"
+          ],
+          "longitude": 2.361541532,
+          "name": "Temple",
+          "uuid": "9026998d-a612-42a6-9b11-6cdee52a85ca"
+        },
+        {
+          "latitude": 48.867325165,
+          "lines": [
+            "M3",
+            "M5",
+            "M8",
+            "M9",
+            "M11"
+          ],
+          "longitude": 2.3639985971249997,
+          "name": "République",
+          "uuid": "26facafd-46f7-41a1-818b-c8637f3621cb"
+        },
+        {
+          "latitude": 48.86525379,
+          "lines": [
+            "M3"
+          ],
+          "longitude": 2.37458197,
+          "name": "Parmentier",
+          "uuid": "372a817c-1620-45dd-9432-4bef32d43be8"
+        },
+        {
+          "latitude": 48.86408657,
+          "lines": [
+            "M3"
+          ],
+          "longitude": 2.380797986,
+          "name": "Rue Saint-Maur",
+          "uuid": "ce65cf94-3a72-4171-b030-955fbd90567f"
+        },
+        {
+          "latitude": 48.86504006,
+          "lines": [
+            "M3",
+            "M3BIS"
+          ],
+          "longitude": 2.3988655165,
+          "name": "Gambetta",
+          "uuid": "7c7eae60-1861-4c35-99f7-6517dc9816e4"
+        },
+        {
+          "latitude": 48.86460037,
+          "lines": [
+            "M3"
+          ],
+          "longitude": 2.408031037,
+          "name": "Porte de Bagnolet",
+          "uuid": "b91ecae3-f922-4d60-b247-5351da9c13b7"
+        },
+        {
+          "latitude": 48.86533532,
+          "lines": [
+            "M3"
+          ],
+          "longitude": 2.416697273,
+          "name": "Gallieni",
+          "uuid": "19df7659-38c3-4cca-998d-29f5664e5e0b"
+        },
+        {
+          "latitude": 48.877142665,
+          "lines": [
+            "M3BIS",
+            "M11"
+          ],
+          "longitude": 2.4066047015,
+          "name": "Porte des Lilas",
+          "uuid": "22152b62-1a80-45c3-8a22-e22ad6e860cb"
+        },
+        {
+          "latitude": 48.87210144,
+          "lines": [
+            "M3BIS"
+          ],
+          "longitude": 2.404514942,
+          "name": "Saint-Fargeau",
+          "uuid": "722ab633-d9df-4ce1-b378-0eacf8e13add"
+        },
+        {
+          "latitude": 48.86844016,
+          "lines": [
+            "M3BIS"
+          ],
+          "longitude": 2.401561713,
+          "name": "Pelleport",
+          "uuid": "c4e09db7-d274-4143-a3da-e55e08665d2c"
+        },
+        {
+          "latitude": 48.89740222,
+          "lines": [
+            "M4"
+          ],
+          "longitude": 2.344847749,
+          "name": "Porte de Clignancourt",
+          "uuid": "898d04c8-0272-4ec4-ad6e-b2367f13469c"
+        },
+        {
+          "latitude": 48.89394139,
+          "lines": [
+            "M4"
+          ],
+          "longitude": 2.347765502,
+          "name": "Simplon",
+          "uuid": "ee3a2f7a-2eb3-43e2-bcdb-147e91f4582b"
+        },
+        {
+          "latitude": 48.891440915,
+          "lines": [
+            "M4",
+            "M12"
+          ],
+          "longitude": 2.3497769295,
+          "name": "Marcadet - Poissonniers",
+          "uuid": "fdb84143-8295-4a07-b84e-24c8bda69c95"
+        },
+        {
+          "latitude": 48.88737491,
+          "lines": [
+            "M4"
+          ],
+          "longitude": 2.349694082,
+          "name": "Château Rouge",
+          "uuid": "70d2be91-c35b-4b62-983e-c2c0c1b7459b"
+        },
+        {
+          "latitude": 48.87970071,
+          "lines": [
+            "M4",
+            "M5"
+          ],
+          "longitude": 2.3572272555,
+          "name": "Gare du Nord",
+          "uuid": "b878e519-4e4a-418a-ae69-bc02ba624f09"
+        },
+        {
+          "latitude": 48.8761657025,
+          "lines": [
+            "M4",
+            "M5",
+            "M7"
+          ],
+          "longitude": 2.35801102125,
+          "name": "Gare de l'Est",
+          "uuid": "d4796d31-308d-44bb-9476-35645eda94e3"
+        },
+        {
+          "latitude": 48.87242491,
+          "lines": [
+            "M4"
+          ],
+          "longitude": 2.356044908,
+          "name": "Château d'Eau",
+          "uuid": "a6f34eca-d5ff-4fc9-bdbf-9ef7a4ca6e22"
+        },
+        {
+          "latitude": 48.86929082,
+          "lines": [
+            "M4",
+            "M8",
+            "M9"
+          ],
+          "longitude": 2.35455078525,
+          "name": "Strasbourg - Saint-Denis",
+          "uuid": "8824ea5a-df02-4bdb-9a96-c0ea90f6a778"
+        },
+        {
+          "latitude": 48.86380744,
+          "lines": [
+            "M4"
+          ],
+          "longitude": 2.348880653,
+          "name": "Etienne Marcel",
+          "uuid": "4acd03b5-f7e3-42f3-a9b4-cfb0bc312062"
+        },
+        {
+          "latitude": 48.86231628,
+          "lines": [
+            "M4"
+          ],
+          "longitude": 2.345673828,
+          "name": "Les Halles",
+          "uuid": "7dbc93d7-222e-4a47-b010-da4fac5ba844"
+        },
+        {
+          "latitude": 48.85493638,
+          "lines": [
+            "M4"
+          ],
+          "longitude": 2.347321316,
+          "name": "Cité",
+          "uuid": "a9f9c2a4-2e03-4f28-a4c0-7e31a8babfc4"
+        },
+        {
+          "latitude": 48.85316798,
+          "lines": [
+            "M4"
+          ],
+          "longitude": 2.343285979,
+          "name": "Saint-Michel",
+          "uuid": "9714932c-e5d4-4b7e-b001-0c1e488a9f42"
+        },
+        {
+          "latitude": 48.852234010000004,
+          "lines": [
+            "M4",
+            "M10"
+          ],
+          "longitude": 2.339687059,
+          "name": "Odéon",
+          "uuid": "c86e6d93-5458-481b-a9b2-f9a0bfb96237"
+        },
+        {
+          "latitude": 48.85371893,
+          "lines": [
+            "M4"
+          ],
+          "longitude": 2.333776137,
+          "name": "Saint-Germain-des-Prés",
+          "uuid": "afa96a06-2f34-4e81-bb7b-3b45028da111"
+        },
+        {
+          "latitude": 48.85167225,
+          "lines": [
+            "M4"
+          ],
+          "longitude": 2.331256291,
+          "name": "Saint-Sulpice",
+          "uuid": "91a63e9c-3764-4b0a-9f46-186fd203d204"
+        },
+        {
+          "latitude": 48.84687824,
+          "lines": [
+            "M4"
+          ],
+          "longitude": 2.326792785,
+          "name": "Saint-Placide",
+          "uuid": "7d8c6d26-2058-4f75-9e71-df97774c1b68"
+        },
+        {
+          "latitude": 48.842833031249995,
+          "lines": [
+            "M4",
+            "M6",
+            "M12",
+            "M13"
+          ],
+          "longitude": 2.322290125125,
+          "name": "Montparnasse - Bienvenüe",
+          "uuid": "ffefd491-6fd0-4c1e-b15c-277cc921789d"
+        },
+        {
+          "latitude": 48.84221841,
+          "lines": [
+            "M4"
+          ],
+          "longitude": 2.329008926,
+          "name": "Vavin",
+          "uuid": "b71bd144-ec8b-41e4-88fa-b85e667dbf2d"
+        },
+        {
+          "latitude": 48.83896428,
+          "lines": [
+            "M4",
+            "M6"
+          ],
+          "longitude": 2.330754192,
+          "name": "Raspail",
+          "uuid": "b4a62b8f-c240-44ef-af37-5e58248080cb"
+        },
+        {
+          "latitude": 48.83387192,
+          "lines": [
+            "M4",
+            "M6"
+          ],
+          "longitude": 2.3322962205,
+          "name": "Denfert - Rochereau",
+          "uuid": "5c553a90-aff2-40df-ba6d-93149bf1d8b0"
+        },
+        {
+          "latitude": 48.83111266,
+          "lines": [
+            "M4"
+          ],
+          "longitude": 2.329705013,
+          "name": "Mouton - Duvernet",
+          "uuid": "bf3ba251-1fd7-4b80-a42a-e0101a49cc13"
+        },
+        {
+          "latitude": 48.82818848,
+          "lines": [
+            "M4"
+          ],
+          "longitude": 2.32716465,
+          "name": "Alésia",
+          "uuid": "4d6567e9-74a9-4a9b-ab58-373f7d4160e7"
+        },
+        {
+          "latitude": 48.82341163,
+          "lines": [
+            "M4"
+          ],
+          "longitude": 2.325575636,
+          "name": "Porte d'Orléans",
+          "uuid": "537b9c69-15b7-4095-8635-1aa8815c1969"
+        },
+        {
+          "latitude": 48.81867641,
+          "lines": [
+            "M4"
+          ],
+          "longitude": 2.319740313,
+          "name": "Mairie de Montrouge",
+          "uuid": "0fcec4f5-bad0-41aa-95ab-f0fe0ce592fa"
+        },
+        {
+          "latitude": 48.90637477,
+          "lines": [
+            "M5"
+          ],
+          "longitude": 2.449189904,
+          "name": "Bobigny - Pablo Picasso",
+          "uuid": "a7900912-e2f7-4c42-8644-d16c41286870"
+        },
+        {
+          "latitude": 48.89545467,
+          "lines": [
+            "M5"
+          ],
+          "longitude": 2.425326889,
+          "name": "Bobigny - Pantin - Raymond Queneau",
+          "uuid": "e3768d61-1f8e-4044-8743-23e3d2e57a8c"
+        },
+        {
+          "latitude": 48.89325759,
+          "lines": [
+            "M5"
+          ],
+          "longitude": 2.41331314,
+          "name": "Eglise de Pantin",
+          "uuid": "f70ca6aa-2b29-4fe8-a984-36e913db35a0"
+        },
+        {
+          "latitude": 48.89122859,
+          "lines": [
+            "M5"
+          ],
+          "longitude": 2.402352143,
+          "name": "Hoche",
+          "uuid": "5d902ab7-c2c6-4a7a-b493-12f34bf77e85"
+        },
+        {
+          "latitude": 48.88850369,
+          "lines": [
+            "M5"
+          ],
+          "longitude": 2.392113698,
+          "name": "Porte de Pantin",
+          "uuid": "e5c0e095-33d7-41ab-b948-55f026637a79"
+        },
+        {
+          "latitude": 48.88713487,
+          "lines": [
+            "M5"
+          ],
+          "longitude": 2.386960017,
+          "name": "Ourcq",
+          "uuid": "3223a9e7-3364-43eb-9a59-2cc420666211"
+        },
+        {
+          "latitude": 48.88521618,
+          "lines": [
+            "M5"
+          ],
+          "longitude": 2.379663077,
+          "name": "Laumière",
+          "uuid": "1f4a5119-2db4-4abe-86a2-077df0a25181"
+        },
+        {
+          "latitude": 48.87080998,
+          "lines": [
+            "M5"
+          ],
+          "longitude": 2.361027467,
+          "name": "Jacques Bonsergent",
+          "uuid": "f084ac6a-fc05-443c-8bb3-1d02a0388f5a"
+        },
+        {
+          "latitude": 48.86469275,
+          "lines": [
+            "M5",
+            "M9"
+          ],
+          "longitude": 2.3684532065,
+          "name": "Oberkampf",
+          "uuid": "35718678-12aa-4ebb-b132-75b8953d96e2"
+        },
+        {
+          "latitude": 48.85987362,
+          "lines": [
+            "M5"
+          ],
+          "longitude": 2.37191398,
+          "name": "Richard-Lenoir",
+          "uuid": "0bfcaae1-bf3e-4fc1-a573-66e64c4fdca4"
+        },
+        {
+          "latitude": 48.85614071,
+          "lines": [
+            "M5"
+          ],
+          "longitude": 2.370209338,
+          "name": "Bréguet - Sabin",
+          "uuid": "31122800-8ac1-43fd-bc05-4a7d08a35550"
+        },
+        {
+          "latitude": 48.8465154,
+          "lines": [
+            "M5"
+          ],
+          "longitude": 2.365873469,
+          "name": "Quai de la Râpée",
+          "uuid": "d0a872dd-770b-48c0-9392-243f1e20744d"
+        },
+        {
+          "latitude": 48.842351095,
+          "lines": [
+            "M5",
+            "M10"
+          ],
+          "longitude": 2.3652617324999996,
+          "name": "Gare d'Austerlitz",
+          "uuid": "c3b5d646-e058-4fa8-a64a-234c5397c87b"
+        },
+        {
+          "latitude": 48.8384273,
+          "lines": [
+            "M5"
+          ],
+          "longitude": 2.360967168,
+          "name": "Saint-Marcel",
+          "uuid": "debfe58d-ba89-4fe8-8170-956f73bf1910"
+        },
+        {
+          "latitude": 48.83549536,
+          "lines": [
+            "M5"
+          ],
+          "longitude": 2.358823489,
+          "name": "Campo-Formio",
+          "uuid": "5a95435f-1e07-4880-be95-8648a324667f"
+        },
+        {
+          "latitude": 48.8311917925,
+          "lines": [
+            "M5",
+            "M6",
+            "M7"
+          ],
+          "longitude": 2.35574737475,
+          "name": "Place d'Italie",
+          "uuid": "f19706ec-b784-421d-aa2e-11733683c51a"
+        },
+        {
+          "latitude": 48.87164977,
+          "lines": [
+            "M6"
+          ],
+          "longitude": 2.29352429,
+          "name": "Kléber",
+          "uuid": "b6e2fbe7-c2d3-4e77-bf4c-c128d0b5837d"
+        },
+        {
+          "latitude": 48.86698311,
+          "lines": [
+            "M6"
+          ],
+          "longitude": 2.290058835,
+          "name": "Boissière",
+          "uuid": "88c76e1e-2fdb-4190-aee8-961ab9a51bdc"
+        },
+        {
+          "latitude": 48.86333798,
+          "lines": [
+            "M6",
+            "M9"
+          ],
+          "longitude": 2.286911667,
+          "name": "Trocadéro",
+          "uuid": "15df26f3-5949-4632-9acf-f11144b5eaa1"
+        },
+        {
+          "latitude": 48.85744869,
+          "lines": [
+            "M6"
+          ],
+          "longitude": 2.285812444,
+          "name": "Passy",
+          "uuid": "70811f4b-3f34-492b-a7b2-0759723b7b51"
+        },
+        {
+          "latitude": 48.85394261,
+          "lines": [
+            "M6"
+          ],
+          "longitude": 2.289334533,
+          "name": "Bir-Hakheim",
+          "uuid": "5b0a3ad8-f97c-4d73-ac7d-a87d447db90c"
+        },
+        {
+          "latitude": 48.85043455,
+          "lines": [
+            "M6"
+          ],
+          "longitude": 2.29361244,
+          "name": "Dupleix",
+          "uuid": "9581729c-664e-4139-814f-61a5de510796"
+        },
+        {
+          "latitude": 48.84919833,
+          "lines": [
+            "M6",
+            "M8",
+            "M10"
+          ],
+          "longitude": 2.2984587794999998,
+          "name": "La Motte-Piquet - Grenelle",
+          "uuid": "4bb04ac0-40a8-4cb5-966c-fd072595e981"
+        },
+        {
+          "latitude": 48.84750708,
+          "lines": [
+            "M6"
+          ],
+          "longitude": 2.302968299,
+          "name": "Cambronne",
+          "uuid": "de31969d-237c-426c-a7bd-caf9cd8f71fa"
+        },
+        {
+          "latitude": 48.84562697,
+          "lines": [
+            "M6"
+          ],
+          "longitude": 2.30953149,
+          "name": "Sévres - Lecourbe",
+          "uuid": "987c4d88-0f16-44b7-b416-2a61a058906a"
+        },
+        {
+          "latitude": 48.84277405,
+          "lines": [
+            "M6",
+            "M12"
+          ],
+          "longitude": 2.312630143,
+          "name": "Pasteur",
+          "uuid": "b75e6a8c-05ad-44cd-8dd1-896ebb4cae67"
+        },
+        {
+          "latitude": 48.84066323,
+          "lines": [
+            "M6"
+          ],
+          "longitude": 2.326384611,
+          "name": "Edgar Quinet",
+          "uuid": "d8e95b50-f693-48ba-97c8-7c8de4a9e612"
+        },
+        {
+          "latitude": 48.83290082,
+          "lines": [
+            "M6"
+          ],
+          "longitude": 2.337135191,
+          "name": "Saint-Jacques",
+          "uuid": "1eac76b7-2615-43b4-9719-e85339a67842"
+        },
+        {
+          "latitude": 48.83112955,
+          "lines": [
+            "M6"
+          ],
+          "longitude": 2.343511658,
+          "name": "Glacière",
+          "uuid": "2ece0ecb-afbf-49df-bacc-14640227f05e"
+        },
+        {
+          "latitude": 48.82979051,
+          "lines": [
+            "M6"
+          ],
+          "longitude": 2.350414872,
+          "name": "Corvisart",
+          "uuid": "5395fe03-2eac-470d-9a35-2bab9605e040"
+        },
+        {
+          "latitude": 48.83321672,
+          "lines": [
+            "M6"
+          ],
+          "longitude": 2.3628564,
+          "name": "Nationale",
+          "uuid": "1644a84f-354b-48e8-a097-8a3be7f17ca1"
+        },
+        {
+          "latitude": 48.83494772,
+          "lines": [
+            "M6"
+          ],
+          "longitude": 2.368126329,
+          "name": "Chevaleret",
+          "uuid": "eec9dcb8-3318-4755-bfb1-e3ff433ede19"
+        },
+        {
+          "latitude": 48.83704512,
+          "lines": [
+            "M6"
+          ],
+          "longitude": 2.372825722,
+          "name": "Quai de la Gare",
+          "uuid": "3b604111-b1bd-493c-84f4-c890aba0e262"
+        },
+        {
+          "latitude": 48.84019507,
+          "lines": [
+            "M6",
+            "M14"
+          ],
+          "longitude": 2.3797326410000004,
+          "name": "Bercy",
+          "uuid": "818eb2f8-d5a9-4e2e-a1ba-9df3235907f4"
+        },
+        {
+          "latitude": 48.83904114,
+          "lines": [
+            "M6"
+          ],
+          "longitude": 2.389620011,
+          "name": "Dugommier",
+          "uuid": "571a7209-b96f-472b-b883-2917425c37e6"
+        },
+        {
+          "latitude": 48.839497539999996,
+          "lines": [
+            "M6",
+            "M8"
+          ],
+          "longitude": 2.3959430875,
+          "name": "Dausmenil",
+          "uuid": "25f63acc-fcc6-4220-9597-14116b4ec945"
+        },
+        {
+          "latitude": 48.84133825,
+          "lines": [
+            "M6"
+          ],
+          "longitude": 2.400918538,
+          "name": "Bel-Air",
+          "uuid": "d9a471ff-a6c5-4c9d-84c1-5e8f2b6bb134"
+        },
+        {
+          "latitude": 48.84506158,
+          "lines": [
+            "M6"
+          ],
+          "longitude": 2.40128902,
+          "name": "Picpus",
+          "uuid": "1f971245-7c92-4476-912a-80bb1a62d3cc"
+        },
+        {
+          "latitude": 48.92078597,
+          "lines": [
+            "M7"
+          ],
+          "longitude": 2.410598614,
+          "name": "La Courneuve - 8 Mai 1945",
+          "uuid": "54f4b6cf-1212-42c2-86b4-9b83acf7b867"
+        },
+        {
+          "latitude": 48.91494976,
+          "lines": [
+            "M7"
+          ],
+          "longitude": 2.404409087,
+          "name": "Fort d'Aubervilliers",
+          "uuid": "b8306712-4b7c-4f8b-9734-a08cbf2adff1"
+        },
+        {
+          "latitude": 48.90375993,
+          "lines": [
+            "M7"
+          ],
+          "longitude": 2.39228706,
+          "name": "Aubervilliers - Pantin - Quatre Chemins",
+          "uuid": "1da00f90-1066-4989-b252-fca6c2d4ce99"
+        },
+        {
+          "latitude": 48.89738989,
+          "lines": [
+            "M7"
+          ],
+          "longitude": 2.385508388,
+          "name": "Porte de la Villette",
+          "uuid": "bba54b47-5ec9-411f-a813-3f321998712f"
+        },
+        {
+          "latitude": 48.89483647,
+          "lines": [
+            "M7"
+          ],
+          "longitude": 2.382522343,
+          "name": "Corentin Cariou",
+          "uuid": "4f0d5a6c-a930-4998-9cfd-3d746b72941a"
+        },
+        {
+          "latitude": 48.89078897,
+          "lines": [
+            "M7"
+          ],
+          "longitude": 2.377315756,
+          "name": "Crimée",
+          "uuid": "7f97fa92-afd3-4a64-8c62-4a23f3d9f2ec"
+        },
+        {
+          "latitude": 48.88826762,
+          "lines": [
+            "M7"
+          ],
+          "longitude": 2.374204012,
+          "name": "Riquet",
+          "uuid": "ca117f6f-b499-489a-8bb9-f1f61f96d1df"
+        },
+        {
+          "latitude": 48.88134527,
+          "lines": [
+            "M7",
+            "M7BIS"
+          ],
+          "longitude": 2.3653815505,
+          "name": "Louis Blanc",
+          "uuid": "2395e650-458d-4727-b33a-12d773822eaa"
+        },
+        {
+          "latitude": 48.87856563,
+          "lines": [
+            "M7"
+          ],
+          "longitude": 2.362160072,
+          "name": "Château-Landon",
+          "uuid": "911fd58d-d139-46dc-bf65-3f1a769a0837"
+        },
+        {
+          "latitude": 48.87723632,
+          "lines": [
+            "M7"
+          ],
+          "longitude": 2.349293902,
+          "name": "Poissonnière",
+          "uuid": "68b285d5-3b4b-4176-aa70-ec82134ebdba"
+        },
+        {
+          "latitude": 48.87589068,
+          "lines": [
+            "M7"
+          ],
+          "longitude": 2.34412603,
+          "name": "Cadet",
+          "uuid": "2b2d5986-ffc7-4ff9-ab55-c18b7c9f77a3"
+        },
+        {
+          "latitude": 48.87487434,
+          "lines": [
+            "M7"
+          ],
+          "longitude": 2.340199884,
+          "name": "Le Peletier",
+          "uuid": "da92fa82-4668-496d-815b-feccffb08884"
+        },
+        {
+          "latitude": 48.873023465,
+          "lines": [
+            "M7",
+            "M9"
+          ],
+          "longitude": 2.3334651754999998,
+          "name": "Chaussée d'Antin - La Fayette",
+          "uuid": "c206a8ad-5f20-49c5-a0c6-81c881f7b386"
+        },
+        {
+          "latitude": 48.86594383,
+          "lines": [
+            "M7",
+            "M14"
+          ],
+          "longitude": 2.334260133,
+          "name": "Pyramides",
+          "uuid": "85cc553b-cb40-41db-841a-4ef2f78dd259"
+        },
+        {
+          "latitude": 48.85855383,
+          "lines": [
+            "M7"
+          ],
+          "longitude": 2.342232759,
+          "name": "Pont Neuf",
+          "uuid": "9be9f810-4164-4db6-9630-c72d66964507"
+        },
+        {
+          "latitude": 48.85357547,
+          "lines": [
+            "M7"
+          ],
+          "longitude": 2.357162572,
+          "name": "Pont Marie",
+          "uuid": "686b1905-2573-4820-9a20-6a00bcff51d4"
+        },
+        {
+          "latitude": 48.85123768,
+          "lines": [
+            "M7"
+          ],
+          "longitude": 2.361985141,
+          "name": "Sully - Morland",
+          "uuid": "3f1a69d1-bd17-406f-a1f1-dc863ab91a78"
+        },
+        {
+          "latitude": 48.846050895000005,
+          "lines": [
+            "M7",
+            "M10"
+          ],
+          "longitude": 2.3549841235,
+          "name": "Jussieu",
+          "uuid": "699e4355-395c-45f0-ae04-2fa6feaacd0f"
+        },
+        {
+          "latitude": 48.84286683,
+          "lines": [
+            "M7"
+          ],
+          "longitude": 2.352224728,
+          "name": "Place Monge",
+          "uuid": "e5c9250c-18b9-4587-8697-0d535931f484"
+        },
+        {
+          "latitude": 48.84048665,
+          "lines": [
+            "M7"
+          ],
+          "longitude": 2.351739487,
+          "name": "Censier Daubenton",
+          "uuid": "8fce6588-83fe-4549-b320-d1eab26748ad"
+        },
+        {
+          "latitude": 48.83586348,
+          "lines": [
+            "M7"
+          ],
+          "longitude": 2.352588926,
+          "name": "Les Gobelins",
+          "uuid": "9be472ba-e08e-43a3-8930-5ec35f2b3dbc"
+        },
+        {
+          "latitude": 48.82642601,
+          "lines": [
+            "M7"
+          ],
+          "longitude": 2.357245651,
+          "name": "Tolbiac",
+          "uuid": "f3bae922-b7e6-4838-92d9-9bf1ce0aae72"
+        },
+        {
+          "latitude": 48.82243783,
+          "lines": [
+            "M7"
+          ],
+          "longitude": 2.358473884,
+          "name": "Maison Blanche",
+          "uuid": "5cc1923b-81c4-49e8-874d-3d2521ae2947"
+        },
+        {
+          "latitude": 48.81922335,
+          "lines": [
+            "M7"
+          ],
+          "longitude": 2.359705217,
+          "name": "Porte d'Italie",
+          "uuid": "844dbd7e-5985-46b9-860b-641be9c1916f"
+        },
+        {
+          "latitude": 48.81987622,
+          "lines": [
+            "M7"
+          ],
+          "longitude": 2.364531952,
+          "name": "Porte de Choisy",
+          "uuid": "11bd36de-8644-4651-97ed-bd6065fe7f72"
+        },
+        {
+          "latitude": 48.82135578,
+          "lines": [
+            "M7"
+          ],
+          "longitude": 2.369290587,
+          "name": "Porte d'Ivry",
+          "uuid": "b7ae70c2-2c78-4f51-a1dd-2b3582b63876"
+        },
+        {
+          "latitude": 48.81593076,
+          "lines": [
+            "M7"
+          ],
+          "longitude": 2.3772672,
+          "name": "Pierre et Marie Curie",
+          "uuid": "456d50ba-7a55-44bb-a8cf-aa7f8f0c51a4"
+        },
+        {
+          "latitude": 48.8110992,
+          "lines": [
+            "M7"
+          ],
+          "longitude": 2.38355148,
+          "name": "Mairie d'Ivry",
+          "uuid": "db8c9bed-a852-470b-bf8f-ed5056af1100"
+        },
+        {
+          "latitude": 48.81012996,
+          "lines": [
+            "M7"
+          ],
+          "longitude": 2.362263387,
+          "name": "Le Kremlin - Bicêtre",
+          "uuid": "c4dd6e11-b032-4b95-9d23-463e23c315b6"
+        },
+        {
+          "latitude": 48.80468812,
+          "lines": [
+            "M7"
+          ],
+          "longitude": 2.363953197,
+          "name": "Villejuif - Léo Lagrange",
+          "uuid": "47766b55-0051-413b-beb8-fbcc3bd6689e"
+        },
+        {
+          "latitude": 48.79648308,
+          "lines": [
+            "M7"
+          ],
+          "longitude": 2.368269541,
+          "name": "Villejuif - Paul Vaillant-Couturier",
+          "uuid": "e6292583-cd21-4e67-bdd1-c64dee75f058"
+        },
+        {
+          "latitude": 48.78756279,
+          "lines": [
+            "M7"
+          ],
+          "longitude": 2.367804107,
+          "name": "Villejuif - Louis Aragon",
+          "uuid": "8602911d-9ba9-4653-808e-3442d844f43d"
+        },
+        {
+          "latitude": 48.88082126,
+          "lines": [
+            "M7BIS"
+          ],
+          "longitude": 2.374147154,
+          "name": "Bolivar",
+          "uuid": "5a90c979-1f7c-4b74-a093-13385eb4e0d6"
+        },
+        {
+          "latitude": 48.87851411,
+          "lines": [
+            "M7BIS"
+          ],
+          "longitude": 2.381614512,
+          "name": "Buttes Chaumont",
+          "uuid": "b2fb83b5-0d87-431e-970c-2037d9cadd0c"
+        },
+        {
+          "latitude": 48.87948177,
+          "lines": [
+            "M7BIS"
+          ],
+          "longitude": 2.389115807,
+          "name": "Botzaris",
+          "uuid": "5bfbf1d6-2873-49b7-adbd-e42a0d119bca"
+        },
+        {
+          "latitude": 48.881932,
+          "lines": [
+            "M7BIS"
+          ],
+          "longitude": 2.393445456,
+          "name": "Danube",
+          "uuid": "0673bd70-a2aa-4a79-95f6-4bf6b8ed5c4a"
+        },
+        {
+          "latitude": 48.87687812,
+          "lines": [
+            "M7BIS",
+            "M11"
+          ],
+          "longitude": 2.393020029,
+          "name": "Place des Fêtes",
+          "uuid": "dbac775f-e23f-40c2-a105-6315ea2d00d9"
+        },
+        {
+          "latitude": 48.87999579,
+          "lines": [
+            "M7BIS"
+          ],
+          "longitude": 2.398946662,
+          "name": "Pré Saint-Gervais",
+          "uuid": "4d4a1d68-a271-47dc-b1cb-66868346d399"
+        },
+        {
+          "latitude": 48.83593088,
+          "lines": [
+            "M8"
+          ],
+          "longitude": 2.278161671,
+          "name": "Balard",
+          "uuid": "084d7b96-aee1-45d4-824c-26a4447f4d0f"
+        },
+        {
+          "latitude": 48.83896094,
+          "lines": [
+            "M8"
+          ],
+          "longitude": 2.282700027,
+          "name": "Lourmet",
+          "uuid": "cb4590f4-47ba-4c28-aa55-9e23822386b1"
+        },
+        {
+          "latitude": 48.84109406,
+          "lines": [
+            "M8"
+          ],
+          "longitude": 2.287945767,
+          "name": "Bousicaut",
+          "uuid": "19ae5eba-09c0-4d8b-9d0a-83cec2dfc3e5"
+        },
+        {
+          "latitude": 48.84274678,
+          "lines": [
+            "M8"
+          ],
+          "longitude": 2.291912413,
+          "name": "Félix Faure",
+          "uuid": "fbf0d693-ca29-4524-a864-6f9f69972d7e"
+        },
+        {
+          "latitude": 48.84479476,
+          "lines": [
+            "M8"
+          ],
+          "longitude": 2.293951964,
+          "name": "Commerce",
+          "uuid": "37cd4019-99ea-4c8c-a796-91f2bcc13ec3"
+        },
+        {
+          "latitude": 48.85468216,
+          "lines": [
+            "M8"
+          ],
+          "longitude": 2.306097404,
+          "name": "Ecole Militaire",
+          "uuid": "9cd96ac5-d849-470e-8a54-f473f0de2ad1"
+        },
+        {
+          "latitude": 48.85772541,
+          "lines": [
+            "M8"
+          ],
+          "longitude": 2.310565961,
+          "name": "La Tour-Maubourg",
+          "uuid": "d5eeacf8-cc06-4492-be0e-db0adfadcbf1"
+        },
+        {
+          "latitude": 48.862345015,
+          "lines": [
+            "M8",
+            "M13"
+          ],
+          "longitude": 2.314524005,
+          "name": "Invalides",
+          "uuid": "49d8f010-0255-4cfb-a48d-aa88ee3922da"
+        },
+        {
+          "latitude": 48.870266735,
+          "lines": [
+            "M8",
+            "M12",
+            "M14"
+          ],
+          "longitude": 2.3257354135000003,
+          "name": "Madeleine",
+          "uuid": "550ef054-29ed-4af2-a476-1bddc22b4bc0"
+        },
+        {
+          "latitude": 48.871969475,
+          "lines": [
+            "M8",
+            "M9"
+          ],
+          "longitude": 2.339072793,
+          "name": "Richelieu - Drouot",
+          "uuid": "6739b658-cc09-43af-9bfa-50090e051224"
+        },
+        {
+          "latitude": 48.87149774,
+          "lines": [
+            "M8",
+            "M9"
+          ],
+          "longitude": 2.343154773,
+          "name": "Grands Boulevards",
+          "uuid": "77bb2f08-571a-4258-bdca-b8e40f67010e"
+        },
+        {
+          "latitude": 48.8701642,
+          "lines": [
+            "M8",
+            "M9"
+          ],
+          "longitude": 2.350497972,
+          "name": "Bonne Nouvelle",
+          "uuid": "bd277e57-deb6-416a-918e-5275087cf6f5"
+        },
+        {
+          "latitude": 48.86325795,
+          "lines": [
+            "M8"
+          ],
+          "longitude": 2.366661095,
+          "name": "Filles du Calvaire",
+          "uuid": "1cc3492d-db77-4549-b442-a69d4ad69b91"
+        },
+        {
+          "latitude": 48.86116887,
+          "lines": [
+            "M8"
+          ],
+          "longitude": 2.367210866,
+          "name": "Saint-Sébastien - Froissart",
+          "uuid": "d2bd5130-871a-440a-b1f9-8719e74494dc"
+        },
+        {
+          "latitude": 48.85742004,
+          "lines": [
+            "M8"
+          ],
+          "longitude": 2.368108291,
+          "name": "Chemin Vert",
+          "uuid": "734670d2-fd22-4cb6-9712-51b3de798d46"
+        },
+        {
+          "latitude": 48.85127113,
+          "lines": [
+            "M8"
+          ],
+          "longitude": 2.376118773,
+          "name": "Ledru-Rollin",
+          "uuid": "d121e742-1ae6-4856-942e-2cd516759451"
+        },
+        {
+          "latitude": 48.85017786,
+          "lines": [
+            "M8"
+          ],
+          "longitude": 2.38409221,
+          "name": "Faidherbe - Chaligny",
+          "uuid": "bc1615a7-0635-42a7-91ef-d644e4d079fe"
+        },
+        {
+          "latitude": 48.84440867,
+          "lines": [
+            "M8"
+          ],
+          "longitude": 2.390075113,
+          "name": "Montgallet",
+          "uuid": "2284b646-270c-45db-b553-b45ca698220b"
+        },
+        {
+          "latitude": 48.83711701,
+          "lines": [
+            "M8"
+          ],
+          "longitude": 2.402333166,
+          "name": "Michel Bizot",
+          "uuid": "1a30c9a4-52a1-47fb-8bee-32b53f7c6465"
+        },
+        {
+          "latitude": 48.83478516,
+          "lines": [
+            "M8"
+          ],
+          "longitude": 2.405383211,
+          "name": "Porte Dorée",
+          "uuid": "27073c1b-e609-4440-b1f5-c4fff169a8a2"
+        },
+        {
+          "latitude": 48.83316293,
+          "lines": [
+            "M8"
+          ],
+          "longitude": 2.401448054,
+          "name": "Porte de Charenton",
+          "uuid": "3787caac-9519-45b0-96d6-65f1f1c3c6cb"
+        },
+        {
+          "latitude": 48.826055,
+          "lines": [
+            "M8"
+          ],
+          "longitude": 2.406742226,
+          "name": "Liberté",
+          "uuid": "1273cabc-a33f-4abd-969e-d829aa381e71"
+        },
+        {
+          "latitude": 48.82159577,
+          "lines": [
+            "M8"
+          ],
+          "longitude": 2.413737518,
+          "name": "Charenton - Ecoles",
+          "uuid": "95f1b6dc-6458-4ba0-ab14-977459744ba5"
+        },
+        {
+          "latitude": 48.81480301,
+          "lines": [
+            "M8"
+          ],
+          "longitude": 2.422376143,
+          "name": "Ecole Vétérinaire de Maison-Alfort",
+          "uuid": "30d718a8-1330-4cb1-8932-56b42dedab78"
+        },
+        {
+          "latitude": 48.80914436,
+          "lines": [
+            "M8"
+          ],
+          "longitude": 2.434509896,
+          "name": "Maison-Alfort - Stade",
+          "uuid": "8ae18eda-54bc-4db3-a96d-d18e13f14937"
+        },
+        {
+          "latitude": 48.80263769,
+          "lines": [
+            "M8"
+          ],
+          "longitude": 2.446927484,
+          "name": "Maison-Alfort - Les Juilliotes",
+          "uuid": "b531da7e-2067-49c0-a514-a25999a62c81"
+        },
+        {
+          "latitude": 48.79674077,
+          "lines": [
+            "M8"
+          ],
+          "longitude": 2.449433176,
+          "name": "Créteil - L'Echat",
+          "uuid": "345dabd3-7df4-4d67-b8d4-d3f6056ca32b"
+        },
+        {
+          "latitude": 48.78997831,
+          "lines": [
+            "M8"
+          ],
+          "longitude": 2.450453178,
+          "name": "Créteil - Université",
+          "uuid": "a631e016-9739-4034-ae7d-e36b2827591b"
+        },
+        {
+          "latitude": 48.77990532,
+          "lines": [
+            "M8"
+          ],
+          "longitude": 2.459368396,
+          "name": "Créteil - Préfecture",
+          "uuid": "64e50fdd-3261-43d5-a0cc-502013aac5a1"
+        },
+        {
+          "latitude": 48.76871513,
+          "lines": [
+            "M8"
+          ],
+          "longitude": 2.464564993,
+          "name": "Pointe du Lac",
+          "uuid": "1c06b794-1505-414b-8b1d-58d9ce5afde9"
+        },
+        {
+          "latitude": 48.82967484,
+          "lines": [
+            "M9"
+          ],
+          "longitude": 2.230799591,
+          "name": "Pont de Sèvres",
+          "uuid": "043e5cf7-5cb5-4596-b408-11a854a8e2a2"
+        },
+        {
+          "latitude": 48.83211056,
+          "lines": [
+            "M9"
+          ],
+          "longitude": 2.238639349,
+          "name": "Billancourt",
+          "uuid": "1c33bb89-a11b-423e-a580-65fd1e5a07d7"
+        },
+        {
+          "latitude": 48.83370885,
+          "lines": [
+            "M9"
+          ],
+          "longitude": 2.243840592,
+          "name": "Marcel Sambat",
+          "uuid": "d50c44ba-5e3a-44ef-9ffe-2cd8e3c1b43d"
+        },
+        {
+          "latitude": 48.83796121,
+          "lines": [
+            "M9"
+          ],
+          "longitude": 2.25712223,
+          "name": "Porte de Saint-Cloud",
+          "uuid": "e650a123-8de5-453f-a38c-5b6b2f605332"
+        },
+        {
+          "latitude": 48.8429387,
+          "lines": [
+            "M9"
+          ],
+          "longitude": 2.260032902,
+          "name": "Exelmans",
+          "uuid": "244f535e-d263-48ce-b818-0dd316f89d27"
+        },
+        {
+          "latitude": 48.84515287,
+          "lines": [
+            "M9",
+            "M10"
+          ],
+          "longitude": 2.2616843085,
+          "name": "Michel-Ange - Molitor",
+          "uuid": "78121fea-337d-4bfe-930f-21bba6ae545a"
+        },
+        {
+          "latitude": 48.84791523,
+          "lines": [
+            "M9",
+            "M10"
+          ],
+          "longitude": 2.264150404,
+          "name": "Michel-Ange - Auteil",
+          "uuid": "37dbb99b-4293-4958-8650-66a7ef93a158"
+        },
+        {
+          "latitude": 48.85250409,
+          "lines": [
+            "M9"
+          ],
+          "longitude": 2.268176749,
+          "name": "Jasmin",
+          "uuid": "3bc424b4-959b-4297-a420-848378953d47"
+        },
+        {
+          "latitude": 48.85548505,
+          "lines": [
+            "M9"
+          ],
+          "longitude": 2.270109139,
+          "name": "Ranelagh",
+          "uuid": "279e3299-f202-4112-bd65-b701dfeb1e4a"
+        },
+        {
+          "latitude": 48.85804606,
+          "lines": [
+            "M9"
+          ],
+          "longitude": 2.274154631,
+          "name": "La Muette",
+          "uuid": "9a3a09a9-67b3-4e54-9d69-02189c378275"
+        },
+        {
+          "latitude": 48.86397445,
+          "lines": [
+            "M9"
+          ],
+          "longitude": 2.278112558,
+          "name": "Rue de la Pompe",
+          "uuid": "f06dc35b-49c2-4162-8f3e-d57ef8dbeb48"
+        },
+        {
+          "latitude": 48.86479407,
+          "lines": [
+            "M9"
+          ],
+          "longitude": 2.294162018,
+          "name": "Iéna",
+          "uuid": "298d44c4-01e8-4c2f-9130-18274cd927d9"
+        },
+        {
+          "latitude": 48.86476685,
+          "lines": [
+            "M9"
+          ],
+          "longitude": 2.300991004,
+          "name": "Alma - Marceau",
+          "uuid": "068a4121-34fd-4d34-8e0a-36ae7f16504c"
+        },
+        {
+          "latitude": 48.87242238,
+          "lines": [
+            "M9"
+          ],
+          "longitude": 2.310038345,
+          "name": "Saint-Philippe-du-Roule",
+          "uuid": "930b7a20-4d79-4c97-974a-bae13a2e566f"
+        },
+        {
+          "latitude": 48.87373976,
+          "lines": [
+            "M9",
+            "M13"
+          ],
+          "longitude": 2.3145311790000003,
+          "name": "Miromesnil",
+          "uuid": "1da69ab3-c28f-4cad-b865-93f8d787d69b"
+        },
+        {
+          "latitude": 48.87455838,
+          "lines": [
+            "M9"
+          ],
+          "longitude": 2.321361928,
+          "name": "Saint-Augustin",
+          "uuid": "3e80d9c0-9209-400b-ab99-a86857eccb2c"
+        },
+        {
+          "latitude": 48.86101926,
+          "lines": [
+            "M9"
+          ],
+          "longitude": 2.374733431,
+          "name": "Saint-Ambroise",
+          "uuid": "4700d9d9-e35d-469a-9e7b-b520a8a62319"
+        },
+        {
+          "latitude": 48.85745372,
+          "lines": [
+            "M9"
+          ],
+          "longitude": 2.380718786,
+          "name": "Voltaire",
+          "uuid": "59656cdb-8a7a-4413-a494-53cbaae37299"
+        },
+        {
+          "latitude": 48.8545805,
+          "lines": [
+            "M9"
+          ],
+          "longitude": 2.385563481,
+          "name": "Charonne",
+          "uuid": "06c47076-bfef-4809-b0bd-a987a1c4d0db"
+        },
+        {
+          "latitude": 48.85231543,
+          "lines": [
+            "M9"
+          ],
+          "longitude": 2.389378128,
+          "name": "Rue des Boules",
+          "uuid": "bc2212b5-0a78-4592-8b8d-2143102233c6"
+        },
+        {
+          "latitude": 48.85181213,
+          "lines": [
+            "M9"
+          ],
+          "longitude": 2.401022271,
+          "name": "Buzenval",
+          "uuid": "3c9956f6-98a9-44b3-8771-e4efe1b2e19c"
+        },
+        {
+          "latitude": 48.85272512,
+          "lines": [
+            "M9"
+          ],
+          "longitude": 2.406089162,
+          "name": "Maraîchers",
+          "uuid": "f8ad7306-343f-436c-bafa-08df2965b41e"
+        },
+        {
+          "latitude": 48.85354392,
+          "lines": [
+            "M9"
+          ],
+          "longitude": 2.410626426,
+          "name": "Porte de Montreuil",
+          "uuid": "4ca500d7-8136-48af-9d58-5b25eceb528b"
+        },
+        {
+          "latitude": 48.85572643,
+          "lines": [
+            "M9"
+          ],
+          "longitude": 2.422983216,
+          "name": "Robespierre",
+          "uuid": "1b9bdfcd-906e-462d-aadf-beacc5271eb3"
+        },
+        {
+          "latitude": 48.85796559,
+          "lines": [
+            "M9"
+          ],
+          "longitude": 2.435555716,
+          "name": "Croix de Chavaux",
+          "uuid": "9e4e8664-08f3-4804-a4e6-e79011393787"
+        },
+        {
+          "latitude": 48.86193691,
+          "lines": [
+            "M9"
+          ],
+          "longitude": 2.441310941,
+          "name": "Mairie de Montreuil",
+          "uuid": "f39b9d72-8949-42fb-aba2-dc972718aff0"
+        },
+        {
+          "latitude": 48.84074502,
+          "lines": [
+            "M10"
+          ],
+          "longitude": 2.228536982,
+          "name": "Boulogne - Pont de Saint-Cloud",
+          "uuid": "fe2d66c3-fd51-4bfc-a46d-f52403c7b442"
+        },
+        {
+          "latitude": 48.84200535,
+          "lines": [
+            "M10"
+          ],
+          "longitude": 2.238887326,
+          "name": "Boulogne - Jean Jaurès",
+          "uuid": "f8cf2711-f11c-4eba-b162-51e3d8cfd426"
+        },
+        {
+          "latitude": 48.84797154,
+          "lines": [
+            "M10"
+          ],
+          "longitude": 2.25774468,
+          "name": "Porte d'Auteil",
+          "uuid": "d425ee64-5d38-4281-939e-74ecad3ee5d3"
+        },
+        {
+          "latitude": 48.84715006,
+          "lines": [
+            "M10"
+          ],
+          "longitude": 2.269135873,
+          "name": "Eglise d'Auteil",
+          "uuid": "282029e9-6cea-4402-8a49-cbaf4de2a212"
+        },
+        {
+          "latitude": 48.8452047,
+          "lines": [
+            "M10"
+          ],
+          "longitude": 2.266441543,
+          "name": "Chardon Lagache",
+          "uuid": "c560b0aa-f4be-46fe-b6b1-8a5cd803d961"
+        },
+        {
+          "latitude": 48.84713101,
+          "lines": [
+            "M10"
+          ],
+          "longitude": 2.272763753,
+          "name": "Mirabeau",
+          "uuid": "a7953610-957e-4c2d-92b9-886f1a5aee54"
+        },
+        {
+          "latitude": 48.84612367,
+          "lines": [
+            "M10"
+          ],
+          "longitude": 2.27771174,
+          "name": "Javel - André Citroën",
+          "uuid": "a38605a3-6982-416d-94f9-94b6eb15e682"
+        },
+        {
+          "latitude": 48.84653464,
+          "lines": [
+            "M10"
+          ],
+          "longitude": 2.285999223,
+          "name": "Charles Michels",
+          "uuid": "c5131e02-f65c-46b6-ab4d-2535de15d046"
+        },
+        {
+          "latitude": 48.84701958,
+          "lines": [
+            "M10"
+          ],
+          "longitude": 2.295420478,
+          "name": "Avenue Emise-Zola",
+          "uuid": "34f8e6d9-f99b-43a1-9b92-075d3270d346"
+        },
+        {
+          "latitude": 48.84706613,
+          "lines": [
+            "M10"
+          ],
+          "longitude": 2.307402241,
+          "name": "Ségur",
+          "uuid": "e657dd88-1ec5-493b-aa47-3a688e9aeeff"
+        },
+        {
+          "latitude": 48.847020830000005,
+          "lines": [
+            "M10",
+            "M13"
+          ],
+          "longitude": 2.316714794,
+          "name": "Duroc",
+          "uuid": "7911c59c-f138-42d4-b6e8-ce94125fcfa0"
+        },
+        {
+          "latitude": 48.84881637,
+          "lines": [
+            "M10"
+          ],
+          "longitude": 2.321257863,
+          "name": "Vaneau",
+          "uuid": "55642301-aa65-44cf-b891-ecf83459d01c"
+        },
+        {
+          "latitude": 48.8514772,
+          "lines": [
+            "M10",
+            "M12"
+          ],
+          "longitude": 2.3266555215,
+          "name": "Sèvres - Babylone",
+          "uuid": "34c462d4-06ca-4900-9203-605635a13cb5"
+        },
+        {
+          "latitude": 48.85301677,
+          "lines": [
+            "M10"
+          ],
+          "longitude": 2.335502053,
+          "name": "Mabillon",
+          "uuid": "99748b85-5f83-405b-a61b-362d6ef1ab94"
+        },
+        {
+          "latitude": 48.85105028,
+          "lines": [
+            "M10"
+          ],
+          "longitude": 2.344273345,
+          "name": "Cluny - La Sorbonne",
+          "uuid": "9115cad3-9b34-4954-98e3-4aef45f956f7"
+        },
+        {
+          "latitude": 48.85012732,
+          "lines": [
+            "M10"
+          ],
+          "longitude": 2.34805429,
+          "name": "Maubert - Mutualité",
+          "uuid": "764f1b36-a0f2-4bfb-b8ee-cbd7c295ad06"
+        },
+        {
+          "latitude": 48.84665685,
+          "lines": [
+            "M10"
+          ],
+          "longitude": 2.351623256,
+          "name": "Cardinal Lemoine",
+          "uuid": "5366c123-ff2c-4249-9436-f4982fca8c6a"
+        },
+        {
+          "latitude": 48.86120499,
+          "lines": [
+            "M11"
+          ],
+          "longitude": 2.35349574,
+          "name": "Rambuteau",
+          "uuid": "e0d2cefa-53af-4c04-8451-1115cec383fe"
+        },
+        {
+          "latitude": 48.86995751,
+          "lines": [
+            "M11"
+          ],
+          "longitude": 2.37109484,
+          "name": "Goncourt",
+          "uuid": "2fb09b42-d055-46c7-8465-a49b629c9915"
+        },
+        {
+          "latitude": 48.87388185,
+          "lines": [
+            "M11"
+          ],
+          "longitude": 2.385316215,
+          "name": "Pyrénées",
+          "uuid": "f6178344-e8a7-42c8-9b26-90f58049c7d2"
+        },
+        {
+          "latitude": 48.87511182,
+          "lines": [
+            "M11"
+          ],
+          "longitude": 2.389415032,
+          "name": "Jourdain",
+          "uuid": "60dc759f-7763-4a97-93d5-11452bb59fda"
+        },
+        {
+          "latitude": 48.87547446,
+          "lines": [
+            "M11"
+          ],
+          "longitude": 2.398867594,
+          "name": "Télégraphe",
+          "uuid": "b1c4e886-97be-4713-b913-ff8d8d7e975c"
+        },
+        {
+          "latitude": 48.87976125,
+          "lines": [
+            "M11"
+          ],
+          "longitude": 2.416479644,
+          "name": "Mairie des Lilas",
+          "uuid": "dc8907d7-3e95-4018-984f-32150dc5c347"
+        },
+        {
+          "latitude": 48.90656715,
+          "lines": [
+            "M12"
+          ],
+          "longitude": 2.365920319,
+          "name": "Front Populaire",
+          "uuid": "dcdcea1c-72ac-43ce-a23a-954a979b2b8f"
+        },
+        {
+          "latitude": 48.89724529,
+          "lines": [
+            "M12"
+          ],
+          "longitude": 2.359507869,
+          "name": "Porte de la Chapelle",
+          "uuid": "e42b3d7b-efba-4595-9b68-01a2950981dd"
+        },
+        {
+          "latitude": 48.89048545,
+          "lines": [
+            "M12"
+          ],
+          "longitude": 2.359995766,
+          "name": "Marx Dormoy",
+          "uuid": "76c96bf8-2666-49c9-bbd8-611ba667b94c"
+        },
+        {
+          "latitude": 48.89243959,
+          "lines": [
+            "M12"
+          ],
+          "longitude": 2.344657004,
+          "name": "Jules Joffrin",
+          "uuid": "76dfe361-9938-4f74-96f5-4c61964a5d29"
+        },
+        {
+          "latitude": 48.88967407,
+          "lines": [
+            "M12"
+          ],
+          "longitude": 2.338760649,
+          "name": "Lamarck - Caulaincourt",
+          "uuid": "4bb83bbe-a107-4b6e-9730-2287d7d48145"
+        },
+        {
+          "latitude": 48.88459421,
+          "lines": [
+            "M12"
+          ],
+          "longitude": 2.337949777,
+          "name": "Abbesses",
+          "uuid": "4829d4a8-1b12-4572-a93f-ae0826655a7f"
+        },
+        {
+          "latitude": 48.87842526,
+          "lines": [
+            "M12"
+          ],
+          "longitude": 2.337595083,
+          "name": "Saint-Georges",
+          "uuid": "a125af5e-a3db-450d-b88a-cf88b5f29a3a"
+        },
+        {
+          "latitude": 48.87602621,
+          "lines": [
+            "M12"
+          ],
+          "longitude": 2.337886489,
+          "name": "Notre-Dame-de-Lorette",
+          "uuid": "0c7a732b-ed0a-44af-9e75-75f95d918c98"
+        },
+        {
+          "latitude": 48.87631796,
+          "lines": [
+            "M12"
+          ],
+          "longitude": 2.332543027,
+          "name": "Trinité - d'Estienne d'Orves",
+          "uuid": "f804687f-e354-4a68-bccc-409af5f384d2"
+        },
+        {
+          "latitude": 48.86078696,
+          "lines": [
+            "M12"
+          ],
+          "longitude": 2.320998192,
+          "name": "Assemblée nationale",
+          "uuid": "c26d5c1f-fdd1-489d-b9d5-6cd82867412d"
+        },
+        {
+          "latitude": 48.85851113,
+          "lines": [
+            "M12"
+          ],
+          "longitude": 2.323154856,
+          "name": "Solférino",
+          "uuid": "fe3d01b1-3c24-42f6-8355-f10feb1fbc44"
+        },
+        {
+          "latitude": 48.85555094,
+          "lines": [
+            "M12"
+          ],
+          "longitude": 2.325712422,
+          "name": "Rue du Bac",
+          "uuid": "a8d66dbe-98e1-4fb6-9e68-17d8f8f7106c"
+        },
+        {
+          "latitude": 48.84845785,
+          "lines": [
+            "M12"
+          ],
+          "longitude": 2.327782127,
+          "name": "Rennes",
+          "uuid": "b725f359-6e6d-4ba5-b0a8-7b2e2cc8e21a"
+        },
+        {
+          "latitude": 48.84494263,
+          "lines": [
+            "M12"
+          ],
+          "longitude": 2.328778027,
+          "name": "Notre-Dame-des-Champs",
+          "uuid": "d9f75c16-b183-47ff-80d3-36807e083963"
+        },
+        {
+          "latitude": 48.84447014,
+          "lines": [
+            "M12"
+          ],
+          "longitude": 2.317852783,
+          "name": "Falguière",
+          "uuid": "16d78575-6e03-4475-979e-cb795afcea2f"
+        },
+        {
+          "latitude": 48.84150552,
+          "lines": [
+            "M12"
+          ],
+          "longitude": 2.307948679,
+          "name": "Volontaires",
+          "uuid": "3d7eaaa1-1442-40a2-8f86-5ba2d5ef804d"
+        },
+        {
+          "latitude": 48.83951659,
+          "lines": [
+            "M12"
+          ],
+          "longitude": 2.301107515,
+          "name": "Vaugirard",
+          "uuid": "e356e320-63ff-4bf1-9525-8103946011ac"
+        },
+        {
+          "latitude": 48.83730749,
+          "lines": [
+            "M12"
+          ],
+          "longitude": 2.296630343,
+          "name": "Convention",
+          "uuid": "d5cc53de-634f-491c-868d-19511bc23ad8"
+        },
+        {
+          "latitude": 48.8324491,
+          "lines": [
+            "M12"
+          ],
+          "longitude": 2.288022141,
+          "name": "Porte de Versailles",
+          "uuid": "eb3b36c9-bcdc-4eb1-af6e-fe8c3eae828b"
+        },
+        {
+          "latitude": 48.82708545,
+          "lines": [
+            "M12"
+          ],
+          "longitude": 2.279411682,
+          "name": "Corentin Celton",
+          "uuid": "4bf1db48-6210-460b-b8a1-2d33f2d52e95"
+        },
+        {
+          "latitude": 48.82410503,
+          "lines": [
+            "M12"
+          ],
+          "longitude": 2.273041525,
+          "name": "Mairie d'Issy",
+          "uuid": "50070b13-db3c-49a9-adbb-5c7c75e49276"
+        },
+        {
+          "latitude": 48.94584566,
+          "lines": [
+            "M13"
+          ],
+          "longitude": 2.364541763,
+          "name": "Saint-Denis Université",
+          "uuid": "b997b967-779f-4aa0-86ad-65b9f6da2881"
+        },
+        {
+          "latitude": 48.93652685,
+          "lines": [
+            "M13"
+          ],
+          "longitude": 2.359398261,
+          "name": "Basilique de Saint-Denis",
+          "uuid": "4efdcc70-a076-4cd2-aaa2-1fb387e7cfb4"
+        },
+        {
+          "latitude": 48.92993589,
+          "lines": [
+            "M13"
+          ],
+          "longitude": 2.356035794,
+          "name": "Saint-Denis - Porte de Paris",
+          "uuid": "c519c42e-bf65-45c1-a010-dc985458a951"
+        },
+        {
+          "latitude": 48.91957307,
+          "lines": [
+            "M13"
+          ],
+          "longitude": 2.343305931,
+          "name": "Carrefour Pleyel",
+          "uuid": "85d4ee53-2920-419c-9cb4-0cf443d81c91"
+        },
+        {
+          "latitude": 48.9119649,
+          "lines": [
+            "M13"
+          ],
+          "longitude": 2.33392489,
+          "name": "Mairie de Saint-Ouen",
+          "uuid": "0f7c5a20-51b8-4abb-9cc1-65ec8736c6b7"
+        },
+        {
+          "latitude": 48.90609405,
+          "lines": [
+            "M13"
+          ],
+          "longitude": 2.331830838,
+          "name": "Garibaldi",
+          "uuid": "e2fbafe5-2690-4444-861b-75f7df99c3ce"
+        },
+        {
+          "latitude": 48.8973748,
+          "lines": [
+            "M13"
+          ],
+          "longitude": 2.328942813,
+          "name": "Porte de Saint-Ouen",
+          "uuid": "5378a459-1117-4f70-a0d7-09cc16c73f90"
+        },
+        {
+          "latitude": 48.89282885,
+          "lines": [
+            "M13"
+          ],
+          "longitude": 2.327428459,
+          "name": "Guy Môquet",
+          "uuid": "f1d018ed-d96c-4c45-874a-8037c0176e9a"
+        },
+        {
+          "latitude": 48.930757,
+          "lines": [
+            "M13"
+          ],
+          "longitude": 2.284174448,
+          "name": "Asnières Gennevilliers - Les Courtilles",
+          "uuid": "2d4bf14a-c2a6-4057-8953-d480eb9fdad6"
+        },
+        {
+          "latitude": 48.92310378,
+          "lines": [
+            "M13"
+          ],
+          "longitude": 2.286279578,
+          "name": "Les Agnettes",
+          "uuid": "dfd690bc-cfd3-46c9-9133-769759a07b17"
+        },
+        {
+          "latitude": 48.91638231,
+          "lines": [
+            "M13"
+          ],
+          "longitude": 2.294685112,
+          "name": "Gabriel Péri",
+          "uuid": "1f3f46df-4ed4-4b79-b6b4-8b3d7f806306"
+        },
+        {
+          "latitude": 48.90333009,
+          "lines": [
+            "M13"
+          ],
+          "longitude": 2.30592415,
+          "name": "Mairie de Clichy",
+          "uuid": "6d77ab86-b025-44cf-b5c4-21c0e47b586d"
+        },
+        {
+          "latitude": 48.89425226,
+          "lines": [
+            "M13"
+          ],
+          "longitude": 2.313772159,
+          "name": "Porte de Clichy",
+          "uuid": "f976a4c5-a321-47cb-81f2-f188227193a9"
+        },
+        {
+          "latitude": 48.89058719,
+          "lines": [
+            "M13"
+          ],
+          "longitude": 2.320174756,
+          "name": "Brochant",
+          "uuid": "876500f5-5459-4ff4-8f6b-a4d84cb8aea0"
+        },
+        {
+          "latitude": 48.88718395,
+          "lines": [
+            "M13"
+          ],
+          "longitude": 2.325779675,
+          "name": "La Fourche",
+          "uuid": "e887df32-3be5-40eb-9dda-b449577f6423"
+        },
+        {
+          "latitude": 48.87963476,
+          "lines": [
+            "M13"
+          ],
+          "longitude": 2.327022201,
+          "name": "Liège",
+          "uuid": "0ceaec57-079e-4269-ab2e-f11eeacbe87c"
+        },
+        {
+          "latitude": 48.85687138,
+          "lines": [
+            "M13"
+          ],
+          "longitude": 2.315056637,
+          "name": "Varenne",
+          "uuid": "97b3da00-104f-4337-bdbe-add2bdbcef34"
+        },
+        {
+          "latitude": 48.85144171,
+          "lines": [
+            "M13"
+          ],
+          "longitude": 2.314408122,
+          "name": "Saint-François-Xavier",
+          "uuid": "62b5e0ef-35e1-456b-8ac0-401ece0a1e00"
+        },
+        {
+          "latitude": 48.83863165,
+          "lines": [
+            "M13"
+          ],
+          "longitude": 2.32249175,
+          "name": "Gaîté",
+          "uuid": "df0589ff-4137-4182-819b-ea7b579c0b9c"
+        },
+        {
+          "latitude": 48.83393639,
+          "lines": [
+            "M13"
+          ],
+          "longitude": 2.318078285,
+          "name": "Pernety",
+          "uuid": "b482d94c-b561-4c2c-8c61-2422c9dee439"
+        },
+        {
+          "latitude": 48.83182565,
+          "lines": [
+            "M13"
+          ],
+          "longitude": 2.314122323,
+          "name": "Plaisance",
+          "uuid": "71004f37-4354-4938-8dd5-9ff4ea8ea0d5"
+        },
+        {
+          "latitude": 48.82779554,
+          "lines": [
+            "M13"
+          ],
+          "longitude": 2.30553467,
+          "name": "Porte de Vanves",
+          "uuid": "01d8924c-99b4-45d5-a78f-ae4cf52cb978"
+        },
+        {
+          "latitude": 48.82258371,
+          "lines": [
+            "M13"
+          ],
+          "longitude": 2.298464192,
+          "name": "Malakoff Plateau de Vanves",
+          "uuid": "f193ce4f-94e9-4744-9b54-f5af50092d4b"
+        },
+        {
+          "latitude": 48.81530753,
+          "lines": [
+            "M13"
+          ],
+          "longitude": 2.297077798,
+          "name": "Malakoff Rue Etienne Dolet",
+          "uuid": "37d8f63b-e8fa-4b54-b20b-83d03784533d"
+        },
+        {
+          "latitude": 48.81074649,
+          "lines": [
+            "M13"
+          ],
+          "longitude": 2.301678555,
+          "name": "Châtillon - Montrouge",
+          "uuid": "ca5ff8a6-a6f4-414d-9493-804fa1a185d9"
+        },
+        {
+          "latitude": 48.83333856,
+          "lines": [
+            "M14"
+          ],
+          "longitude": 2.386632402,
+          "name": "Cour Saint-Emilion",
+          "uuid": "9e65d012-f657-4272-bd4e-633efdefc8f7"
+        },
+        {
+          "latitude": 48.82999028,
+          "lines": [
+            "M14"
+          ],
+          "longitude": 2.375748144,
+          "name": "Bibliothèque François Mitterrand",
+          "uuid": "511a358b-2f86-4421-955c-d4f4a46d1953"
+        },
+        {
+          "latitude": 48.82727084,
+          "lines": [
+            "M14"
+          ],
+          "longitude": 2.368032648,
+          "name": "Olympiades",
+          "uuid": "d45de82e-3bc6-46b2-8d45-c19e2c93a50b"
+        }
+      ]
+    },
+    "status": "OK"
+  }
