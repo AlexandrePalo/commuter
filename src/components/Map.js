@@ -22,7 +22,7 @@ class Map extends Component {
 
   componentDidMount() {
     const map = L.map('map').setView(parisCenterC, initialZoom)
-    L.tileLayer('http://a.tile.stamen.com/toner/{z}/{x}/{y}.png', {
+    L.tileLayer('https://tile.openstreetmap.bzh/eu/{z}/{x}/{y}.png', {
       maxZoom: 18
     }).addTo(map)
     L.svg().addTo(map)
@@ -44,7 +44,7 @@ class Map extends Component {
         )
         .attr('r', zoomScaleRadius(map.getZoom()))
     }
-    d3.json(withPrefix('stations.json')).then(data => {
+    d3.json('http://localhost:5000/stations/').then(data => {
       data = data.data.stations
 
       // Build latlng
@@ -58,8 +58,8 @@ class Map extends Component {
         .data(data)
         .enter()
         .append('circle')
-        .style('stroke', 'red')
-        .style('fill', 'red')
+        .style('stroke', '#03B5AA')
+        .style('fill', '#03B5AA')
         .attr('r', zoomScaleRadius(initialZoom))
 
       map.on('load movestart zoom viewreset', () => {
@@ -79,7 +79,7 @@ class Map extends Component {
 }
 
 const styles = {
-  container: { height: '98vh', width: '100%', display: 'flex' },
+  container: { height: '100vh', width: '100%', display: 'flex' },
   map: {
     flex: 1
   }

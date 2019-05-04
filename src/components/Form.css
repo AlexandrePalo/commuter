@@ -1,10 +1,19 @@
 .form-container {
-  max-width: 400px;
-  background-color: hsl(214, 33%, 97%);
-  border-radius: 5px;
+  width: auto;
   box-shadow: 0 4px 6px hsla(0, 0%, 0%, 0.1);
-  padding: 20px 40px;
+}
 
+.form-container,
+.form-container * {
+  transition: width, max-width, padding, display;
+  transition-timing-function: ease;
+  transition-duration: 500ms;
+}
+
+.inputs-container {
+  border: 5px 5px 0 0;
+  background-color: white;
+  padding: 30px 40px;
   display: flex;
   flex-direction: column;
 }
@@ -18,14 +27,27 @@
 input {
   padding: 10px;
   border-radius: 5px;
-  border: none;
-  background-color: hsl(216, 15%, 91%);
+  border: 1px solid hsl(350, 90%, 84%);
+  background-color: white;
   font-size: 16px;
   width: 100%;
 }
 
 .autocomplete-option {
   padding: 10px;
-  background-color: hsl(216, 15%, 91%);
+  background-color: white;
   font-size: 16px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.form-container > button {
+  width: 100%;
+  background-color: hsl(350, 95%, 40%);
+  color: white;
+  padding: 10px;
+  border-radius: 0 0 5px 5px;
+  border: none;
+  cursor: pointer;
 }
