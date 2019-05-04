@@ -11,25 +11,7 @@ import './Form.css'
 
 class Form extends Component {
   state = {
-    source: false,
-    stations: [],
-    loading: true,
-    source: {
-      error: false,
-      value: '',
-      uuid: ''
-    },
-    mode: 'start' // start, search, result ?
-  }
-
-  componentDidMount() {
-    // Get stations name for autocomplete
-    this.setState({ loading: true })
-    fetch('http://localhost:5000/stations/')
-      .then(res => res.json())
-      .then(data => {
-        this.setState({ loading: false, stations: data.data.stations })
-      })
+    mode: 'search' // start, search, result ?
   }
 
   render() {
@@ -41,7 +23,7 @@ class Form extends Component {
           ...this.props.style
         }}
       >
-        {!this.state.loading && (
+        {!this.props.loading && (
           <React.Fragment>
             <div
               className="inputs-container"
@@ -77,7 +59,7 @@ class Form extends Component {
                   />
                 )}
                 getItemValue={item => item.uuid}
-                items={this.state.stations}
+                items={this.props.stations}
                 shouldItemRender={(item, value) => {
                   if (value === '') {
                     return false
@@ -96,21 +78,20 @@ class Form extends Component {
                     <span>{item.lines.join(' ')}</span>
                   </div>
                 )}
-                value={this.state.source.value}
+                value={this.props.source.value}
                 onChange={e =>
-                  this.setState({
-                    source: { error: false, value: e.target.value }
+                  this.props.setSource({
+                    error: false,
+                    value: e.target.value,
+                    uuid: false
                   })
                 }
                 onSelect={value => {
                   // TODO: may be refactored to find the name ?
-                  this.setState({
-                    source: {
-                      error: false,
-                      uuid: value,
-                      value: this.state.stations.find(s => s.uuid === value)
-                        .name
-                    }
+                  this.props.setSource({
+                    error: false,
+                    uuid: value,
+                    value: this.props.stations.find(s => s.uuid === value).name
                   })
                 }}
                 autoHighlight

@@ -18,7 +18,39 @@ const parisCenterC = [48.8591, 2.349]
 const initialZoom = 12
 
 class Map extends Component {
-  state = {}
+  constructor(props) {
+    super(props)
+    this.state = { map: null, stationsElements: null, isMapLoading: true }
+    this.updateStationsElements = this.updateStationsElements.bind(this)
+  }
+
+  updateStationsElements() {
+    const { map, stationsElements } = this.state
+
+    stationsElements
+      .attr(
+        'transform',
+        d =>
+          'translate(' +
+          map.latLngToLayerPoint(d.latlng).x +
+          ',' +
+          map.latLngToLayerPoint(d.latlng).y +
+          ')'
+      )
+      .attr('r', zoomScaleRadius(map.getZoom()))
+      .style('stroke', d => {
+        if (d.uuid === this.props.source.uuid) {
+          return 'hsl(350, 95%, 40%)'
+        }
+        return '#03B5AA'
+      })
+      .style('fill', d => {
+        if (d.uuid === this.props.source.uuid) {
+          return 'hsl(350, 95%, 40%)'
+        }
+        return '#03B5AA'
+      })
+  }
 
   componentDidMount() {
     const map = L.map('map').setView(parisCenterC, initialZoom)
@@ -30,46 +62,34 @@ class Map extends Component {
     const svg = d3.select('#map').select('svg')
     const g = svg.append('g')
 
-    // STATIONS http://127.0.0.1:5000/stations/
-    const updateStationsElementsPositions = elements => {
-      elements
-        .attr(
-          'transform',
-          d =>
-            'translate(' +
-            map.latLngToLayerPoint(d.latlng).x +
-            ',' +
-            map.latLngToLayerPoint(d.latlng).y +
-            ')'
-        )
-        .attr('r', zoomScaleRadius(map.getZoom()))
-    }
-    d3.json('http://localhost:5000/stations/').then(data => {
-      data = data.data.stations
+    let data = this.props.stations
 
-      // Build latlng
-      data = data.map(d => ({
-        ...d,
-        latlng: new L.LatLng(d.latitude, d.longitude)
-      }))
+    // Build latlng
+    data = data.map(d => ({
+      ...d,
+      latlng: new L.LatLng(d.latitude, d.longitude)
+    }))
 
-      const stationsElements = g
-        .selectAll('circle.station')
-        .data(data)
-        .enter()
-        .append('circle')
-        .style('stroke', '#03B5AA')
-        .style('fill', '#03B5AA')
-        .attr('r', zoomScaleRadius(initialZoom))
+    const stationsElements = g
+      .selectAll('circle.station')
+      .data(data)
+      .enter()
+      .append('circle')
+      .style('stroke', '#03B5AA')
+      .style('fill', '#03B5AA')
+      .attr('r', zoomScaleRadius(initialZoom))
 
-      map.on('load movestart zoom viewreset', () => {
-        updateStationsElementsPositions(stationsElements)
-      })
-      updateStationsElementsPositions(stationsElements)
+    map.on('load movestart zoom viewreset', () => {
+      this.updateStationsElements()
     })
+
+    this.setState({ map, stationsElements, isMapLoading: false })
   }
 
   render() {
+    if (!this.state.isMapLoading) {
+      this.updateStationsElements()
+    }
     return (
       <div style={styles.container}>
         <div id="map" style={styles.map} />
