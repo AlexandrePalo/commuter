@@ -49,8 +49,9 @@ class Form extends Component {
             }}
             renderItem={(item, isHighlighted) => (
               <div
-                style={{ background: isHighlighted ? 'lightgray' : 'white' }}
+                className="autocomplete-option"
                 key={item.uuid}
+                style={{ fontWeight: isHighlighted ? 'bold' : 'inherit' }}
               >
                 {item.name}
               </div>
@@ -70,6 +71,15 @@ class Form extends Component {
               })
             }}
             autoHighlight
+            menuStyle={{
+              borderRadius: '0 0 3px 3px',
+              boxShadow: '0 4px 6px hsla(0, 0%, 0%, 0.1)',
+              background: 'rgba(255, 255, 255, 0.9)',
+              fontSize: '90%',
+              position: 'fixed',
+              overflow: 'auto',
+              maxHeight: 43 * 5
+            }}
           />
         )}
       </div>
