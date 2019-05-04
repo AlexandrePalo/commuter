@@ -7,6 +7,7 @@ import L from 'leaflet/dist/leaflet.js'
 import * as d3 from 'd3'
 import 'd3-selection-multi'
 import { withPrefix } from 'gatsby'
+import './Map.css'
 
 const getIndexForUuid = (uuid, data) => {
   return data.map(d => d.uuid).indexOf(uuid)
@@ -60,6 +61,7 @@ class Map extends Component {
     L.svg().addTo(map)
 
     const svg = d3.select('#map').select('svg')
+
     const g = svg.append('g')
 
     let data = this.props.stations
@@ -77,7 +79,36 @@ class Map extends Component {
       .append('circle')
       .style('stroke', '#03B5AA')
       .style('fill', '#03B5AA')
+      .style('z-index', 2000)
       .attr('r', zoomScaleRadius(initialZoom))
+
+    const that = this
+    function handleMouseOver(d) {
+      d3.select(this)
+        .transition()
+        .duration(250)
+        .style('stroke', 'hsl(350, 95%, 40%)')
+        .style('fill', 'hsl(350, 95%, 40%)')
+    }
+    function handleMouseOut(d) {
+      if (d.uuid !== that.props.source.uuid) {
+        d3.select(this)
+          .transition()
+          .duration(250)
+          .style('stroke', '#03B5AA')
+          .style('fill', '#03B5AA')
+      } else {
+        d3.select(this)
+          .style('stroke', 'hsl(350, 95%, 40%)')
+          .style('fill', 'hsl(350, 95%, 40%)')
+      }
+    }
+    function handleClick(d) {
+      that.props.setSource({ error: false, value: d.name, uuid: d.uuid })
+    }
+    stationsElements.on('mouseover', handleMouseOver)
+    stationsElements.on('mouseout', handleMouseOut)
+    stationsElements.on('click', handleClick)
 
     map.on('load movestart zoom viewreset', () => {
       this.updateStationsElements()

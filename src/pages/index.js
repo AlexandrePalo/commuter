@@ -3,14 +3,18 @@ import Map from '../components/Map'
 import Form from '../components/Form'
 
 export default class Index extends Component {
-  state = {
-    stations: [],
-    loading: false,
-    source: {
-      error: false,
-      value: '',
-      uuid: ''
+  constructor(props) {
+    super(props)
+    this.state = {
+      stations: [],
+      loading: false,
+      source: {
+        error: false,
+        value: '',
+        uuid: ''
+      }
     }
+    this.setSource = this.setSource.bind(this)
   }
 
   componentDidMount() {
@@ -48,7 +52,11 @@ export default class Index extends Component {
             source={this.state.source}
             setSource={this.setSource.bind(this)}
           />
-          <Map stations={this.state.stations} source={this.state.source} />
+          <Map
+            stations={this.state.stations}
+            source={this.state.source}
+            setSource={this.setSource}
+          />
         </div>
       )
     }
