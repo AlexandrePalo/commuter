@@ -108,7 +108,9 @@ class Form extends Component {
               />
             </div>
             {this.state.mode === 'search' && (
-              <button role="button">RECHERCHER</button>
+              <button role="button" onClick={() => this.props.submit()}>
+                RECHERCHER
+              </button>
             )}
           </React.Fragment>
         )}

@@ -13,7 +13,6 @@ const getIndexForUuid = (uuid, data) => {
   return data.map(d => d.uuid).indexOf(uuid)
 }
 const zoomScaleRadius = zoom => Math.pow(zoom, 4) / 5000
-const zoomScaleRadiusGrouped = zoom => Math.pow(zoom, 4) / 2000
 const zoomScaleText = zoom => Math.pow(zoom, 4) / 2000
 const parisCenterC = [48.8591, 2.349]
 const initialZoom = 12
@@ -28,6 +27,7 @@ class Map extends Component {
   updateStationsElements() {
     const { map, stationsElements } = this.state
 
+    // Position
     stationsElements
       .attr(
         'transform',
@@ -39,18 +39,62 @@ class Map extends Component {
           ')'
       )
       .attr('r', zoomScaleRadius(map.getZoom()))
-      .style('stroke', d => {
-        if (d.uuid === this.props.source.uuid) {
-          return 'hsl(350, 95%, 40%)'
-        }
-        return '#03B5AA'
+
+    // Heatmap
+    if (this.props.heatmap) {
+      const min = Math.min(
+        ...Object.keys(this.props.heatmap).map(k => this.props.heatmap[k])
+      )
+      const max = Math.max(
+        ...Object.keys(this.props.heatmap).map(k => this.props.heatmap[k])
+      )
+      stationsElements.style('fill', d => {
+        const duration_mapped01 =
+          (this.props.heatmap[d.uuid] - max) / (min - max) // inversé pour RdYlGn
+        return d3.interpolateRdYlGn(duration_mapped01)
+        //return d3.interpolateRdBu(duration_mapped01)
+        var colours = [
+          '#6363FF',
+          '#6373FF',
+          '#63A3FF',
+          '#63E3FF',
+          '#63FFFB',
+          '#63FFCB',
+          '#63FF9B',
+          '#63FF6B',
+          '#7BFF63',
+          '#BBFF63',
+          '#DBFF63',
+          '#FBFF63',
+          '#FFD363',
+          '#FFB363',
+          '#FF8363',
+          '#FF7363',
+          '#FF6364'
+        ]
+        var heatmapColour = d3
+          .linearScale()
+          .domain(d3.range(0, 1, 1.0 / (colours.length - 1)))
+          .range(colours)
+        var c = d3.scale
+          .linear()
+          .domain(
+            d3.extent(
+              Object.keys(this.props.heatmap).map(k => this.props.heatmap[k])
+            )
+          )
+          .range([0, 1])
+        return c(duration_mapped01)
       })
-      .style('fill', d => {
-        if (d.uuid === this.props.source.uuid) {
-          return 'hsl(350, 95%, 40%)'
-        }
-        return '#03B5AA'
-      })
+    }
+
+    // Specific stroke for source
+    stationsElements.style('stroke', d => {
+      if (d.uuid === this.props.source.uuid) {
+        return 'hsl(350, 95%, 40%)'
+      }
+      return '#03B5AA'
+    })
   }
 
   componentDidMount() {
@@ -79,6 +123,7 @@ class Map extends Component {
       .append('circle')
       .style('stroke', '#03B5AA')
       .style('fill', '#03B5AA')
+      .style('stroke-width', (2 * zoomScaleRadius(initialZoom)) / 3)
       .style('z-index', 2000)
       .attr('r', zoomScaleRadius(initialZoom))
 
@@ -88,7 +133,6 @@ class Map extends Component {
         .transition()
         .duration(250)
         .style('stroke', 'hsl(350, 95%, 40%)')
-        .style('fill', 'hsl(350, 95%, 40%)')
     }
     function handleMouseOut(d) {
       if (d.uuid !== that.props.source.uuid) {
@@ -96,11 +140,8 @@ class Map extends Component {
           .transition()
           .duration(250)
           .style('stroke', '#03B5AA')
-          .style('fill', '#03B5AA')
       } else {
-        d3.select(this)
-          .style('stroke', 'hsl(350, 95%, 40%)')
-          .style('fill', 'hsl(350, 95%, 40%)')
+        d3.select(this).style('stroke', 'hsl(350, 95%, 40%)')
       }
     }
     function handleClick(d) {

@@ -8,6 +8,7 @@ export default class Index extends Component {
     this.state = {
       stations: [],
       loading: false,
+      heatmap: null,
       source: {
         error: false,
         value: '',
@@ -15,6 +16,7 @@ export default class Index extends Component {
       }
     }
     this.setSource = this.setSource.bind(this)
+    this.handleSearchSubmit = this.handleSearchSubmit.bind(this)
   }
 
   componentDidMount() {
@@ -31,7 +33,11 @@ export default class Index extends Component {
     this.setState({ source })
   }
 
-  handleSearchSubmit() {}
+  handleSearchSubmit() {
+    fetch('http://localhost:5000/heatmap/' + this.state.source.uuid + '/')
+      .then(res => res.json())
+      .then(data => this.setState({ heatmap: data.data.heatmap }))
+  }
 
   render() {
     if (!this.state.loading) {
@@ -50,10 +56,12 @@ export default class Index extends Component {
             }}
             stations={this.state.stations}
             source={this.state.source}
-            setSource={this.setSource.bind(this)}
+            setSource={this.setSource}
+            submit={this.handleSearchSubmit}
           />
           <Map
             stations={this.state.stations}
+            heatmap={this.state.heatmap}
             source={this.state.source}
             setSource={this.setSource}
           />
