@@ -215,8 +215,8 @@ class Map extends Component {
             .append('circle')
             .style('stroke', '#03B5AA')
             .style('fill', '#03B5AA')
-            .style('stroke-width', 3)
-            .attr('r', 10)
+            .style('stroke-width', 2)
+            .attr('r', 5)
 
         return stationsElements
     }
@@ -243,7 +243,7 @@ class Map extends Component {
 
     componentDidMount() {
         const map = L.map('map').setView(parisCenterC, initialZoom)
-        L.tileLayer('https://tile.openstreetmap.bzh/eu/{z}/{x}/{y}.png', {
+        L.tileLayer('http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
             maxZoom: 18
         }).addTo(map)
         L.svg().addTo(map)
@@ -342,6 +342,17 @@ class Map extends Component {
                 ).y - map.latLngToLayerPoint(heatmapElements.data()[0].latlng).y
             )
             heatmapElements.attr('width', rWidth).attr('height', rHeight)
+
+            var heatmapColour = d3
+                .scaleLinear()
+                .domain(d3.range(0, 1, 1.0 / (colours.length - 1)))
+                .range(colours)
+            var c = d3
+                .scaleLinear()
+                .domain(d3.extent(heatmapElements.data().map(d => d.duration)))
+                .range([0, 1])
+            heatmapElements.style('fill', d => heatmapColour(c(d.duration)))
+            heatmapElements.style('fill-opacity', 0.35)
         }
     }
 
@@ -355,3 +366,23 @@ class Map extends Component {
 }
 
 export default Map
+
+var colours = [
+    '#6363FF',
+    '#6373FF',
+    '#63A3FF',
+    '#63E3FF',
+    '#63FFFB',
+    '#63FFCB',
+    '#63FF9B',
+    '#63FF6B',
+    '#7BFF63',
+    '#BBFF63',
+    '#DBFF63',
+    '#FBFF63',
+    '#FFD363',
+    '#FFB363',
+    '#FF8363',
+    '#FF7363',
+    '#FF6364'
+]

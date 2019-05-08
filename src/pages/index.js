@@ -34,15 +34,16 @@ export default class Index extends Component {
     }
 
     handleSearchSubmit() {
-        /*
         fetch(
-            'http://localhost:5000/heatmap/interpolate/' +
+            'http://localhost:5000/heatmap/interpolated/' +
                 this.state.source.uuid +
                 '/'
         )
             .then(res => res.json())
-            .then(data => this.setState({ heatmap: data.data.heatmap }))
-        */
+            .then(data => {
+                this.setState({ heatmap: data.data.heatmap })
+            })
+        /*
         this.setState({
             heatmap: [
                 { latitude: 48.85, longitude: 2.34 },
@@ -51,6 +52,7 @@ export default class Index extends Component {
                 { latitude: 48.84, longitude: 2.35 }
             ]
         })
+        */
     }
 
     render() {
@@ -60,7 +62,7 @@ export default class Index extends Component {
                     <Form
                         style={{
                             position: 'absolute',
-                            top: 150,
+                            top: 50,
                             width: '100%',
                             marginRight: 'auto',
                             marginLeft: 'auto',
