@@ -9,13 +9,6 @@ import 'd3-selection-multi'
 import { withPrefix } from 'gatsby'
 import './Map.css'
 
-import { interpolatedValue } from '../utils/gridding'
-
-const getIndexForUuid = (uuid, data) => {
-    return data.map(d => d.uuid).indexOf(uuid)
-}
-const zoomScaleRadius = zoom => Math.pow(zoom, 4) / 500 //5000
-const zoomScaleText = zoom => Math.pow(zoom, 4) / 2000
 const parisCenterC = [48.8591, 2.349]
 const initialZoom = 12
 
@@ -180,6 +173,12 @@ class Map extends Component {
 }
 */
 
+/* TODO
+    - handle first height error
+    - check performance
+    - hover event
+*/
+
 const styles = {
     container: { height: '100vh', width: '100%', display: 'flex' },
     map: {
@@ -193,7 +192,9 @@ class Map extends Component {
         this.state = {
             map: null,
             stationsElements: null,
-            heatmapElements: null
+            heatmapElements: null,
+            zoom: null,
+            heatmapDataChanged: false
         }
         this.updatePositionOfElements = this.updatePositionOfElements.bind(this)
     }
@@ -225,7 +226,7 @@ class Map extends Component {
         const svg = d3.select('#map').select('svg')
         const g = svg.append('g')
 
-        let data = heatmap
+        let data = heatmap.data
         data = data.map(d => ({
             ...d,
             latlng: new L.LatLng(d.latitude, d.longitude)
@@ -267,7 +268,8 @@ class Map extends Component {
 
         this.setState({
             map,
-            stationsElements
+            stationsElements,
+            zoom: map.getZoom()
         })
     }
 
@@ -287,9 +289,6 @@ class Map extends Component {
             JSON.stringify(this.props.heatmap) !==
                 JSON.stringify(prevProps.heatmap)
         ) {
-            // RESET HEATMAP ELEMENTS
-            // STORE TO STATE.HEATMAPELEMENTS
-            console.log('should create heatmap elements')
             const heatmapElements = this.generateHeatmapElements(
                 this.props.heatmap
             )
@@ -302,12 +301,19 @@ class Map extends Component {
                     this.state.map.latLngToLayerPoint(d.latlng).y +
                     ')'
             )
-            this.setState({ heatmapElements })
+            this.setState({ heatmapElements, heatmapDataChanged: true })
         }
     }
 
     updatePositionOfElements() {
-        const { map, stationsElements, heatmapElements } = this.state
+        const {
+            map,
+            stationsElements,
+            heatmapElements,
+            zoom: lastZoom,
+            heatmapDataChanged
+        } = this.state
+
         if (stationsElements) {
             stationsElements.attr(
                 'transform',
@@ -319,7 +325,15 @@ class Map extends Component {
                     ')'
             )
         }
+
         if (heatmapElements) {
+            /*
+                Position: every time
+                Width & height: only if zoom changed
+                Color: only if data changed
+            */
+
+            // Positions
             heatmapElements.attr(
                 'transform',
                 d =>
@@ -330,30 +344,58 @@ class Map extends Component {
                     ')'
             )
 
-            // Assuming nb is a perfect square and nb > 4
-            const nb = heatmapElements.data().length // ex: 100, sqrt(100)=10
-            const rWidth = Math.abs(
-                map.latLngToLayerPoint(heatmapElements.data()[1].latlng).x -
-                    map.latLngToLayerPoint(heatmapElements.data()[0].latlng).x
-            )
-            const rHeight = Math.abs(
-                map.latLngToLayerPoint(
-                    heatmapElements.data()[Math.sqrt(nb)].latlng
-                ).y - map.latLngToLayerPoint(heatmapElements.data()[0].latlng).y
-            )
-            heatmapElements.attr('width', rWidth).attr('height', rHeight)
+            let rWidth = heatmapElements
+                .filter(function(d, i) {
+                    return i === 0
+                })
+                .attr('width')
+            let rHeight = heatmapElements
+                .filter(function(d, i) {
+                    return i === 0
+                })
+                .attr('height')
+            if (lastZoom !== map.getZoom() || (!rWidth || !rHeight)) {
+                // First case
+                if (!rWidth || !rHeight) {
+                    const { latStep, lonStep } = this.props.heatmap
+                    rWidth = Math.abs(
+                        map.latLngToLayerPoint(new L.LatLng(0, 0)).x -
+                            map.latLngToLayerPoint(new L.LatLng(0, lonStep)).x
+                    )
+                    rHeight = Math.abs(
+                        map.latLngToLayerPoint(new L.LatLng(0, 0)).y -
+                            map.latLngToLayerPoint(new L.LatLng(latStep, 0)).y
+                    )
+                }
+                if (map.getZoom() - lastZoom > 0) {
+                    rWidth = rWidth * 2
+                    rHeight = rHeight * 2
+                }
+                if (map.getZoom() - lastZoom < 0) {
+                    rWidth = rWidth / 2
+                    rHeight = rHeight / 2
+                }
+                heatmapElements.attr('width', rWidth).attr('height', rHeight)
+            }
 
-            var heatmapColour = d3
-                .scaleLinear()
-                .domain(d3.range(0, 1, 1.0 / (colours.length - 1)))
-                .range(colours)
-            var c = d3
-                .scaleLinear()
-                .domain(d3.extent(heatmapElements.data().map(d => d.duration)))
-                .range([0, 1])
-            heatmapElements.style('fill', d => heatmapColour(c(d.duration)))
-            heatmapElements.style('fill-opacity', 0.35)
+            // Color
+            if (heatmapDataChanged) {
+                var heatmapColour = d3
+                    .scaleLinear()
+                    .domain(d3.range(0, 1, 1.0 / (colours.length - 1)))
+                    .range(colours)
+                var c = d3
+                    .scaleLinear()
+                    .domain(
+                        d3.extent(heatmapElements.data().map(d => d.duration))
+                    )
+                    .range([0, 1])
+                heatmapElements.style('fill', d => heatmapColour(c(d.duration)))
+                heatmapElements.style('fill-opacity', 0.35)
+            }
         }
+
+        this.setState({ zoom: map.getZoom(), heatmapDataChanged: false })
     }
 
     render() {

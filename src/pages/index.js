@@ -41,18 +41,14 @@ export default class Index extends Component {
         )
             .then(res => res.json())
             .then(data => {
-                this.setState({ heatmap: data.data.heatmap })
+                this.setState({
+                    heatmap: {
+                        data: data.data.heatmap,
+                        latStep: data.data.latStep,
+                        lonStep: data.data.lonStep
+                    }
+                })
             })
-        /*
-        this.setState({
-            heatmap: [
-                { latitude: 48.85, longitude: 2.34 },
-                { latitude: 48.85, longitude: 2.35 },
-                { latitude: 48.84, longitude: 2.34 },
-                { latitude: 48.84, longitude: 2.35 }
-            ]
-        })
-        */
     }
 
     render() {
