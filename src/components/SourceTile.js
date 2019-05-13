@@ -1,8 +1,11 @@
 import React, { Component } from 'react'
-import './SearchTile.scss'
+import './SourceTile.scss'
 
-class SearchTile extends Component {
+// TODO : change source format in index.js ...
+
+class SourceTile extends Component {
     render() {
+        const { source } = this.props
         return (
             <div className="tile search-tile-c">
                 <div className="left-border-supporting" />
@@ -29,15 +32,15 @@ class SearchTile extends Component {
                     <svg
                         xmlns="http://www.w3.org/2000/svg"
                         viewBox="0 0 24 24"
-                        class="icon-location-pin"
+                        className="icon-location-pin"
                     >
                         <g>
                             <path
-                                class="i-secondary"
+                                className="i-secondary"
                                 d="M12 1v6a3 3 0 0 0 0 6v9.31a1 1 0 0 1-.7-.29l-5.66-5.66A9 9 0 0 1 12 1z"
                             />
                             <path
-                                class="i-secondary"
+                                className="i-secondary"
                                 d="M12 1a9 9 0 0 1 6.36 15.36l-5.65 5.66a1 1 0 0 1-.71.3V13a3 3 0 0 0 0-6V1z"
                             />
                         </g>
@@ -50,9 +53,7 @@ class SearchTile extends Component {
                         }}
                     >
                         <label>Départ</label>
-                        <span className="subtitle">
-                            Champs-Elysées - Clémenceau
-                        </span>
+                        <span className="subtitle">{source.name}</span>
                     </div>
                 </div>
             </div>
@@ -60,4 +61,4 @@ class SearchTile extends Component {
     }
 }
 
-export default SearchTile
+export default SourceTile

@@ -16,7 +16,6 @@ class StationPopup extends Component {
 
     render() {
         const { station, onClose, onSelectSource } = this.props
-
         return (
             <div className="station-popup-container">
                 <div className="popup-header">

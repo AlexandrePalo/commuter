@@ -8,12 +8,12 @@ export default class Index extends Component {
         super(props)
         this.state = {
             stations: [],
-            loading: false,
+            loading: true,
             heatmap: [],
             source: {
                 error: false,
-                value: '',
-                uuid: ''
+                value: 'Champ-Elysées - Clémenceau',
+                uuid: 'fed8eabb-da75-43bd-8d4a-16728c9c1128'
             }
         }
         this.setSource = this.setSource.bind(this)
@@ -63,7 +63,13 @@ export default class Index extends Component {
         if (!this.state.loading) {
             return (
                 <div>
-                    <TilesContainer />
+                    {this.state.source.uuid && (
+                        <TilesContainer
+                            source={this.state.stations.find(
+                                s => s.uuid === this.state.source.uuid
+                            )}
+                        />
+                    )}
                     <Map
                         stations={this.state.stations}
                         heatmap={this.state.heatmap}
