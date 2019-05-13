@@ -1,0 +1,47 @@
+.tile {
+    box-shadow: 0 4px 6px hsla(0, 0%, 0%, 0.1);
+    border-radius: 5px;
+    background-color: white;
+    width: 100%;
+    border: 2px solid #d0d8e0;
+    position: relative;
+}
+
+.search-tile-c {
+    display: flex;
+    flex-direction: row;
+}
+
+.left-border-supporting {
+    // No height gives 100% height here
+    width: 15px;
+    background-color: #016457;
+    border-radius: 5px 0 0 5px;
+    margin: -2px; // tile border width
+}
+
+.icon-location-pin {
+    width: 40px;
+    height: 40px;
+}
+
+svg.icon {
+    width: 30px;
+    height: 30px;
+}
+
+.i-secondary {
+    fill: #a5b3bb;
+}
+
+label {
+    color: #334e68;
+    font-size: 14px;
+    font-weight: lighter;
+}
+
+.subtitle {
+    color: #334e68;
+    font-size: 16px;
+    font-weight: normal;
+}

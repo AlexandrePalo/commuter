@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import Map from '../components/Map'
 import Form from '../components/Form'
+import TilesContainer from '../components/TilesContainer'
 
 export default class Index extends Component {
     constructor(props) {
@@ -62,6 +63,21 @@ export default class Index extends Component {
         if (!this.state.loading) {
             return (
                 <div>
+                    <TilesContainer />
+                    <Map
+                        stations={this.state.stations}
+                        heatmap={this.state.heatmap}
+                        source={this.state.source}
+                        setSource={this.setSourceRaw}
+                    />
+                </div>
+            )
+        }
+        return null
+    }
+}
+
+/*
                     <Form
                         style={{
                             position: 'absolute',
@@ -78,15 +94,4 @@ export default class Index extends Component {
                         setSource={this.setSource}
                         submit={this.handleSearchSubmit}
                     />
-                    <Map
-                        stations={this.state.stations}
-                        heatmap={this.state.heatmap}
-                        source={this.state.source}
-                        setSource={this.setSourceRaw}
-                    />
-                </div>
-            )
-        }
-        return null
-    }
-}
+*/
