@@ -8,7 +8,6 @@ import * as d3 from 'd3'
 import 'd3-selection-multi'
 import { withPrefix } from 'gatsby'
 import './Map.scss'
-import StationPopup from './StationPopup'
 
 const parisCenterC = [48.8591, 2.349]
 const initialZoom = 12
@@ -21,8 +20,7 @@ class Map extends Component {
             stationsElements: null,
             heatmapElements: null,
             zoom: null,
-            heatmapDataChanged: false,
-            selectedStation: null
+            heatmapDataChanged: false
         }
         this.updatePositionOfElements = this.updatePositionOfElements.bind(this)
         this.generateStationsElements = this.generateStationsElements.bind(this)
@@ -55,7 +53,7 @@ class Map extends Component {
         const that = this
         function handleStationClick(d) {
             that.state.map.setView(d.latlng)
-            that.setState({ selectedStation: d })
+            that.props.setSelectedStation(d)
         }
         stationsElements.on('click', handleStationClick)
 
@@ -258,19 +256,6 @@ class Map extends Component {
         return (
             <div style={styles.container}>
                 <div id="map" style={styles.map} />
-                {this.state.selectedStation && (
-                    <StationPopup
-                        station={this.state.selectedStation}
-                        onClose={() => {
-                            this.setState({
-                                selectedStation: null
-                            })
-                        }}
-                        onSelectSource={station => {
-                            this.props.setSource(station)
-                        }}
-                    />
-                )}
             </div>
         )
     }

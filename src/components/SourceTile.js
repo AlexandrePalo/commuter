@@ -32,7 +32,7 @@ class SourceTile extends Component {
                     <svg
                         xmlns="http://www.w3.org/2000/svg"
                         viewBox="0 0 24 24"
-                        className="icon-location-pin"
+                        className="icon h icon-location-pin"
                     >
                         <g>
                             <path

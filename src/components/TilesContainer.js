@@ -1,13 +1,20 @@
 import React, { Component } from 'react'
 import './TilesContainer.scss'
 import SourceTile from './SourceTile'
+import StationTile from './StationTile'
 
 class TilesContainer extends Component {
     render() {
-        const { source } = this.props
+        const { source, selectedStation, setSelectedStation } = this.props
         return (
             <div className="tiles-container">
-                <SourceTile source={source} />
+                {source && <SourceTile source={source} />}
+                {selectedStation && (
+                    <StationTile
+                        station={selectedStation}
+                        tileStyle={{ marginTop: 20 }}
+                    />
+                )}
             </div>
         )
     }

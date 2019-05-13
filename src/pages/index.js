@@ -14,10 +14,12 @@ export default class Index extends Component {
                 error: false,
                 value: 'Champ-Elysées - Clémenceau',
                 uuid: 'fed8eabb-da75-43bd-8d4a-16728c9c1128'
-            }
+            },
+            selectedStation: null
         }
         this.setSource = this.setSource.bind(this)
         this.setSourceRaw = this.setSourceRaw.bind(this)
+        this.setSelectedStation = this.setSelectedStation.bind(this)
         this.handleSearchSubmit = this.handleSearchSubmit.bind(this)
     }
 
@@ -38,6 +40,12 @@ export default class Index extends Component {
     setSourceRaw(station) {
         this.setState({
             source: { error: false, value: station.name, uuid: station.uuid }
+        })
+    }
+
+    setSelectedStation(station) {
+        this.setState({
+            selectedStation: station
         })
     }
 
@@ -63,18 +71,22 @@ export default class Index extends Component {
         if (!this.state.loading) {
             return (
                 <div>
-                    {this.state.source.uuid && (
-                        <TilesContainer
-                            source={this.state.stations.find(
-                                s => s.uuid === this.state.source.uuid
-                            )}
-                        />
-                    )}
+                    <TilesContainer
+                        source={
+                            this.state.source.uuid
+                                ? this.state.stations.find(
+                                      s => s.uuid === this.state.source.uuid
+                                  )
+                                : undefined
+                        }
+                        selectedStation={this.state.selectedStation}
+                    />
                     <Map
                         stations={this.state.stations}
                         heatmap={this.state.heatmap}
                         source={this.state.source}
                         setSource={this.setSourceRaw}
+                        setSelectedStation={this.setSelectedStation}
                     />
                 </div>
             )

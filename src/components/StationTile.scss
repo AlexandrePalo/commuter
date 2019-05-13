@@ -1,29 +1,19 @@
-hr {
-    margin: 20px 0px;
+.divider {
+    width: 25%;
+    height: 2px;
+    background-color: #d0d8e0;
+    border-radius: 3px;
+    align-self: center;
+    margin-top: 20px;
+    margin-bottom: 20px;
 }
 
-.station-popup-container {
-    position: absolute;
-    top: 200px;
-    left: 10px;
-    z-index: 2000;
-    box-shadow: 0 4px 6px hsla(0, 0%, 0%, 0.1);
-    border: 5px 5px 0 0;
-    background-color: white;
-    padding: 30px 40px;
-    min-width: 350px;
-}
-
-.popup-header {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    align-items: flex-start;
-}
-
-.lines-container {
-    display: flex;
-    flex-direction: row;
+button.primary {
+    background-color: #186faf;
+    border-radius: 5px;
+    color: white;
+    border: none;
+    padding: 5px;
 }
 
 %metro {
@@ -121,11 +111,6 @@ hr {
     @extend %metro;
     background-color: #62259d;
     color: white;
-}
-
-.buttons-container {
-    display: flex;
-    flex-direction: row;
 }
 
 button.secondary {
