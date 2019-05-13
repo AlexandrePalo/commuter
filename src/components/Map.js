@@ -1,4 +1,4 @@
-// http://a.tile.stamen.com/toner/${z}/${x}/${y}.png
+// http://{s}.tile.stamen.com/toner/{z}/{x}/{y}.png
 // http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png
 
 import React, { Component } from 'react'
@@ -7,184 +7,11 @@ import L from 'leaflet/dist/leaflet.js'
 import * as d3 from 'd3'
 import 'd3-selection-multi'
 import { withPrefix } from 'gatsby'
-import './Map.css'
+import './Map.scss'
+import StationPopup from './StationPopup'
 
 const parisCenterC = [48.8591, 2.349]
 const initialZoom = 12
-
-/*
-class Map extends Component {
-    constructor(props) {
-        super(props)
-        this.state = {
-            map: null,
-            stationsElements: null,
-            heatmapElements: null,
-            isMapLoading: true
-        }
-        this.updateStationsElements = this.updateStationsElements.bind(this)
-        this.updateHeatmapElements = this.updateHeatmapElements.bind(this)
-        this.generateHeatmap = this.generateHeatmap.bind(this)
-    }
-
-    updateHeatmapElements() {
-        const { map, heatmapElements } = this.state
-
-        // Position
-        // TODO : rectangle width and height to be updated
-        heatmapElements.attr(
-            'transform',
-            d =>
-                'translate(' +
-                map.latLngToLayerPoint(d.latlng).x +
-                ',' +
-                map.latLngToLayerPoint(d.latlng).y +
-                ')'
-        )
-    }
-
-    updateStationsElements() {
-        const { map, stationsElements } = this.state
-
-        // Position
-        stationsElements
-            .attr(
-                'transform',
-                d =>
-                    'translate(' +
-                    map.latLngToLayerPoint(d.latlng).x +
-                    ',' +
-                    map.latLngToLayerPoint(d.latlng).y +
-                    ')'
-            )
-            .attr('r', zoomScaleRadius(map.getZoom()))
-
-        // Specific stroke for source
-        stationsElements.style('stroke', d => {
-            if (d.uuid === this.props.source.uuid) {
-                return 'hsl(350, 95%, 40%)'
-            }
-            return '#03B5AA'
-        })
-    }
-
-    generateHeatmap() {
-        const svg = d3.select('#map').select('svg')
-        const g = svg.append('g')
-        let data = this.props.heatmap
-
-        // Build latlng
-        data = data.map(d => ({
-            ...d,
-            latlng: new L.LatLng(d.latitude, d.longitude)
-        }))
-
-        const heatmapElements = g
-            .selectAll('rect.station')
-            .data(data)
-            .enter()
-            .append('rect')
-            .style('fill', 'blue')
-            .style('z-index', 2000)
-            .style('height', 20)
-            .style('width', 20)
-
-        this.setState({ heatmapElements })
-    }
-
-    static getDerivedStateFromProps(nextProps, prevState) {
-        if (extProps.heatmap !== []) {
-            return { someState: nextProps.someValue }
-        } else return null
-    }
-
-    componentDidMount() {
-        const map = L.map('map').setView(parisCenterC, initialZoom)
-        L.tileLayer('https://tile.openstreetmap.bzh/eu/{z}/{x}/{y}.png', {
-            maxZoom: 18
-        }).addTo(map)
-        L.svg().addTo(map)
-
-        const svg = d3.select('#map').select('svg')
-
-        const g = svg.append('g')
-
-        let data = this.props.stations
-
-        // Build latlng
-        data = data.map(d => ({
-            ...d,
-            latlng: new L.LatLng(d.latitude, d.longitude)
-        }))
-
-        const stationsElements = g
-            .selectAll('circle.station')
-            .data(data)
-            .enter()
-            .append('circle')
-            .style('stroke', '#03B5AA')
-            .style('fill', '#03B5AA')
-            .style('stroke-width', (2 * zoomScaleRadius(initialZoom)) / 3)
-            .style('z-index', 2000)
-            .attr('r', zoomScaleRadius(initialZoom))
-
-        const that = this
-        function handleMouseOver(d) {
-            d3.select(this)
-                .transition()
-                .duration(250)
-                .style('stroke', 'hsl(350, 95%, 40%)')
-        }
-        function handleMouseOut(d) {
-            if (d.uuid !== that.props.source.uuid) {
-                d3.select(this)
-                    .transition()
-                    .duration(250)
-                    .style('stroke', '#03B5AA')
-            } else {
-                d3.select(this).style('stroke', 'hsl(350, 95%, 40%)')
-            }
-        }
-        function handleClick(d) {
-            that.props.setSource({ error: false, value: d.name, uuid: d.uuid })
-        }
-        stationsElements.on('mouseover', handleMouseOver)
-        stationsElements.on('mouseout', handleMouseOut)
-        stationsElements.on('click', handleClick)
-
-        map.on('load movestart zoom viewreset', () => {
-            this.updateStationsElements()
-        })
-
-        this.setState({ map, stationsElements, isMapLoading: false })
-    }
-
-    render() {
-        if (!this.state.isMapLoading) {
-            this.updateStationsElements()
-            this.generateHeatmap()
-        }
-        return (
-            <div style={styles.container}>
-                <div id="map" style={styles.map} />
-            </div>
-        )
-    }
-}
-*/
-
-/* TODO
-    - handle first height error
-    - check performance
-    - hover event
-*/
-
-const styles = {
-    container: { height: '100vh', width: '100%', display: 'flex' },
-    map: {
-        flex: 1
-    }
-}
 
 class Map extends Component {
     constructor(props) {
@@ -194,9 +21,11 @@ class Map extends Component {
             stationsElements: null,
             heatmapElements: null,
             zoom: null,
-            heatmapDataChanged: false
+            heatmapDataChanged: false,
+            selectedStation: null
         }
         this.updatePositionOfElements = this.updatePositionOfElements.bind(this)
+        this.generateStationsElements = this.generateStationsElements.bind(this)
     }
 
     generateStationsElements(stations) {
@@ -214,10 +43,21 @@ class Map extends Component {
             .data(data)
             .enter()
             .append('circle')
-            .style('stroke', '#03B5AA')
-            .style('fill', '#03B5AA')
-            .style('stroke-width', 2)
             .attr('r', 5)
+            .style('fill', 'blue')
+
+        // Pointer on mouseover
+        stationsElements.on('mouseover', function(d) {
+            d3.select(this).style('cursor', 'pointer')
+        })
+
+        // Popup on click
+        const that = this
+        function handleStationClick(d) {
+            that.state.map.setView(d.latlng)
+            that.setState({ selectedStation: d })
+        }
+        stationsElements.on('click', handleStationClick)
 
         return stationsElements
     }
@@ -244,16 +84,17 @@ class Map extends Component {
 
     componentDidMount() {
         const map = L.map('map').setView(parisCenterC, initialZoom)
-        L.tileLayer('http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+
+        L.tileLayer('http://{s}.tile.stamen.com/toner-lite/{z}/{x}/{y}.png', {
             maxZoom: 18
         }).addTo(map)
-        L.svg().addTo(map)
+        L.svg({ updateWhileAnimating: true }).addTo(map)
 
         const stationsElements = this.generateStationsElements(
             this.props.stations
         )
 
-        map.on('movestart zoom viewreset', () => {
+        map.on('move', () => {
             this.updatePositionOfElements()
         })
         stationsElements.attr(
@@ -311,7 +152,8 @@ class Map extends Component {
             stationsElements,
             heatmapElements,
             zoom: lastZoom,
-            heatmapDataChanged
+            heatmapDataChanged,
+            selectedStation
         } = this.state
 
         if (stationsElements) {
@@ -324,6 +166,20 @@ class Map extends Component {
                     map.latLngToLayerPoint(d.latlng).y +
                     ')'
             )
+
+            stationsElements
+                .style('fill', d => {
+                    if (d === selectedStation) {
+                        return 'red'
+                    }
+                    return 'blue'
+                })
+                .attr('r', d => {
+                    if (d === selectedStation) {
+                        return 10
+                    }
+                    return 5
+                })
         }
 
         if (heatmapElements) {
@@ -402,12 +258,37 @@ class Map extends Component {
         return (
             <div style={styles.container}>
                 <div id="map" style={styles.map} />
+                {this.state.selectedStation && (
+                    <StationPopup
+                        station={this.state.selectedStation}
+                        onClose={() => {
+                            this.setState({
+                                selectedStation: null
+                            })
+                        }}
+                        onSelectSource={station => {
+                            this.props.setSource(station)
+                        }}
+                    />
+                )}
             </div>
         )
     }
 }
 
 export default Map
+
+const styles = {
+    container: {
+        height: '100vh',
+        width: '100%',
+        display: 'flex',
+        position: 'relative'
+    },
+    map: {
+        flex: 1
+    }
+}
 
 var colours = [
     '#6363FF',

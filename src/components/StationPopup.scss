@@ -1,0 +1,142 @@
+hr {
+    margin: 20px 0px;
+}
+
+.station-popup-container {
+    position: absolute;
+    top: 200px;
+    left: 10px;
+    z-index: 2000;
+    box-shadow: 0 4px 6px hsla(0, 0%, 0%, 0.1);
+    border: 5px 5px 0 0;
+    background-color: white;
+    padding: 30px 40px;
+    min-width: 350px;
+}
+
+.popup-header {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: flex-start;
+}
+
+.lines-container {
+    display: flex;
+    flex-direction: row;
+}
+
+%metro {
+    border-radius: 50%;
+    width: 30px;
+    height: 30px;
+    font-weight: bold;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-right: 5px;
+}
+
+.M1 {
+    @extend %metro;
+    background-color: #ffcd00;
+    color: black;
+}
+
+.M2 {
+    @extend %metro;
+    background-color: #003ca6;
+    color: white;
+}
+
+.M3 {
+    @extend %metro;
+    background-color: #837902;
+    color: white;
+}
+
+.M4 {
+    @extend %metro;
+    background-color: #cf009e;
+    color: white;
+}
+
+.M5 {
+    @extend %metro;
+    background-color: #ff7e2e;
+    color: black;
+}
+
+.M6,
+.M7BIS {
+    @extend %metro;
+    background-color: #6eca97;
+    color: black;
+}
+
+.M7 {
+    @extend %metro;
+    background-color: #fa9aba;
+    color: black;
+}
+
+.M8 {
+    @extend %metro;
+    background-color: #e19bdf;
+    color: black;
+}
+
+.M9 {
+    @extend %metro;
+    background-color: #b6bd00;
+    color: black;
+}
+
+.M10 {
+    @extend %metro;
+    background-color: #c9910d;
+    color: black;
+}
+
+.M11 {
+    @extend %metro;
+    background-color: #704b1c;
+    color: white;
+}
+
+.M12 {
+    @extend %metro;
+    background-color: #007852;
+    color: white;
+}
+
+.M13,
+.M3BIS {
+    @extend %metro;
+    background-color: #6ec4e8;
+    color: black;
+}
+
+.M14 {
+    @extend %metro;
+    background-color: #62259d;
+    color: white;
+}
+
+.buttons-container {
+    display: flex;
+    flex-direction: row;
+}
+
+button.secondary {
+    padding: 5px 10px;
+    background-color: white;
+    border-radius: 5px;
+    border: 2px solid black;
+    cursor: pointer;
+}
+
+svg.icon {
+    width: 30px;
+    height: 30px;
+}

@@ -1,13 +1,14 @@
 module.exports = {
     siteMetadata: {
-        title: 'Commuter',
+        title: 'Commuter'
     },
     plugins: [
-    {
-      resolve: `gatsby-plugin-typography`,
-      options: {
-        pathToConfigModule: `src/utils/typography`,
-      }
-    }
-    ],
-    }
+        {
+            resolve: `gatsby-plugin-typography`,
+            options: {
+                pathToConfigModule: `src/utils/typography`
+            }
+        },
+        `gatsby-plugin-sass`
+    ]
+}
