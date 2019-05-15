@@ -12,12 +12,53 @@
     flex-direction: row;
 }
 
+.left-border-supporting.loading {
+    background: linear-gradient(90deg, #fcefc7, #e9b949);
+    background-size: 400% 400%;
+    -webkit-animation: Animation2 1.5s linear 1s infinite alternate;
+    -moz-animation: Animation2 1.5s linear 1s infinite alternate;
+    animation: Animation2 1.5s linear 1s infinite alternate;
+
+    @-webkit-keyframes Animation2 {
+        0% {
+            background-position: 0% 0%;
+        }
+        50% {
+            background-position: 50% 0%;
+        }
+        100% {
+            background-position: 100% 0%;
+        }
+    }
+    @-moz-keyframes Animation2 {
+        0% {
+            background-position: 0% 0%;
+        }
+        50% {
+            background-position: 50% 0%;
+        }
+        100% {
+            background-position: 100% 0%;
+        }
+    }
+    @keyframes Animation2 {
+        0% {
+            background-position: 0% 0%;
+        }
+        50% {
+            background-position: 50% 0%;
+        }
+        100% {
+            background-position: 100% 0%;
+        }
+    }
+}
 .left-border-supporting {
     // No height gives 100% height here
     width: 15px;
-    background-color: #016457;
     border-radius: 5px 0 0 5px;
-    margin: -2px; // tile border width
+    margin: -1px; // tile border width
+    background-color: #016457;
 }
 
 svg.icon {
@@ -56,6 +97,6 @@ label,
 
 .subtitle {
     color: #334e68;
-    font-size: 16px;
+    font-size: 18px;
     font-weight: normal;
 }

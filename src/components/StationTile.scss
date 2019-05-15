@@ -31,8 +31,10 @@ button.primary {
 .tooltipped .tooltiptext {
     background-color: inherit;
     color: inherit;
+    font-size: 14px;
+    font-weight: initial;
     visibility: hidden;
-    min-width: 120px;
+    min-width: 100px;
     text-align: center;
     border-radius: 3px;
     padding: 5px 0;
@@ -142,4 +144,66 @@ button.secondary {
     border-radius: 5px;
     border: 2px solid black;
     cursor: pointer;
+}
+
+/* SKELETON */
+.skeleton-title {
+    background: linear-gradient(90deg, #d9e2ec, #bcccdc);
+    height: 19px;
+    border-radius: 3px;
+}
+
+.skeleton-subtitle {
+    background: linear-gradient(90deg, #f0f4f8, #d9e2ec);
+    height: 15px;
+    border-radius: 3px;
+}
+
+.skeleton-circle {
+    background: linear-gradient(90deg, #f0f4f8, #d9e2ec);
+    height: 15px;
+    width: 15px;
+    border-radius: 50%;
+}
+
+.skeleton {
+    background-size: 400% 400%;
+
+    -webkit-animation: Animation 1.5s linear 1s infinite alternate;
+    -moz-animation: Animation 1.5s linear 1s infinite alternate;
+    animation: Animation 1.5s linear 1s infinite alternate;
+
+    @-webkit-keyframes Animation {
+        0% {
+            background-position: 0% 0%;
+        }
+        50% {
+            background-position: 50% 0%;
+        }
+        100% {
+            background-position: 100% 0%;
+        }
+    }
+    @-moz-keyframes Animation {
+        0% {
+            background-position: 0% 0%;
+        }
+        50% {
+            background-position: 50% 0%;
+        }
+        100% {
+            background-position: 100% 0%;
+        }
+    }
+    @keyframes Animation {
+        0% {
+            background-position: 0% 0%;
+        }
+        50% {
+            background-position: 50% 0%;
+        }
+        100% {
+            background-position: 100% 0%;
+        }
+    }
 }

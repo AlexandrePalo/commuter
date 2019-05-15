@@ -63,6 +63,7 @@ export default class Index extends Component {
                 <div>
                     <TilesContainer
                         source={this.state.source}
+                        setSource={this.setSource}
                         selectedStation={this.state.selectedStation}
                         setSelectedStation={this.setSelectedStation}
                     />

@@ -1,4 +1,4 @@
-import React, { Component } from 'react'
+import React, { Component, Fragment } from 'react'
 import './StationTile.scss'
 import { humanizeLatLngDDToDMS_NW } from '../utils/geographical'
 
@@ -16,7 +16,7 @@ class StationTile extends Component {
     }
 
     render() {
-        const { station, tileStyle, close } = this.props
+        const { station, setSource, tileStyle, close, pathLoading } = this.props
         return (
             <div className="tile" style={{ ...tileStyle }}>
                 <div style={{ position: 'absolute', right: 0, top: 0 }}>
@@ -118,8 +118,69 @@ class StationTile extends Component {
                             {humanizeLatLngDDToDMS_NW(station.latlng)}
                         </span>
                     </div>
+
+                    {pathLoading && (
+                        <Fragment>
+                            <div className="divider" />
+                            <div
+                                style={{
+                                    display: 'flex',
+                                    flexDirection: 'column'
+                                }}
+                            >
+                                <div
+                                    style={{ width: '65%' }}
+                                    className="skeleton skeleton-title"
+                                />
+                                <div
+                                    style={{ width: '50%', marginTop: 20 }}
+                                    className="skeleton skeleton-subtitle"
+                                />
+                                <div
+                                    style={{
+                                        display: 'flex',
+                                        flexDirection: 'row',
+                                        marginTop: 10
+                                    }}
+                                >
+                                    <div
+                                        style={{
+                                            marginRight: 10
+                                        }}
+                                        className="skeleton skeleton-circle"
+                                    />
+                                    <div
+                                        style={{
+                                            width: '10%',
+                                            marginRight: 10
+                                        }}
+                                        className="skeleton skeleton-subtitle"
+                                    />
+                                    <div
+                                        style={{
+                                            marginRight: 10
+                                        }}
+                                        className="skeleton skeleton-circle"
+                                    />
+                                    <div
+                                        style={{ width: '50%' }}
+                                        className="skeleton skeleton-subtitle"
+                                    />
+                                </div>
+                                <div
+                                    style={{ width: '90%', marginTop: 10 }}
+                                    className="skeleton skeleton-subtitle"
+                                />
+                            </div>
+                        </Fragment>
+                    )}
                     <div className="divider" />
-                    <button className="primary">PARTIR D'ICI</button>
+                    <button
+                        className="primary"
+                        onClick={() => setSource(station)}
+                    >
+                        PARTIR D'ICI
+                    </button>
                 </div>
             </div>
         )
