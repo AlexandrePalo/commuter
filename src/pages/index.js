@@ -10,15 +10,11 @@ export default class Index extends Component {
             stations: [],
             loading: true,
             heatmap: [],
-            source: {
-                error: false,
-                value: 'Champ-Elysées - Clémenceau',
-                uuid: 'fed8eabb-da75-43bd-8d4a-16728c9c1128'
-            },
+            source: null,
+            //fed8eabb-da75-43bd-8d4a-16728c9c1128
             selectedStation: null
         }
         this.setSource = this.setSource.bind(this)
-        this.setSourceRaw = this.setSourceRaw.bind(this)
         this.setSelectedStation = this.setSelectedStation.bind(this)
         this.handleSearchSubmit = this.handleSearchSubmit.bind(this)
     }
@@ -35,12 +31,6 @@ export default class Index extends Component {
 
     setSource(source) {
         this.setState({ source })
-    }
-
-    setSourceRaw(station) {
-        this.setState({
-            source: { error: false, value: station.name, uuid: station.uuid }
-        })
     }
 
     setSelectedStation(station) {
@@ -72,20 +62,14 @@ export default class Index extends Component {
             return (
                 <div>
                     <TilesContainer
-                        source={
-                            this.state.source.uuid
-                                ? this.state.stations.find(
-                                      s => s.uuid === this.state.source.uuid
-                                  )
-                                : undefined
-                        }
+                        source={this.state.source}
                         selectedStation={this.state.selectedStation}
+                        setSelectedStation={this.setSelectedStation}
                     />
                     <Map
                         stations={this.state.stations}
                         heatmap={this.state.heatmap}
                         source={this.state.source}
-                        setSource={this.setSourceRaw}
                         setSelectedStation={this.setSelectedStation}
                     />
                 </div>

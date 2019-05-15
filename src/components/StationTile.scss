@@ -16,7 +16,7 @@ button.primary {
     padding: 5px;
 }
 
-%metro {
+.metro {
     border-radius: 50%;
     width: 30px;
     height: 30px;
@@ -25,90 +25,113 @@ button.primary {
     justify-content: center;
     align-items: center;
     margin-right: 5px;
+    position: relative;
+}
+
+.tooltipped .tooltiptext {
+    background-color: inherit;
+    color: inherit;
+    visibility: hidden;
+    min-width: 120px;
+    text-align: center;
+    border-radius: 3px;
+    padding: 5px 0;
+    position: absolute;
+    z-index: 1;
+    bottom: 130%;
+    left: 50%;
+    margin-left: -18px;
+    opacity: 0;
+    transition: opacity 0.3s;
+}
+
+.triangle {
+    display: block;
+    height: 10px;
+    width: 10px;
+    background-color: inherit;
+    border: inherit;
+    position: absolute;
+    bottom: -4px;
+    left: 14px;
+    clip-path: polygon(0% 0%, 100% 100%, 0% 100%);
+    transform: rotate(-45deg);
+    border-radius: 3px;
+}
+
+.tooltipped:hover .tooltiptext {
+    visibility: visible;
+    opacity: 1;
 }
 
 .M1 {
-    @extend %metro;
     background-color: #ffcd00;
     color: black;
 }
 
 .M2 {
-    @extend %metro;
     background-color: #003ca6;
     color: white;
 }
 
 .M3 {
-    @extend %metro;
     background-color: #837902;
     color: white;
 }
 
 .M4 {
-    @extend %metro;
     background-color: #cf009e;
     color: white;
 }
 
 .M5 {
-    @extend %metro;
     background-color: #ff7e2e;
     color: black;
 }
 
 .M6,
 .M7BIS {
-    @extend %metro;
     background-color: #6eca97;
     color: black;
 }
 
 .M7 {
-    @extend %metro;
     background-color: #fa9aba;
     color: black;
 }
 
 .M8 {
-    @extend %metro;
     background-color: #e19bdf;
     color: black;
 }
 
 .M9 {
-    @extend %metro;
     background-color: #b6bd00;
     color: black;
 }
 
 .M10 {
-    @extend %metro;
     background-color: #c9910d;
     color: black;
 }
 
 .M11 {
-    @extend %metro;
     background-color: #704b1c;
     color: white;
 }
 
 .M12 {
-    @extend %metro;
     background-color: #007852;
     color: white;
 }
 
 .M13,
 .M3BIS {
-    @extend %metro;
     background-color: #6ec4e8;
     color: black;
 }
 
 .M14 {
-    @extend %metro;
     background-color: #62259d;
     color: white;
 }

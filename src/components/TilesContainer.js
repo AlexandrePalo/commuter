@@ -13,6 +13,7 @@ class TilesContainer extends Component {
                     <StationTile
                         station={selectedStation}
                         tileStyle={{ marginTop: 20 }}
+                        close={() => setSelectedStation(null)}
                     />
                 )}
             </div>
