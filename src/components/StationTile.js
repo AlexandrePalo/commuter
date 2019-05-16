@@ -15,8 +15,185 @@ class StationTile extends Component {
         }
     }
 
+    renderPath(loading, path) {
+        if (loading) {
+            return (
+                <Fragment>
+                    <div className="divider" />
+                    <div
+                        style={{
+                            display: 'flex',
+                            flexDirection: 'column'
+                        }}
+                    >
+                        <div
+                            style={{ width: '65%' }}
+                            className="skeleton skeleton-title"
+                        />
+                        <div
+                            style={{ width: '50%', marginTop: 20 }}
+                            className="skeleton skeleton-subtitle"
+                        />
+                        <div
+                            style={{
+                                display: 'flex',
+                                flexDirection: 'row',
+                                marginTop: 10
+                            }}
+                        >
+                            <div
+                                style={{
+                                    marginRight: 10
+                                }}
+                                className="skeleton skeleton-circle"
+                            />
+                            <div
+                                style={{
+                                    width: '10%',
+                                    marginRight: 10
+                                }}
+                                className="skeleton skeleton-subtitle"
+                            />
+                            <div
+                                style={{
+                                    marginRight: 10
+                                }}
+                                className="skeleton skeleton-circle"
+                            />
+                            <div
+                                style={{ width: '50%' }}
+                                className="skeleton skeleton-subtitle"
+                            />
+                        </div>
+                        <div
+                            style={{ width: '90%', marginTop: 10 }}
+                            className="skeleton skeleton-subtitle"
+                        />
+                    </div>
+                </Fragment>
+            )
+        }
+
+        const changeLine = p => {
+            return (
+                <Fragment>
+                    <div className={'metro-sm tooltipped ' + p.from.stop_line}>
+                        {this.displayLine(p.from.stop_line)}
+                        <span className="tooltiptext">
+                            Métro ligne {this.displayLine(p.from.stop_line)}
+                            <span className="triangle" />
+                        </span>
+                    </div>
+                    <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        viewBox="0 0 24 24"
+                        className="icon icon-arrow-thin-right-circle"
+                    >
+                        <path
+                            className="i-primary"
+                            d="M14.59 13H7a1 1 0 0 1 0-2h7.59l-2.3-2.3a1 1 0 1 1 1.42-1.4l4 4a1 1 0 0 1 0 1.4l-4 4a1 1 0 0 1-1.42-1.4l2.3-2.3z"
+                        />
+                    </svg>
+                    <div className={'metro-sm tooltipped ' + p.to.stop_line}>
+                        {this.displayLine(p.to.stop_line)}
+                        <span className="tooltiptext">
+                            Métro ligne {this.displayLine(p.to.stop_line)}
+                            <span className="triangle" />
+                        </span>
+                    </div>
+                    <span className="secondary-text">, changement à </span>
+                    <span className="primary-text" style={{ marginLeft: 5 }}>
+                        {p.from.station.name}
+                    </span>
+                </Fragment>
+            )
+        }
+        const transportLine = p => {
+            return (
+                <Fragment>
+                    <span
+                        className="primary-text"
+                        style={{
+                            display: 'flex',
+                            flexDirection: 'row',
+                            alignItems: 'center'
+                        }}
+                    >
+                        {p.from.station.name}
+                        <svg
+                            xmlns="http://www.w3.org/2000/svg"
+                            viewBox="0 0 24 24"
+                            className="icon icon-arrow-thin-right-circle"
+                        >
+                            <path
+                                className="i-primary"
+                                d="M14.59 13H7a1 1 0 0 1 0-2h7.59l-2.3-2.3a1 1 0 1 1 1.42-1.4l4 4a1 1 0 0 1 0 1.4l-4 4a1 1 0 0 1-1.42-1.4l2.3-2.3z"
+                            />
+                        </svg>
+                        {p.to.station.name}
+                    </span>
+                    <span className="secondary-text">
+                        , {p.nbStops} station
+                        {p.nbStops > 1 ? 's' : ''} avec{' '}
+                    </span>
+                    <div
+                        className={'metro-sm tooltipped ' + p.by}
+                        style={{ marginLeft: 5 }}
+                    >
+                        {this.displayLine(p.by)}
+                        <span className="tooltiptext">
+                            Métro ligne {this.displayLine(p.by)}
+                            <span className="triangle" />
+                        </span>
+                    </div>
+                </Fragment>
+            )
+        }
+
+        if (path) {
+            return (
+                <Fragment>
+                    <div className="divider" />
+                    <span className="subtitle">
+                        Environ{' '}
+                        {path
+                            .reduce((sum, p) => sum + p.duration, 0)
+                            .toFixed(0)}{' '}
+                        min de trajet jusqu'à cette station
+                    </span>
+                    <ul style={{ marginBottom: -10, marginTop: 10 }}>
+                        {path.map((p, i) => {
+                            return (
+                                <li key={i}>
+                                    <div
+                                        style={{
+                                            display: 'flex',
+                                            flexDirection: 'row',
+                                            alignItems: 'center'
+                                        }}
+                                    >
+                                        {p.by === 'WALK'
+                                            ? changeLine(p)
+                                            : transportLine(p)}
+                                    </div>
+                                </li>
+                            )
+                        })}
+                    </ul>
+                </Fragment>
+            )
+        }
+    }
+
     render() {
-        const { station, setSource, tileStyle, close, pathLoading } = this.props
+        const {
+            station,
+            setSource,
+            tileStyle,
+            close,
+            path,
+            pathLoading
+        } = this.props
         return (
             <div className="tile" style={{ ...tileStyle }}>
                 <div style={{ position: 'absolute', right: 0, top: 0 }}>
@@ -118,62 +295,7 @@ class StationTile extends Component {
                             {humanizeLatLngDDToDMS_NW(station.latlng)}
                         </span>
                     </div>
-
-                    {pathLoading && (
-                        <Fragment>
-                            <div className="divider" />
-                            <div
-                                style={{
-                                    display: 'flex',
-                                    flexDirection: 'column'
-                                }}
-                            >
-                                <div
-                                    style={{ width: '65%' }}
-                                    className="skeleton skeleton-title"
-                                />
-                                <div
-                                    style={{ width: '50%', marginTop: 20 }}
-                                    className="skeleton skeleton-subtitle"
-                                />
-                                <div
-                                    style={{
-                                        display: 'flex',
-                                        flexDirection: 'row',
-                                        marginTop: 10
-                                    }}
-                                >
-                                    <div
-                                        style={{
-                                            marginRight: 10
-                                        }}
-                                        className="skeleton skeleton-circle"
-                                    />
-                                    <div
-                                        style={{
-                                            width: '10%',
-                                            marginRight: 10
-                                        }}
-                                        className="skeleton skeleton-subtitle"
-                                    />
-                                    <div
-                                        style={{
-                                            marginRight: 10
-                                        }}
-                                        className="skeleton skeleton-circle"
-                                    />
-                                    <div
-                                        style={{ width: '50%' }}
-                                        className="skeleton skeleton-subtitle"
-                                    />
-                                </div>
-                                <div
-                                    style={{ width: '90%', marginTop: 10 }}
-                                    className="skeleton skeleton-subtitle"
-                                />
-                            </div>
-                        </Fragment>
-                    )}
+                    {this.renderPath(pathLoading, path)}
                     <div className="divider" />
                     <button
                         className="primary"

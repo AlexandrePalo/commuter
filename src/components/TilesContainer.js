@@ -9,22 +9,31 @@ class TilesContainer extends Component {
             source,
             setSource,
             selectedStation,
-            setSelectedStation
+            selectedPath,
+            loadingSelectedPath,
+            setSelectedStation,
+            loadingHeatmap
         } = this.props
         return (
             <div className="tiles-container">
                 {source && (
-                    <SourceTile source={source} close={() => setSource(null)} />
+                    <SourceTile
+                        source={source}
+                        close={() => setSource(null)}
+                        loading={loadingHeatmap}
+                        tileStyle={{ marginBottom: 20 }}
+                    />
                 )}
                 {selectedStation && (
                     <StationTile
                         station={selectedStation}
-                        tileStyle={{ marginTop: 20 }}
                         close={() => setSelectedStation(null)}
                         setSource={source => {
                             setSelectedStation(null)
                             setSource(source)
                         }}
+                        path={selectedPath}
+                        pathLoading={loadingSelectedPath}
                     />
                 )}
             </div>

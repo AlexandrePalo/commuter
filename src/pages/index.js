@@ -1,6 +1,5 @@
 import React, { Component } from 'react'
 import Map from '../components/Map'
-import Form from '../components/Form'
 import TilesContainer from '../components/TilesContainer'
 
 export default class Index extends Component {
@@ -8,24 +7,32 @@ export default class Index extends Component {
         super(props)
         this.state = {
             stations: [],
-            loading: true,
-            heatmap: [],
+            loadingStations: true,
             source: null,
-            //fed8eabb-da75-43bd-8d4a-16728c9c1128
-            selectedStation: null
+            heatmap: [],
+            loadingHeatmap: false,
+            selectedStation: null,
+            selectedPath: null,
+            loadingSelectedPath: false
         }
         this.setSource = this.setSource.bind(this)
         this.setSelectedStation = this.setSelectedStation.bind(this)
-        this.handleSearchSubmit = this.handleSearchSubmit.bind(this)
+        this.handleHeatmapGeneration = this.handleHeatmapGeneration.bind(this)
+        this.handleSelectedPathGeneration = this.handleSelectedPathGeneration.bind(
+            this
+        )
     }
 
     componentDidMount() {
         // Get stations name for autocomplete
-        this.setState({ loading: true })
+        this.setState({ loadingStations: true })
         fetch('http://localhost:5000/stations/')
             .then(res => res.json())
             .then(data => {
-                this.setState({ loading: false, stations: data.data.stations })
+                this.setState({
+                    loadingStations: false,
+                    stations: data.data.stations
+                })
             })
     }
 
@@ -39,7 +46,8 @@ export default class Index extends Component {
         })
     }
 
-    handleSearchSubmit() {
+    handleHeatmapGeneration() {
+        this.setState({ loadingHeatmap: true })
         fetch(
             'http://localhost:5000/heatmap/interpolated/' +
                 this.state.source.uuid +
@@ -52,13 +60,114 @@ export default class Index extends Component {
                         data: data.data.heatmap,
                         latStep: data.data.latStep,
                         lonStep: data.data.lonStep
-                    }
+                    },
+                    loadingHeatmap: false
                 })
             })
     }
 
+    pathReducer(path, stations) {
+        const pathReduced = []
+
+        path.forEach(p => {
+            if (pathReduced.length > 0) {
+                if (pathReduced[pathReduced.length - 1].by === p.by) {
+                    pathReduced[pathReduced.length - 1] = {
+                        ...pathReduced[pathReduced.length - 1],
+                        duration:
+                            pathReduced[pathReduced.length - 1].duration +
+                            p.duration,
+                        to: {
+                            ...p.to,
+                            station: stations.find(s => s.uuid === p.to.station)
+                        },
+                        nbStops: pathReduced[pathReduced.length - 1].nbStops + 1
+                    }
+                } else {
+                    pathReduced.push({
+                        ...p,
+                        from: {
+                            ...p.from,
+                            station: stations.find(
+                                s => s.uuid === p.from.station
+                            )
+                        },
+                        to: {
+                            ...p.to,
+                            station: stations.find(s => s.uuid === p.to.station)
+                        },
+                        nbStops: 1
+                    })
+                }
+            } else {
+                pathReduced.push({
+                    ...p,
+                    from: {
+                        ...p.from,
+                        station: stations.find(s => s.uuid === p.from.station)
+                    },
+                    to: {
+                        ...p.to,
+                        station: stations.find(s => s.uuid === p.to.station)
+                    },
+                    nbStops: 1
+                })
+            }
+        })
+
+        return pathReduced
+    }
+
+    handleSelectedPathGeneration() {
+        this.setState({ loadingSelectedPath: true })
+
+        // Force 1 s loading
+        new Promise(resolve => {
+            setTimeout(() => {
+                resolve()
+            }, 1000)
+        }).then(() => {
+            fetch(
+                'http://localhost:5000/path/' +
+                    this.state.source.uuid +
+                    '/' +
+                    this.state.selectedStation.uuid +
+                    '/'
+            )
+                .then(res => res.json())
+                .then(data => {
+                    this.setState({
+                        selectedPath: this.pathReducer(
+                            data.data.path,
+                            this.state.stations
+                        ),
+                        loadingSelectedPath: false
+                    })
+                })
+        })
+    }
+
+    componentDidUpdate(prevProps, prevState) {
+        if (prevState.source !== this.state.source) {
+            if (this.state.source) {
+                this.handleHeatmapGeneration()
+            }
+        }
+
+        if (prevState.selectedStation !== this.state.selectedStation) {
+            if (
+                this.state.source &&
+                this.state.heatmap !== [] &&
+                !this.state.loadingHeatmap &&
+                this.state.selectedStation
+            ) {
+                this.handleSelectedPathGeneration()
+            }
+        }
+    }
+
     render() {
-        if (!this.state.loading) {
+        if (!this.state.loadingStations) {
             return (
                 <div>
                     <TilesContainer
@@ -66,6 +175,9 @@ export default class Index extends Component {
                         setSource={this.setSource}
                         selectedStation={this.state.selectedStation}
                         setSelectedStation={this.setSelectedStation}
+                        loadingHeatmap={this.state.loadingHeatmap}
+                        selectedPath={this.state.selectedPath}
+                        loadingSelectedPath={this.state.loadingSelectedPath}
                     />
                     <Map
                         stations={this.state.stations}
@@ -79,22 +191,3 @@ export default class Index extends Component {
         return null
     }
 }
-
-/*
-                    <Form
-                        style={{
-                            position: 'absolute',
-                            top: 50,
-                            width: '100%',
-                            marginRight: 'auto',
-                            marginLeft: 'auto',
-                            left: 0,
-                            right: 0,
-                            zIndex: 500
-                        }}
-                        stations={this.state.stations}
-                        source={this.state.source}
-                        setSource={this.setSource}
-                        submit={this.handleSearchSubmit}
-                    />
-*/

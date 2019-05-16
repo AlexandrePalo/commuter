@@ -1,3 +1,12 @@
 svg {
     pointer-events: all !important;
 }
+
+.leaflet-top {
+    top: initial;
+    bottom: 15px;
+}
+.leaflet-left {
+    left: initial;
+    right: 0;
+}

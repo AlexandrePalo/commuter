@@ -27,6 +27,12 @@ button.primary {
     margin-right: 5px;
     position: relative;
 }
+.metro-sm {
+    @extend .metro;
+    width: 24px;
+    height: 24px;
+    font-size: 12px;
+}
 
 .tooltipped .tooltiptext {
     background-color: inherit;
@@ -189,9 +195,9 @@ button.secondary {
 .skeleton {
     background-size: 400% 400%;
 
-    -webkit-animation: Animation 1.5s linear 1s infinite alternate;
-    -moz-animation: Animation 1.5s linear 1s infinite alternate;
-    animation: Animation 1.5s linear 1s infinite alternate;
+    -webkit-animation: Animation 1s linear 1s infinite alternate;
+    -moz-animation: Animation 1s linear 1s infinite alternate;
+    animation: Animation 1s linear 1s infinite alternate;
 
     @-webkit-keyframes Animation {
         0% {

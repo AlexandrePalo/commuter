@@ -5,9 +5,9 @@ import './SourceTile.scss'
 
 class SourceTile extends Component {
     render() {
-        const { source, loading, close } = this.props
+        const { source, loading, close, tileStyle } = this.props
         return (
-            <div className="tile search-tile-c">
+            <div className="tile search-tile-c" style={{ ...tileStyle }}>
                 <div
                     className={
                         'left-border-supporting' + (loading ? ' loading' : '')

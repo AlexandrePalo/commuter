@@ -6,7 +6,6 @@ import 'leaflet/dist/leaflet.css'
 import L from 'leaflet/dist/leaflet.js'
 import * as d3 from 'd3'
 import 'd3-selection-multi'
-import { withPrefix } from 'gatsby'
 import './Map.scss'
 
 const parisCenterC = [48.8591, 2.349]
@@ -28,7 +27,7 @@ class Map extends Component {
 
     generateStationsElements(stations) {
         const svg = d3.select('#map').select('svg')
-        const g = svg.append('g')
+        const g = svg.append('g').attr('id', 'stations')
 
         let data = stations
         data = data.map(d => ({
@@ -61,7 +60,13 @@ class Map extends Component {
         // Popup on click
         const that = this
         function handleStationClick(d) {
-            that.state.map.setView(d.latlng)
+            const targetOffsetted = that.state.map.unproject(
+                that.state.map
+                    .project(d.latlng, that.state.map.getZoom())
+                    .subtract([200, 0]),
+                that.state.map.getZoom()
+            )
+            that.state.map.setView(targetOffsetted)
             that.props.setSelectedStation(d)
         }
         stationsElements.on('click', handleStationClick)
@@ -71,7 +76,14 @@ class Map extends Component {
 
     generateHeatmapElements(heatmap) {
         const svg = d3.select('#map').select('svg')
-        const g = svg.append('g')
+
+        // Remove old heatmap elements
+        svg.select('#heatmap').remove()
+
+        const g = svg
+            .append('g')
+            .lower()
+            .attr('id', 'heatmap') // lower to be under stations
 
         let data = heatmap.data
         data = data.map(d => ({
@@ -123,16 +135,6 @@ class Map extends Component {
 
     componentDidUpdate(prevProps, prevState) {
         if (
-            this.props.stations &&
-            JSON.stringify(this.props.stations) !==
-                JSON.stringify(prevProps.stations)
-        ) {
-            // RESET STATIONS ELEMENTS
-            // STORE TO STATE.STATIONSELEMENTS
-            console.log('should create stations elements')
-        }
-
-        if (
             this.props.heatmap &&
             JSON.stringify(this.props.heatmap) !==
                 JSON.stringify(prevProps.heatmap)
@@ -140,6 +142,7 @@ class Map extends Component {
             const heatmapElements = this.generateHeatmapElements(
                 this.props.heatmap
             )
+            // Positions
             heatmapElements.attr(
                 'transform',
                 d =>
@@ -149,7 +152,35 @@ class Map extends Component {
                     this.state.map.latLngToLayerPoint(d.latlng).y +
                     ')'
             )
-            this.setState({ heatmapElements, heatmapDataChanged: true })
+            // Width & height
+            const { latStep, lonStep } = this.props.heatmap
+            const rWidth = Math.abs(
+                this.state.map.latLngToLayerPoint(new L.LatLng(0, 0)).x -
+                    this.state.map.latLngToLayerPoint(new L.LatLng(0, lonStep))
+                        .x
+            )
+            const rHeight =
+                Math.abs(
+                    this.state.map.latLngToLayerPoint(new L.LatLng(0, 0)).y -
+                        this.state.map.latLngToLayerPoint(
+                            new L.LatLng(latStep, 0)
+                        ).y
+                ) *
+                (16 / 11) // correction ratio ...
+            // Only works for initial zoom !!
+            heatmapElements.attr('width', rWidth).attr('height', rHeight)
+            // Color
+            var heatmapColour = d3
+                .scaleLinear()
+                .domain(d3.range(0, 1, 1.0 / (colours.length - 1)))
+                .range(colours)
+            var c = d3
+                .scaleLinear()
+                .domain(d3.extent(heatmapElements.data().map(d => d.duration)))
+                .range([0, 1])
+            heatmapElements.style('fill', d => heatmapColour(c(d.duration)))
+            heatmapElements.style('fill-opacity', 0.35)
+            this.setState({ heatmapElements })
         }
     }
 
@@ -211,10 +242,13 @@ class Map extends Component {
                         map.latLngToLayerPoint(new L.LatLng(0, 0)).x -
                             map.latLngToLayerPoint(new L.LatLng(0, lonStep)).x
                     )
-                    rHeight = Math.abs(
-                        map.latLngToLayerPoint(new L.LatLng(0, 0)).y -
-                            map.latLngToLayerPoint(new L.LatLng(latStep, 0)).y
-                    )
+                    rHeight =
+                        Math.abs(
+                            map.latLngToLayerPoint(new L.LatLng(0, 0)).y -
+                                map.latLngToLayerPoint(new L.LatLng(latStep, 0))
+                                    .y
+                        ) *
+                        (16 / 11) // correction ratio ...
                 }
                 if (map.getZoom() - lastZoom > 0) {
                     rWidth = rWidth * 2
