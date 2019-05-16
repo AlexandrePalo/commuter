@@ -41,12 +41,21 @@ class Map extends Component {
             .data(data)
             .enter()
             .append('circle')
+            .attr('class', d => {
+                if (d.lines.length === 1) {
+                    return d.lines[0]
+                }
+                return 'MU'
+            })
             .attr('r', 5)
-            .style('fill', 'blue')
 
         // Pointer on mouseover
         stationsElements.on('mouseover', function(d) {
             d3.select(this).style('cursor', 'pointer')
+            d3.select(this).attr('r', 7.5)
+        })
+        stationsElements.on('mouseout', function(d) {
+            d3.select(this).attr('r', 5)
         })
 
         // Popup on click
@@ -164,20 +173,6 @@ class Map extends Component {
                     map.latLngToLayerPoint(d.latlng).y +
                     ')'
             )
-
-            stationsElements
-                .style('fill', d => {
-                    if (d === selectedStation) {
-                        return 'red'
-                    }
-                    return 'blue'
-                })
-                .attr('r', d => {
-                    if (d === selectedStation) {
-                        return 10
-                    }
-                    return 5
-                })
         }
 
         if (heatmapElements) {
