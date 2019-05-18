@@ -33,6 +33,10 @@ class Map extends Component {
 
     generateStationsElements(stations) {
         const svg = d3.select('#map').select('svg')
+
+        // Remove old stations elements
+        svg.select('#stations').remove()
+
         const g = svg
             .append('g')
             .raise()
@@ -49,6 +53,50 @@ class Map extends Component {
             .data(data)
             .enter()
             .append('circle')
+
+        stationsElements.attr('class', d => {
+            if (this.props.source) {
+                let shouldBeUndefined = true
+
+                if (this.props.source && d.uuid === this.props.source.uuid) {
+                    shouldBeUndefined = false
+                }
+
+                if (
+                    this.props.selectedStation &&
+                    d.uuid === this.props.selectedStation.uuid
+                ) {
+                    shouldBeUndefined = false
+                }
+
+                if (this.props.selectedPath) {
+                    this.props.selectedPath.forEach(sp => {
+                        if (
+                            sp.passingBy.map(s => s.uuid).indexOf(d.uuid) >= 0
+                        ) {
+                            shouldBeUndefined = false
+                        }
+                    })
+                }
+
+                if (shouldBeUndefined) {
+                    if (d.lines.length === 1) {
+                        return d.lines[0] + ' MSecondary'
+                    }
+                    return 'MU MSecondary'
+                } else {
+                    if (d.lines.length === 1) {
+                        return d.lines[0]
+                    }
+                    return 'MU'
+                }
+            } else {
+                if (d.lines.length === 1) {
+                    return d.lines[0]
+                }
+                return 'MU'
+            }
+        })
 
         // Pointer on mouseover
         stationsElements.on('mouseover', function(d) {
@@ -72,8 +120,14 @@ class Map extends Component {
         return stationsElements
     }
 
+    // TODO : convert to path for performances
+    // Easier with from-to step in selectedPath ...
     generateEdgesElements(edges, stations) {
         const svg = d3.select('#map').select('svg')
+
+        // Remove old edges elements
+        svg.select('#edges').remove()
+
         const g = svg
             .append('g')
             .lower()
@@ -95,6 +149,35 @@ class Map extends Component {
             .data(data)
             .enter()
             .append('line')
+
+        edgesElements.attr('class', e => {
+            if (this.props.source) {
+                let shouldBeUndefined = true
+
+                if (this.props.selectedPath) {
+                    this.props.selectedPath.forEach(sp => {
+                        if (sp.by === e.by) {
+                            if (
+                                sp.passingBy.map(s => s.uuid).indexOf(e.from) >=
+                                    0 &&
+                                sp.passingBy.map(s => s.uuid).indexOf(e.to) >= 0
+                            ) {
+                                shouldBeUndefined = false
+                            }
+                        }
+                    })
+                }
+
+                if (shouldBeUndefined) {
+                    console.log('MU MSecondary')
+                    return 'MU MSecondary'
+                } else {
+                    return e.by
+                }
+            } else {
+                return e.by
+            }
+        })
 
         return edgesElements
     }
@@ -143,64 +226,19 @@ class Map extends Component {
                 ')'
         )
 
-        stationsElements
-            .attr('r', d => {
-                if (this.props.source) {
-                    if (d.uuid === this.props.source.uuid) {
+        stationsElements.attr('r', d => {
+            if (this.props.source) {
+                if (d.uuid === this.props.source.uuid) {
+                    return 7.5
+                }
+                if (this.props.selectedStation) {
+                    if (d.uuid === this.props.selectedStation.uuid) {
                         return 7.5
                     }
-                    if (this.props.selectedStation) {
-                        if (d.uuid === this.props.selectedStation.uuid) {
-                            return 7.5
-                        }
-                    }
                 }
-                return 5
-            })
-            .attr('class', d => {
-                if (this.props.source) {
-                    let shouldBeUndefined = true
-
-                    if (
-                        this.props.source &&
-                        d.uuid === this.props.source.uuid
-                    ) {
-                        shouldBeUndefined = false
-                    }
-
-                    if (
-                        this.props.selectedStation &&
-                        d.uuid === this.props.selectedStation.uuid
-                    ) {
-                        shouldBeUndefined = false
-                    }
-
-                    if (this.props.selectedPath) {
-                        this.props.selectedPath.forEach(sp => {
-                            if (
-                                sp.passingBy.map(s => s.uuid).indexOf(d.uuid) >=
-                                0
-                            ) {
-                                shouldBeUndefined = false
-                            }
-                        })
-                    }
-
-                    if (shouldBeUndefined) {
-                        return 'MSecondary'
-                    } else {
-                        if (d.lines.length === 1) {
-                            return d.lines[0]
-                        }
-                        return 'MU'
-                    }
-                } else {
-                    if (d.lines.length === 1) {
-                        return d.lines[0]
-                    }
-                    return 'MU'
-                }
-            })
+            }
+            return 5
+        })
 
         // Source and target tooltips
         if (!this.props.source) {
@@ -256,34 +294,6 @@ class Map extends Component {
             .attr('y1', e => map.latLngToLayerPoint(e.latlngFrom).y)
             .attr('x2', e => map.latLngToLayerPoint(e.latlngTo).x)
             .attr('y2', e => map.latLngToLayerPoint(e.latlngTo).y)
-
-        edgesElements.attr('class', e => {
-            if (this.props.source) {
-                let shouldBeUndefined = true
-
-                if (this.props.selectedPath) {
-                    this.props.selectedPath.forEach(sp => {
-                        if (sp.by === e.by) {
-                            if (
-                                sp.passingBy.map(s => s.uuid).indexOf(e.from) >=
-                                    0 &&
-                                sp.passingBy.map(s => s.uuid).indexOf(e.to) >= 0
-                            ) {
-                                shouldBeUndefined = false
-                            }
-                        }
-                    })
-                }
-
-                if (shouldBeUndefined) {
-                    return 'MU'
-                } else {
-                    return e.by
-                }
-            } else {
-                return e.by
-            }
-        })
     }
 
     handleHeatmapElementsChange(heatmapElementsForced = null) {
@@ -369,7 +379,7 @@ class Map extends Component {
         L.tileLayer('http://{s}.tile.stamen.com/toner-lite/{z}/{x}/{y}.png', {
             maxZoom: 18
         }).addTo(map)
-        L.svg({ updateWhileAnimating: true }).addTo(map)
+        L.svg({ updateWhileAnimating: false }).addTo(map)
 
         // Create, update and bind stations elements
         const stationsElements = this.generateStationsElements(
@@ -408,10 +418,6 @@ class Map extends Component {
                 this.props.heatmap
             )
             this.handleHeatmapElementsChange(heatmapElements)
-            this.state.map.on('move', function() {
-                that.handleEdgesElementsChange()
-                that.handleHeatmapElementsChange()
-            })
             this.setState({ heatmapElements })
         }
         // Heatmap deletion
@@ -433,8 +439,16 @@ class Map extends Component {
             JSON.stringify(this.props.source) !==
             JSON.stringify(prevProps.source)
         ) {
-            this.handleEdgesElementsChange()
-            this.handleStationsElementsChange()
+            const stationsElements = this.generateStationsElements(
+                this.props.stations
+            )
+            const edgesElements = this.generateEdgesElements(
+                this.props.edges,
+                this.props.stations
+            )
+            this.handleStationsElementsChange(this.state.map, stationsElements)
+            this.handleEdgesElementsChange(this.state.map, edgesElements)
+            this.setState({ stationsElements, edgesElements })
         }
 
         // Change of selectedStation
@@ -442,8 +456,16 @@ class Map extends Component {
             JSON.stringify(this.props.selectedStation) !==
             JSON.stringify(prevProps.selectedStation)
         ) {
-            this.handleEdgesElementsChange()
-            this.handleStationsElementsChange()
+            const stationsElements = this.generateStationsElements(
+                this.props.stations
+            )
+            const edgesElements = this.generateEdgesElements(
+                this.props.edges,
+                this.props.stations
+            )
+            this.handleStationsElementsChange(this.state.map, stationsElements)
+            this.handleEdgesElementsChange(this.state.map, edgesElements)
+            this.setState({ stationsElements, edgesElements })
         }
 
         // Change of selectedPath
@@ -451,8 +473,16 @@ class Map extends Component {
             JSON.stringify(this.props.selectedPath) !==
             JSON.stringify(prevProps.selectedPath)
         ) {
-            this.handleEdgesElementsChange()
-            this.handleStationsElementsChange()
+            const stationsElements = this.generateStationsElements(
+                this.props.stations
+            )
+            const edgesElements = this.generateEdgesElements(
+                this.props.edges,
+                this.props.stations
+            )
+            this.handleStationsElementsChange(this.state.map, stationsElements)
+            this.handleEdgesElementsChange(this.state.map, edgesElements)
+            this.setState({ stationsElements, edgesElements })
         }
     }
 
