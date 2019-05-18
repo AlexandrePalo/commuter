@@ -73,46 +73,75 @@ button.primary {
     opacity: 1;
 }
 
+.MU,
+.MSecondary,
+.M1,
+.M2,
+.M3,
+.M3BIS,
+.M4,
+.M5,
+.M6,
+.M7,
+.M7BIS,
+.M8,
+.M9,
+.M10,
+.M11,
+.M12,
+.M13,
+.M14 {
+    stroke-width: 3px;
+}
+
 .MU {
     background-color: #bcccdc;
     color: black;
     fill: #bcccdc;
+    stroke: #bcccdc;
 }
 
 .MSecondary {
     background-color: #f0f4f8;
     color: black;
     fill: #f0f4f8;
+    stroke: #f0f4f8;
 }
 
 .M1 {
     background-color: #ffcd00;
     color: black;
     fill: #ffcd00;
+    stroke: #ffcd00;
 }
 
 .M2 {
     background-color: #003ca6;
     color: white;
     fill: #003ca6;
+
+    stroke: #003ca6;
 }
 
 .M3 {
     background-color: #837902;
     color: white;
     fill: #837902;
+    stroke: #837902;
 }
 
 .M4 {
     background-color: #cf009e;
     color: white;
     fill: #cf009e;
+    stroke: #cf009e;
 }
 
 .M5 {
     background-color: #ff7e2e;
     color: black;
     fill: #ff7e2e;
+    stroke: #ff7e2e;
 }
 
 .M6,
@@ -120,42 +149,49 @@ button.primary {
     background-color: #6eca97;
     color: black;
     fill: #6eca97;
+    stroke: #6eca97;
 }
 
 .M7 {
     background-color: #fa9aba;
     color: black;
     fill: #fa9aba;
+    stroke: #fa9aba;
 }
 
 .M8 {
     background-color: #e19bdf;
     color: black;
     fill: #e19bdf;
+    stroke: #e19bdf;
 }
 
 .M9 {
     background-color: #b6bd00;
     color: black;
     fill: #b6bd00;
+    stroke: #b6bd00;
 }
 
 .M10 {
     background-color: #c9910d;
     color: black;
     fill: #c9910d;
+    stroke: #c9910d;
 }
 
 .M11 {
     background-color: #704b1c;
     color: white;
     fill: #704b1c;
+    stroke: #704b1c;
 }
 
 .M12 {
     background-color: #007852;
     color: white;
     fill: #007852;
+    stroke: #007852;
 }
 
 .M13,
@@ -163,12 +199,14 @@ button.primary {
     background-color: #6ec4e8;
     color: black;
     fill: #6ec4e8;
+    stroke: #6ec4e8;
 }
 
 .M14 {
     background-color: #62259d;
     color: white;
     fill: #62259d;
+    stroke: #62259d;
 }
 
 button.secondary {

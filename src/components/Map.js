@@ -17,6 +17,7 @@ class Map extends Component {
         this.state = {
             map: null,
             stationsElements: null,
+            edgesElements: null,
             heatmapElements: null,
             zoom: null,
             heatmapDataChanged: false
@@ -32,7 +33,10 @@ class Map extends Component {
 
     generateStationsElements(stations) {
         const svg = d3.select('#map').select('svg')
-        const g = svg.append('g').attr('id', 'stations')
+        const g = svg
+            .append('g')
+            .raise()
+            .attr('id', 'stations')
 
         let data = stations
         data = data.map(d => ({
@@ -49,13 +53,7 @@ class Map extends Component {
         // Pointer on mouseover
         stationsElements.on('mouseover', function(d) {
             d3.select(this).style('cursor', 'pointer')
-            //d3.select(this).attr('r', 7.5)
         })
-        /*
-        stationsElements.on('mouseout', function(d) {
-            d3.select(this).attr('r', 5)
-        })
-        */
 
         // Set selected station on click
         const that = this
@@ -72,6 +70,33 @@ class Map extends Component {
         stationsElements.on('click', handleStationClick)
 
         return stationsElements
+    }
+
+    generateEdgesElements(edges, stations) {
+        const svg = d3.select('#map').select('svg')
+        const g = svg
+            .append('g')
+            .lower()
+            .attr('id', 'edges')
+
+        let data = edges
+        data = data.map(d => {
+            const sFrom = stations.find(s => s.uuid === d.from)
+            const sTo = stations.find(s => s.uuid === d.to)
+            return {
+                ...d,
+                latlngFrom: new L.LatLng(sFrom.latitude, sFrom.longitude),
+                latlngTo: new L.LatLng(sTo.latitude, sTo.longitude)
+            }
+        })
+
+        const edgesElements = g
+            .selectAll('line.edge')
+            .data(data)
+            .enter()
+            .append('line')
+
+        return edgesElements
     }
 
     generateHeatmapElements(heatmap) {
@@ -107,6 +132,9 @@ class Map extends Component {
         const map = mapForced || this.state.map
         const stationsElements =
             stationsElementsForced || this.state.stationsElements
+
+        //d3.select('#stations').raise()
+
         stationsElements.attr(
             'transform',
             d =>
@@ -205,6 +233,21 @@ class Map extends Component {
         })
     }
 
+    handleEdgesElementsChange(mapForced = null, edgesElementsForced = null) {
+        const map = mapForced || this.state.map
+        const edgesElements = edgesElementsForced || this.state.edgesElements
+
+        edgesElements
+            .attr('x1', e => map.latLngToLayerPoint(e.latlngFrom).x)
+            .attr('y1', e => map.latLngToLayerPoint(e.latlngFrom).y)
+            .attr('x2', e => map.latLngToLayerPoint(e.latlngTo).x)
+            .attr('y2', e => map.latLngToLayerPoint(e.latlngTo).y)
+
+        edgesElements.attr('class', e => {
+            return e.by
+        })
+    }
+
     handleHeatmapElementsChange(heatmapElementsForced = null) {
         // NOTA : zoom state is updated here and not in handleSationsElementsChange to be sure it's after that function call.
 
@@ -294,14 +337,21 @@ class Map extends Component {
         const stationsElements = this.generateStationsElements(
             this.props.stations
         )
+        const edgesElements = this.generateEdgesElements(
+            this.props.edges,
+            this.props.stations
+        )
+        this.handleEdgesElementsChange(map, edgesElements)
         this.handleStationsElementsChange(map, stationsElements)
         const that = this
         map.on('move', function() {
+            that.handleEdgesElementsChange()
             that.handleStationsElementsChange()
         })
         this.setState({
             map,
             stationsElements,
+            edgesElements,
             zoom: map.getZoom()
         })
     }
@@ -321,6 +371,7 @@ class Map extends Component {
             )
             this.handleHeatmapElementsChange(heatmapElements)
             this.state.map.on('move', function() {
+                that.handleEdgesElementsChange()
                 that.handleHeatmapElementsChange()
             })
             this.setState({ heatmapElements })

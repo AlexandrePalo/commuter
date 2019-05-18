@@ -8,6 +8,8 @@ export default class Index extends Component {
         this.state = {
             stations: [],
             loadingStations: true,
+            edges: [],
+            loadingEdges: true,
             source: null,
             heatmap: null,
             loadingHeatmap: false,
@@ -25,13 +27,21 @@ export default class Index extends Component {
 
     componentDidMount() {
         // Get stations name for autocomplete
-        this.setState({ loadingStations: true })
+        this.setState({ loadingStations: true, loadingEdges: true })
         fetch('http://localhost:5000/stations/')
             .then(res => res.json())
             .then(data => {
                 this.setState({
                     loadingStations: false,
                     stations: data.data.stations
+                })
+            })
+        fetch('http://localhost:5000/edges/')
+            .then(res => res.json())
+            .then(data => {
+                this.setState({
+                    loadingEdges: false,
+                    edges: data.data.edges
                 })
             })
     }
@@ -172,7 +182,7 @@ export default class Index extends Component {
     }
 
     render() {
-        if (!this.state.loadingStations) {
+        if (!this.state.loadingStations && !this.state.loadingEdges) {
             return (
                 <div>
                     <TilesContainer
@@ -186,6 +196,7 @@ export default class Index extends Component {
                     />
                     <Map
                         stations={this.state.stations}
+                        edges={this.state.edges}
                         heatmap={this.state.heatmap}
                         source={this.state.source}
                         selectedStation={this.state.selectedStation}
