@@ -133,8 +133,6 @@ class Map extends Component {
         const stationsElements =
             stationsElementsForced || this.state.stationsElements
 
-        //d3.select('#stations').raise()
-
         stationsElements.attr(
             'transform',
             d =>
@@ -161,25 +159,41 @@ class Map extends Component {
             })
             .attr('class', d => {
                 if (this.props.source) {
+                    let shouldBeUndefined = true
+
                     if (
                         this.props.source &&
                         d.uuid === this.props.source.uuid
                     ) {
-                        if (d.lines.length === 1) {
-                            return d.lines[0]
-                        }
-                        return 'MU'
+                        shouldBeUndefined = false
                     }
+
                     if (
                         this.props.selectedStation &&
                         d.uuid === this.props.selectedStation.uuid
                     ) {
+                        shouldBeUndefined = false
+                    }
+
+                    if (this.props.selectedPath) {
+                        this.props.selectedPath.forEach(sp => {
+                            if (
+                                sp.passingBy.map(s => s.uuid).indexOf(d.uuid) >=
+                                0
+                            ) {
+                                shouldBeUndefined = false
+                            }
+                        })
+                    }
+
+                    if (shouldBeUndefined) {
+                        return 'MSecondary'
+                    } else {
                         if (d.lines.length === 1) {
                             return d.lines[0]
                         }
                         return 'MU'
                     }
-                    return 'MSecondary'
                 } else {
                     if (d.lines.length === 1) {
                         return d.lines[0]
@@ -244,7 +258,31 @@ class Map extends Component {
             .attr('y2', e => map.latLngToLayerPoint(e.latlngTo).y)
 
         edgesElements.attr('class', e => {
-            return e.by
+            if (this.props.source) {
+                let shouldBeUndefined = true
+
+                if (this.props.selectedPath) {
+                    this.props.selectedPath.forEach(sp => {
+                        if (sp.by === e.by) {
+                            if (
+                                sp.passingBy.map(s => s.uuid).indexOf(e.from) >=
+                                    0 &&
+                                sp.passingBy.map(s => s.uuid).indexOf(e.to) >= 0
+                            ) {
+                                shouldBeUndefined = false
+                            }
+                        }
+                    })
+                }
+
+                if (shouldBeUndefined) {
+                    return 'MU'
+                } else {
+                    return e.by
+                }
+            } else {
+                return e.by
+            }
         })
     }
 
@@ -385,6 +423,7 @@ class Map extends Component {
             this.state.map.off('move')
             // Reset stations event listener as they aren't named
             this.state.map.on('move', function() {
+                that.handleEdgesElementsChange()
                 that.handleStationsElementsChange()
             })
         }
@@ -394,6 +433,7 @@ class Map extends Component {
             JSON.stringify(this.props.source) !==
             JSON.stringify(prevProps.source)
         ) {
+            this.handleEdgesElementsChange()
             this.handleStationsElementsChange()
         }
 
@@ -402,6 +442,16 @@ class Map extends Component {
             JSON.stringify(this.props.selectedStation) !==
             JSON.stringify(prevProps.selectedStation)
         ) {
+            this.handleEdgesElementsChange()
+            this.handleStationsElementsChange()
+        }
+
+        // Change of selectedPath
+        if (
+            JSON.stringify(this.props.selectedPath) !==
+            JSON.stringify(prevProps.selectedPath)
+        ) {
+            this.handleEdgesElementsChange()
             this.handleStationsElementsChange()
         }
     }

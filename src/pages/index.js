@@ -96,7 +96,12 @@ export default class Index extends Component {
                             ...p.to,
                             station: stations.find(s => s.uuid === p.to.station)
                         },
-                        nbStops: pathReduced[pathReduced.length - 1].nbStops + 1
+                        nbStops:
+                            pathReduced[pathReduced.length - 1].nbStops + 1,
+                        passingBy: [
+                            ...pathReduced[pathReduced.length - 1].passingBy,
+                            stations.find(s => s.uuid === p.to.station)
+                        ]
                     }
                 } else {
                     pathReduced.push({
@@ -111,7 +116,11 @@ export default class Index extends Component {
                             ...p.to,
                             station: stations.find(s => s.uuid === p.to.station)
                         },
-                        nbStops: 1
+                        nbStops: 1,
+                        passingBy: [
+                            stations.find(s => s.uuid === p.from.station),
+                            stations.find(s => s.uuid === p.to.station)
+                        ]
                     })
                 }
             } else {
@@ -125,7 +134,11 @@ export default class Index extends Component {
                         ...p.to,
                         station: stations.find(s => s.uuid === p.to.station)
                     },
-                    nbStops: 1
+                    nbStops: 1,
+                    passingBy: [
+                        stations.find(s => s.uuid === p.from.station),
+                        stations.find(s => s.uuid === p.to.station)
+                    ]
                 })
             }
         })
@@ -201,6 +214,7 @@ export default class Index extends Component {
                         source={this.state.source}
                         selectedStation={this.state.selectedStation}
                         setSelectedStation={this.setSelectedStation}
+                        selectedPath={this.state.selectedPath}
                     />
                 </div>
             )
