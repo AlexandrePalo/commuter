@@ -45,24 +45,19 @@ class Map extends Component {
             .data(data)
             .enter()
             .append('circle')
-            .attr('class', d => {
-                if (d.lines.length === 1) {
-                    return d.lines[0]
-                }
-                return 'MU'
-            })
-            .attr('r', 5)
 
         // Pointer on mouseover
         stationsElements.on('mouseover', function(d) {
             d3.select(this).style('cursor', 'pointer')
-            d3.select(this).attr('r', 7.5)
+            //d3.select(this).attr('r', 7.5)
         })
+        /*
         stationsElements.on('mouseout', function(d) {
             d3.select(this).attr('r', 5)
         })
+        */
 
-        // Popup on click
+        // Set selected station on click
         const that = this
         function handleStationClick(d) {
             const targetOffsetted = that.state.map.unproject(
@@ -101,7 +96,6 @@ class Map extends Component {
             .data(data)
             .enter()
             .append('rect')
-            .style('fill', d => 'hsl(' + Math.random() * 360 + ',100%,50%)')
 
         return heatmapElements
     }
@@ -110,10 +104,6 @@ class Map extends Component {
         mapForced = null,
         stationsElementsForced = null
     ) {
-        /*
-        Map latlng to layer
-        --> every time
-        */
         const map = mapForced || this.state.map
         const stationsElements =
             stationsElementsForced || this.state.stationsElements
@@ -126,6 +116,93 @@ class Map extends Component {
                 map.latLngToLayerPoint(d.latlng).y +
                 ')'
         )
+
+        stationsElements
+            .attr('r', d => {
+                if (this.props.source) {
+                    if (d.uuid === this.props.source.uuid) {
+                        return 7.5
+                    }
+                    if (this.props.selectedStation) {
+                        if (d.uuid === this.props.selectedStation.uuid) {
+                            return 7.5
+                        }
+                    }
+                }
+                return 5
+            })
+            .attr('class', d => {
+                if (this.props.source) {
+                    if (
+                        this.props.source &&
+                        d.uuid === this.props.source.uuid
+                    ) {
+                        if (d.lines.length === 1) {
+                            return d.lines[0]
+                        }
+                        return 'MU'
+                    }
+                    if (
+                        this.props.selectedStation &&
+                        d.uuid === this.props.selectedStation.uuid
+                    ) {
+                        if (d.lines.length === 1) {
+                            return d.lines[0]
+                        }
+                        return 'MU'
+                    }
+                    return 'MSecondary'
+                } else {
+                    if (d.lines.length === 1) {
+                        return d.lines[0]
+                    }
+                    return 'MU'
+                }
+            })
+
+        // Source and target tooltips
+        if (!this.props.source) {
+            d3.select('#sourceTooltip').style('display', 'none')
+            d3.select('#targetTooltip').style('display', 'none')
+        }
+        if (!this.props.selectedStation) {
+            d3.select('#targetTooltip').style('display', 'none')
+        }
+
+        stationsElements.each(d => {
+            if (this.props.source && d.uuid === this.props.source.uuid) {
+                d3.select('#sourceTooltip').style('display', 'flex')
+                d3.select('#sourceTooltip').style(
+                    'transform',
+                    () =>
+                        'translate(' +
+                        map.latLngToContainerPoint(d.latlng).x +
+                        'px,' +
+                        map.latLngToContainerPoint(d.latlng).y +
+                        'px)'
+                )
+                document.getElementById('sourceTooltipName').textContent =
+                    d.name
+            }
+            if (
+                this.props.source &&
+                this.props.selectedStation &&
+                d.uuid === this.props.selectedStation.uuid
+            ) {
+                d3.select('#targetTooltip').style('display', 'flex')
+                d3.select('#targetTooltip').style(
+                    'transform',
+                    () =>
+                        'translate(' +
+                        map.latLngToContainerPoint(d.latlng).x +
+                        'px,' +
+                        map.latLngToContainerPoint(d.latlng).y +
+                        'px)'
+                )
+                document.getElementById('targetTooltipName').textContent =
+                    d.name
+            }
+        })
     }
 
     handleHeatmapElementsChange(heatmapElementsForced = null) {
@@ -230,6 +307,9 @@ class Map extends Component {
     }
 
     componentDidUpdate(prevProps, prevState) {
+        const that = this
+
+        // New heatmap
         if (
             this.props.heatmap &&
             JSON.stringify(this.props.heatmap) !==
@@ -240,18 +320,56 @@ class Map extends Component {
                 this.props.heatmap
             )
             this.handleHeatmapElementsChange(heatmapElements)
-            const that = this
             this.state.map.on('move', function() {
                 that.handleHeatmapElementsChange()
             })
             this.setState({ heatmapElements })
+        }
+        // Heatmap deletion
+        if (!this.props.heatmap && this.state.heatmapElements) {
+            d3.select('#map')
+                .select('svg')
+                .select('#heatmap')
+                .remove()
+            this.state.map.off('move')
+            // Reset stations event listener as they aren't named
+            this.state.map.on('move', function() {
+                that.handleStationsElementsChange()
+            })
+        }
+
+        // Change of source
+        if (
+            JSON.stringify(this.props.source) !==
+            JSON.stringify(prevProps.source)
+        ) {
+            this.handleStationsElementsChange()
+        }
+
+        // Change of selectedStation
+        if (
+            JSON.stringify(this.props.selectedStation) !==
+            JSON.stringify(prevProps.selectedStation)
+        ) {
+            this.handleStationsElementsChange()
         }
     }
 
     render() {
         return (
             <div style={styles.container}>
-                <div id="map" style={styles.map} />
+                <div id="map" style={styles.map}>
+                    <div id="sourceTooltip" className="tile">
+                        <span className="secondary-text">Départ</span>
+                        <span className="primary-text" id="sourceTooltipName" />
+                        <span className="triangle" />
+                    </div>
+                    <div id="targetTooltip" className="tile">
+                        <span className="secondary-text">Arrivée</span>
+                        <span className="primary-text" id="targetTooltipName" />
+                        <span className="triangle" />
+                    </div>
+                </div>
             </div>
         )
     }
@@ -267,7 +385,8 @@ const styles = {
         position: 'relative'
     },
     map: {
-        flex: 1
+        flex: 1,
+        position: 'relative'
     }
 }
 

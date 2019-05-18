@@ -9,7 +9,7 @@ export default class Index extends Component {
             stations: [],
             loadingStations: true,
             source: null,
-            heatmap: [],
+            heatmap: null,
             loadingHeatmap: false,
             selectedStation: null,
             selectedPath: null,
@@ -37,12 +37,17 @@ export default class Index extends Component {
     }
 
     setSource(source) {
-        this.setState({ source })
+        this.setState({
+            source,
+            heatmap: !source ? null : this.state.heatmap,
+            selectedPath: !source ? null : this.state.selectedPath
+        })
     }
 
     setSelectedStation(station) {
         this.setState({
-            selectedStation: station
+            selectedStation: station,
+            selectedPath: !station ? null : this.state.selectedPath
         })
     }
 
@@ -183,6 +188,7 @@ export default class Index extends Component {
                         stations={this.state.stations}
                         heatmap={this.state.heatmap}
                         source={this.state.source}
+                        selectedStation={this.state.selectedStation}
                         setSelectedStation={this.setSelectedStation}
                     />
                 </div>

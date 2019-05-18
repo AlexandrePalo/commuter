@@ -2,6 +2,7 @@ svg {
     pointer-events: all !important;
 }
 
+// Override leaflet zoom pane position
 .leaflet-top {
     top: initial;
     bottom: 15px;
@@ -9,4 +10,17 @@ svg {
 .leaflet-left {
     left: initial;
     right: 0;
+}
+
+#sourceTooltip,
+#targetTooltip {
+    position: absolute;
+    z-index: 401;
+    width: initial;
+    padding: 5px;
+    border-radius: 3px;
+    margin-left: -20px;
+    margin-top: -70px;
+    display: flex;
+    flex-direction: column;
 }
