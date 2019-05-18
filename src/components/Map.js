@@ -21,7 +21,12 @@ class Map extends Component {
             zoom: null,
             heatmapDataChanged: false
         }
-        this.updatePositionOfElements = this.updatePositionOfElements.bind(this)
+        this.handleHeatmapElementsChange = this.handleHeatmapElementsChange.bind(
+            this
+        )
+        this.handleStationsElementsChange = this.handleStationsElementsChange.bind(
+            this
+        )
         this.generateStationsElements = this.generateStationsElements.bind(this)
     }
 
@@ -101,21 +106,17 @@ class Map extends Component {
         return heatmapElements
     }
 
-    componentDidMount() {
-        const map = L.map('map').setView(parisCenterC, initialZoom)
-
-        L.tileLayer('http://{s}.tile.stamen.com/toner-lite/{z}/{x}/{y}.png', {
-            maxZoom: 18
-        }).addTo(map)
-        L.svg({ updateWhileAnimating: true }).addTo(map)
-
-        const stationsElements = this.generateStationsElements(
-            this.props.stations
-        )
-
-        map.on('move', () => {
-            this.updatePositionOfElements()
-        })
+    handleStationsElementsChange(
+        mapForced = null,
+        stationsElementsForced = null
+    ) {
+        /*
+        Map latlng to layer
+        --> every time
+        */
+        const map = mapForced || this.state.map
+        const stationsElements =
+            stationsElementsForced || this.state.stationsElements
         stationsElements.attr(
             'transform',
             d =>
@@ -125,105 +126,30 @@ class Map extends Component {
                 map.latLngToLayerPoint(d.latlng).y +
                 ')'
         )
-
-        this.setState({
-            map,
-            stationsElements,
-            zoom: map.getZoom()
-        })
     }
 
-    componentDidUpdate(prevProps, prevState) {
-        if (
-            this.props.heatmap &&
-            JSON.stringify(this.props.heatmap) !==
-                JSON.stringify(prevProps.heatmap)
-        ) {
-            const heatmapElements = this.generateHeatmapElements(
-                this.props.heatmap
-            )
-            // Positions
-            heatmapElements.attr(
-                'transform',
-                d =>
-                    'translate(' +
-                    this.state.map.latLngToLayerPoint(d.latlng).x +
-                    ',' +
-                    this.state.map.latLngToLayerPoint(d.latlng).y +
-                    ')'
-            )
-            // Width & height
-            const { latStep, lonStep } = this.props.heatmap
-            const rWidth = Math.abs(
-                this.state.map.latLngToLayerPoint(new L.LatLng(0, 0)).x -
-                    this.state.map.latLngToLayerPoint(new L.LatLng(0, lonStep))
-                        .x
-            )
-            const rHeight =
-                Math.abs(
-                    this.state.map.latLngToLayerPoint(new L.LatLng(0, 0)).y -
-                        this.state.map.latLngToLayerPoint(
-                            new L.LatLng(latStep, 0)
-                        ).y
-                ) *
-                (16 / 11) // correction ratio ...
-            // Only works for initial zoom !!
-            heatmapElements.attr('width', rWidth).attr('height', rHeight)
-            // Color
-            var heatmapColour = d3
-                .scaleLinear()
-                .domain(d3.range(0, 1, 1.0 / (colours.length - 1)))
-                .range(colours)
-            var c = d3
-                .scaleLinear()
-                .domain(d3.extent(heatmapElements.data().map(d => d.duration)))
-                .range([0, 1])
-            heatmapElements.style('fill', d => heatmapColour(c(d.duration)))
-            heatmapElements.style('fill-opacity', 0.35)
-            this.setState({ heatmapElements })
-        }
-    }
+    handleHeatmapElementsChange(heatmapElementsForced = null) {
+        // NOTA : zoom state is updated here and not in handleSationsElementsChange to be sure it's after that function call.
 
-    updatePositionOfElements() {
-        const {
-            map,
-            stationsElements,
-            heatmapElements,
-            zoom: lastZoom,
-            heatmapDataChanged,
-            selectedStation
-        } = this.state
+        const { map, zoom: lastZoom } = this.state
+        const { latStep, lonStep } = this.props.heatmap
+        const heatmapElements =
+            heatmapElementsForced || this.state.heatmapElements
 
-        if (stationsElements) {
-            stationsElements.attr(
-                'transform',
-                d =>
-                    'translate(' +
-                    map.latLngToLayerPoint(d.latlng).x +
-                    ',' +
-                    map.latLngToLayerPoint(d.latlng).y +
-                    ')'
-            )
-        }
+        heatmapElements.attr(
+            'transform',
+            d =>
+                'translate(' +
+                map.latLngToLayerPoint(d.latlng).x +
+                ',' +
+                map.latLngToLayerPoint(d.latlng).y +
+                ')'
+        )
 
-        if (heatmapElements) {
-            /*
-                Position: every time
-                Width & height: only if zoom changed
-                Color: only if data changed
-            */
+        const shouldUpdateSizes =
+            lastZoom !== map.getZoom() || heatmapElementsForced !== null
 
-            // Positions
-            heatmapElements.attr(
-                'transform',
-                d =>
-                    'translate(' +
-                    map.latLngToLayerPoint(d.latlng).x +
-                    ',' +
-                    map.latLngToLayerPoint(d.latlng).y +
-                    ')'
-            )
-
+        if (shouldUpdateSizes) {
             let rWidth = heatmapElements
                 .filter(function(d, i) {
                     return i === 0
@@ -237,7 +163,6 @@ class Map extends Component {
             if (lastZoom !== map.getZoom() || (!rWidth || !rHeight)) {
                 // First case
                 if (!rWidth || !rHeight) {
-                    const { latStep, lonStep } = this.props.heatmap
                     rWidth = Math.abs(
                         map.latLngToLayerPoint(new L.LatLng(0, 0)).x -
                             map.latLngToLayerPoint(new L.LatLng(0, lonStep)).x
@@ -248,7 +173,7 @@ class Map extends Component {
                                 map.latLngToLayerPoint(new L.LatLng(latStep, 0))
                                     .y
                         ) *
-                        (16 / 11) // correction ratio ...
+                        (16 / 11) // correction ratio, OK only for initial zoom value
                 }
                 if (map.getZoom() - lastZoom > 0) {
                     rWidth = rWidth * 2
@@ -260,25 +185,67 @@ class Map extends Component {
                 }
                 heatmapElements.attr('width', rWidth).attr('height', rHeight)
             }
-
-            // Color
-            if (heatmapDataChanged) {
-                var heatmapColour = d3
-                    .scaleLinear()
-                    .domain(d3.range(0, 1, 1.0 / (colours.length - 1)))
-                    .range(colours)
-                var c = d3
-                    .scaleLinear()
-                    .domain(
-                        d3.extent(heatmapElements.data().map(d => d.duration))
-                    )
-                    .range([0, 1])
-                heatmapElements.style('fill', d => heatmapColour(c(d.duration)))
-                heatmapElements.style('fill-opacity', 0.35)
-            }
         }
 
-        this.setState({ zoom: map.getZoom(), heatmapDataChanged: false })
+        const shouldUpdateColors = heatmapElementsForced !== null
+
+        if (shouldUpdateColors) {
+            var heatmapColour = d3
+                .scaleLinear()
+                .domain(d3.range(0, 1, 1.0 / (colours.length - 1)))
+                .range(colours)
+            var c = d3
+                .scaleLinear()
+                .domain(d3.extent(heatmapElements.data().map(d => d.duration)))
+                .range([0, 1])
+            heatmapElements.style('fill', d => heatmapColour(c(d.duration)))
+            heatmapElements.style('fill-opacity', 0.35)
+        }
+
+        this.setState({ zoom: map.getZoom() })
+    }
+
+    componentDidMount() {
+        const map = L.map('map').setView(parisCenterC, initialZoom)
+
+        L.tileLayer('http://{s}.tile.stamen.com/toner-lite/{z}/{x}/{y}.png', {
+            maxZoom: 18
+        }).addTo(map)
+        L.svg({ updateWhileAnimating: true }).addTo(map)
+
+        // Create, update and bind stations elements
+        const stationsElements = this.generateStationsElements(
+            this.props.stations
+        )
+        this.handleStationsElementsChange(map, stationsElements)
+        const that = this
+        map.on('move', function() {
+            that.handleStationsElementsChange()
+        })
+        this.setState({
+            map,
+            stationsElements,
+            zoom: map.getZoom()
+        })
+    }
+
+    componentDidUpdate(prevProps, prevState) {
+        if (
+            this.props.heatmap &&
+            JSON.stringify(this.props.heatmap) !==
+                JSON.stringify(prevProps.heatmap)
+        ) {
+            // Create, update and bind heatmapElements
+            const heatmapElements = this.generateHeatmapElements(
+                this.props.heatmap
+            )
+            this.handleHeatmapElementsChange(heatmapElements)
+            const that = this
+            this.state.map.on('move', function() {
+                that.handleHeatmapElementsChange()
+            })
+            this.setState({ heatmapElements })
+        }
     }
 
     render() {
