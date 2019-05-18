@@ -1,0 +1,37 @@
+.splash-container {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 500;
+}
+
+.splash-tile {
+    position: absolute;
+    top: 25%;
+    left: 25%;
+    width: 50%;
+    z-index: 1;
+}
+
+.splash-background {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(217, 226, 236, 0.5);
+}
+
+.splash-description {
+    color: #334e68;
+    font-size: 18px;
+    font-weight: normal;
+    margin: 20px 20px;
+}
+
+.splash-button {
+    margin: auto;
+    padding: 8px 20px !important;
+}

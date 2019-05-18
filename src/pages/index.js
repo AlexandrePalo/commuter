@@ -1,11 +1,13 @@
 import React, { Component } from 'react'
 import Map from '../components/Map'
 import TilesContainer from '../components/TilesContainer'
+import Splash from '../components/Splash'
 
 export default class Index extends Component {
     constructor(props) {
         super(props)
         this.state = {
+            firstLoad: true,
             stations: [],
             loadingStations: true,
             edges: [],
@@ -198,6 +200,15 @@ export default class Index extends Component {
         if (!this.state.loadingStations && !this.state.loadingEdges) {
             return (
                 <div>
+                    {this.state.firstLoad && (
+                        <Splash
+                            close={() =>
+                                this.setState({
+                                    firstLoad: false
+                                })
+                            }
+                        />
+                    )}
                     <TilesContainer
                         source={this.state.source}
                         setSource={this.setSource}

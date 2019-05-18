@@ -109,7 +109,7 @@ class Map extends Component {
             const targetOffsetted = that.state.map.unproject(
                 that.state.map
                     .project(d.latlng, that.state.map.getZoom())
-                    .subtract([200, 0]),
+                    .subtract([100, 0]),
                 that.state.map.getZoom()
             )
             that.state.map.setView(targetOffsetted)

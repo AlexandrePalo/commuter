@@ -22,6 +22,7 @@
     "react-autocomplete": "^1.8.1",
     "react-dom": "^16.5.1",
     "react-map-gl": "^4.0.6",
+    "react-transition-group": "^4.0.1",
     "react-typography": "^0.16.19",
     "typography": "^0.16.19"
   }
