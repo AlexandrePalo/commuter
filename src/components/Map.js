@@ -169,7 +169,6 @@ class Map extends Component {
                 }
 
                 if (shouldBeUndefined) {
-                    console.log('MU MSecondary')
                     return 'MU MSecondary'
                 } else {
                     return e.by

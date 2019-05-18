@@ -28,9 +28,10 @@ export default class Index extends Component {
     }
 
     componentDidMount() {
-        // Get stations name for autocomplete
+        console.log(process.env.GATSBY_API_URL)
+
         this.setState({ loadingStations: true, loadingEdges: true })
-        fetch('http://localhost:5000/stations/')
+        fetch(process.env.GATSBY_API_URL + '/stations/')
             .then(res => res.json())
             .then(data => {
                 this.setState({
@@ -38,7 +39,7 @@ export default class Index extends Component {
                     stations: data.data.stations
                 })
             })
-        fetch('http://localhost:5000/edges/')
+        fetch(process.env.GATSBY_API_URL + '/edges/')
             .then(res => res.json())
             .then(data => {
                 this.setState({
