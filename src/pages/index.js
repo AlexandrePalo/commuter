@@ -28,8 +28,6 @@ export default class Index extends Component {
     }
 
     componentDidMount() {
-        console.log(process.env.GATSBY_API_URL)
-
         this.setState({ loadingStations: true, loadingEdges: true })
         fetch(process.env.GATSBY_API_URL + '/stations/')
             .then(res => res.json())
@@ -219,15 +217,17 @@ export default class Index extends Component {
                         selectedPath={this.state.selectedPath}
                         loadingSelectedPath={this.state.loadingSelectedPath}
                     />
-                    <Map
-                        stations={this.state.stations}
-                        edges={this.state.edges}
-                        heatmap={this.state.heatmap}
-                        source={this.state.source}
-                        selectedStation={this.state.selectedStation}
-                        setSelectedStation={this.setSelectedStation}
-                        selectedPath={this.state.selectedPath}
-                    />
+                    {typeof window !== 'undefined' && (
+                        <Map
+                            stations={this.state.stations}
+                            edges={this.state.edges}
+                            heatmap={this.state.heatmap}
+                            source={this.state.source}
+                            selectedStation={this.state.selectedStation}
+                            setSelectedStation={this.setSelectedStation}
+                            selectedPath={this.state.selectedPath}
+                        />
+                    )}
                 </div>
             )
         }

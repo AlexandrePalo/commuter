@@ -15,14 +15,13 @@
     "gatsby-cli": "^2.5.14",
     "gatsby-plugin-sass": "^2.0.11",
     "gatsby-plugin-typography": "^2.2.13",
-    "leaflet": "^1.4.0",
+    "leaflet": "^1.5.1",
     "mongoose": "^5.4.0",
     "node-sass": "^4.12.0",
     "react": "^16.5.1",
     "react-autocomplete": "^1.8.1",
     "react-dom": "^16.5.1",
     "react-map-gl": "^4.0.6",
-    "react-transition-group": "^4.0.1",
     "react-typography": "^0.16.19",
     "typography": "^0.16.19"
   }

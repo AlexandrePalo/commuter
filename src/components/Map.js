@@ -3,10 +3,12 @@
 
 import React, { Component } from 'react'
 import 'leaflet/dist/leaflet.css'
-import L from 'leaflet/dist/leaflet.js'
+//import L from 'leaflet/dist/leaflet.js'
 import * as d3 from 'd3'
 import 'd3-selection-multi'
 import './Map.scss'
+
+let L = null
 
 const parisCenterC = [48.8591, 2.349]
 const initialZoom = 12
@@ -373,8 +375,10 @@ class Map extends Component {
     }
 
     componentDidMount() {
-        const map = L.map('map').setView(parisCenterC, initialZoom)
+        const isInBrowserNow = typeof window !== 'undefined'
+        L = isInBrowserNow ? require('leaflet') : undefined
 
+        const map = L.map('map').setView(parisCenterC, initialZoom)
         L.tileLayer('http://{s}.tile.stamen.com/toner-lite/{z}/{x}/{y}.png', {
             maxZoom: 18
         }).addTo(map)
@@ -395,6 +399,7 @@ class Map extends Component {
             that.handleEdgesElementsChange()
             that.handleStationsElementsChange()
         })
+
         this.setState({
             map,
             stationsElements,
