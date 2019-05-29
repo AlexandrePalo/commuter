@@ -104,6 +104,10 @@ class Map extends Component {
         // Pointer on mouseover
         stationsElements.on('mouseover', function(d) {
             d3.select(this).style('cursor', 'pointer')
+            d3.select(this).attr('r', 10)
+        })
+        stationsElements.on('mouseout', function(d) {
+            d3.select(this).attr('r', 5)
         })
 
         // Set selected station on click
